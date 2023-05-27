@@ -1,0 +1,492 @@
+@prefix : <http://dados.ufes.br/tcc/onto#>.
+@prefix data: <http://dados.ufes.br/tcc/data#>.
+
+# Documento
+data:DOC00001 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 00001 ;
+    :tituloDocumento "O papel da biblioteca no processo de obtenção da remição de pena pelo trabalho, estudo e pela leitura no Complexo Penitenciário de Xuri no Estado do Espírito Santo (ES)"@pt ;
+    :resumoDocumento "O Estado do Espírito Santo possui trinta e seis estabelecimentos prisionais, destes, trinta possuem bibliotecas. Diante desta informação, este estudo investiga o papel da biblioteca no Complexo Penitenciário de Xuri nos processos de acesso à informação e da remição de pena pelo trabalho, estudo e leitura. Em específico, relata a conformação da pena e da prisão no cenário da execução penal no Brasil; identifica o funcionamento e as práticas de remição de pena desenvolvidas pelas unidades prisionais a partir de suas vinculações com as bibliotecas do Complexo Penitenciário de Xuri em Vila Velha no Espírito Santo; caracteriza os usos das bibliotecas prisionais como espaço para práticas socioeducativas e de acesso à informação para os internos do Complexo Penitenciário de Xuri, em Vila Velha; e analisa as potencialidades para a implementação de projetos voltados para remição de pena pela leitura no Complexo Penitenciário de Xuri, em Vila Velha, a partir de uma política emancipatória da unidade penal mediada pela biblioteca. Utiliza pesquisa exploratório-descritiva com abordagem qualitativa. Quanto aos procedimentos metodológicos, emprega as pesquisas bibliográfica, documental e de campo. Realiza levantamento bibliográfico e documental em bases de dados, livros, documentos oficiais e normativas do direito penal. Em relação à pesquisa de campo, utiliza como instrumento de coleta de dados questionário e observação. Durante etapa de pesquisa de campo, foram aplicados questionários presencialmente para a representante da Subgerência de Educação nas Prisões do Estado do Espírito Santo e para os internos que trabalham na biblioteca do Complexo Penitenciário de Xuri. Para a análise dos dados, utiliza o método de análise de conteúdo. Aponta nos resultados que a biblioteca possui relevância para os internos, por tratar-se de um espaço de conhecimento, de entretenimento e de trabalho, porém, é pouco explorada pela instituição. Conclui que a biblioteca é um dispositivo socioeducativo e cultural para os reeducandos, além de um lugar para remir a pena, mas que necessita ser (re) conhecida e valorizada como tal pela instituição, para que a mesma promova ações que contribuam para uso criativo e educativo do tempo do reeducando e de sua reintegração ao coletivo." ;
+    :semestreLetivoDocumento "2020/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 168 ;
+	:uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_16445_Disserta%E7%E3o%20de%20Adriana%20Isid%F3rio%20da%20Silva%20Zamite%20.pdf".
+	
+	#temVocabularioIdioma : Portugues.
+	
+data:DOC00002 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 00002 ;
+    :tituloDocumento "Biblioteca universitária como espaço de aprendizagem: a competência em informação e a colaboração educativa entre bibliotecário e professor"@pt ;
+    :resumoDocumento "A pesquisa tem como objetivo geral compreender o processo de planejamento e realização de ações colaborativas entre bibliotecários e professores, orientadas à competência em informação, presenciais e digitais, de bibliotecas de IES (públicas e privadas) localizadas na Grande Vitória (ES). A temática é relevante por trazer para essa discussão o papel pedagógico das BU’s, evidenciando o profissional bibliotecário como um educador e por trazer como reflexão possibilidades de desenvolver práticas e ações colaborativas com professores demonstrando as mais variadas possibilidades inerentes ao universo das bibliotecas universitárias e por estar alinhada à área temática da Ciência da Informação. A metodologia aplicada deu-se a um tipo de pesquisa bibliográfica, realizada em livros, trabalhos e artigos de autores e teóricos que dialogam sobre a importância da biblioteca universitária como espaço de aprendizagem e da competência em informação e a colaboração educativa entre bibliotecário e professor, contextualizando diretamente com os objetivos da pesquisa. Juntamente com a pesquisa bibliográfica, também foi realizada uma análise sistemática da literatura, utilizando a metodologia Knowledge Development Process– Constructivist (Proknow-C).Como instrumentos de pesquisa foram utilizados questionários semiestruturados cujo objetivo era investigar como são planejadas e realizadas ações orientadas à competência em informação e o Teacher/Librarian Collaboration Model (TLC) como base para a construção de algumas perguntas do questionário, para verificação da existência de trabalho colaborativo entre professores e bibliotecários das IES. Esta pesquisa atingiu seus objetivos, pois possibilitou verificar, partindo da problematização levantada para o estudo, que as ações orientadas à prática colaborativa entre professor e bibliotecário são realizadas, mesmo que de forma tímida sem a existência de um programa continuado de competência em informação, as ações e práticas acontecem por alguns gestores de forma planejada em planejamento estratégico com direção acadêmica que se estende às coordenações de cursos e professores, em outros momentos por solicitações avulsas a um planejamento de aula por parte do professor e por rotina tradicional por parte do bibliotecário." ;
+    :semestreLetivoDocumento "2020/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 184 ;
+	:uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_16095_DISSERTA%C7%C3O%20APROVADA_ALESSANDRAMPCAETANO20220615-90454.pdf".
+	
+	#temVocabularioIdioma: Portugues.
+
+data:DOC00003 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 00003 ;
+    :tituloDocumento "Dados abertos governamentais: modelo de governança voltado a qualidade de dados para publicação em rede"@pt ;
+    :resumoDocumento "A escalada na abertura de dados governamentais é um fenômeno originado de longos debates sobre a modernização do Estado contando, na atualidade, com diversos governos mundiais publicando um vasto conteúdo informacional em rede. Baseado nessa constatação, a pesquisa é motivada em compreender os desafios impostos à administração pública na publicação de dados de forma alinhada ao movimento aberto sob a ótica dos portais de dados. O objetivo desta pesquisa foi propor um modelo de governança voltado à qualidade de dados publicados em ambiente web, com foco na disponibilização dos recursos informacionais do governo com abrangência, consistência, eficácia e transparência. A metodologia foi o primeiro resultado da pesquisa, sendo apresentado como um instrumento científico dividido em três etapas. Na primeira etapa foi realizada uma pesquisa bibliográfica e documental evidenciando os antecedentes históricos do movimento de abertura de dados, conjuntamente a um panorama atual de iniciativas e estágios de evolução; o que levou a condução de um pré-teste nos portais de dados abertos dos EUA, Reino Unido, Brasil, e Irlanda, alcançando-se como resultado a definição dos desafios para abertura de dados governamentais com qualidade. Posteriormente, estes desafios serviram como insumo para a definição das dimensões analíticas fundamentais à proposição do modelo de governança. Na segunda etapa foi exposto o diagnóstico de maturidade para os portais de dados abertos, apresentando-se também a definição dos níveis de maturidade que foram empregados na pesquisa. O diagnóstico foi validado nos mesmos portais do pré-teste, com as notas finais sendo apresentadas e discutidas. Os resultados da validação indicaram que as iniciativas de abertura carecem de políticas de dados mais amplas e efetivas, faltando comprometimento político para colocar em prática os planos de ação formalizados, com pouca transparência na execução das ações e um insuficiente envolvimento social na sua formulação. Na terceira fase, os resultados foram tratados, gerando-se as inferências necessárias para a elaboração do modelo de governança voltado à qualidade de dados para publicação em rede, estando este fundamentado a partir dos resultados obtidos nas etapas anteriores. O modelo permitirá que os governos construam políticas de dados abrangentes e consistentes, mitigando as barreiras de publicação, e de forma consonante capacitando e encorajando os técnicos governamentais a publicarem dados com mais qualidade, beneficiando o movimento aberto e a sociedade." ;
+    :semestreLetivoDocumento "2019/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 151 ;
+	:uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15610_Dissertacao%20Revisada%20Final%20-%20Dirceu%20Flavio%20Macedo%20%282%29.pdf".
+	
+	#temVocabularioIdioma: Portugues.
+	
+data:DOC00004 a :Documento, owl:NamedIndividual;
+    :identificacaoUnicaDocumento 00004 ;
+    :tituloDocumento "Regime de informação em contexto organizacional: a representatividade dos artefatos à luz da sociomaterialidade"@pt ;
+    :resumoDocumento "Delimita o foco nos fenômenos de natureza informativa que permeiam os contextos organizacionais das universidades federais brasileiras, voltados à necessidade, busca, compartilhamento e uso da informação. Analisa o ambiente de informação da Secretaria Unificada de Pós-Graduação (SUPG/CCJE/UFES) categorizando-o com base nos elementos que compõem um regime de informação (atores, ações, dispositivos e artefatos), modelo teórico-analítico desenvolvido nas duas últimas décadas pela pesquisadora Maria Nélida González de Gómez. Dialoga com a perspectiva do organizar, pois assume uma visão processual das organizações, compreendendo-as como processos ou práticas em constantes fluxos e transformações. Em pesquisa exploratório-descritiva, de abordagem qualitativa da Ciência da Informação e em interdisciplinaridade com a Administração, apresenta aporte teórico-metodológico sobre a sociomaterialidade, caracterizada por evidenciar as dimensões materiais (objetos) das atividades e interações sociais cuja base metodológica fundamenta-se no princípio de simetria da Teoria Ator-Rede (TAR). Emprega, em termos de procedimentos, pesquisa documental, pesquisa bibliográfica e estudo de caso, utilizando grupo focal como estratégia de coleta de dados para o caso estudado. Os resultados apontaram que no regime de informação dominante da SUPG o social e o técnico estão ontologicamente inseparáveis. Além disso, reconhecemos os artefatos como elementos com capacidade de ação suficiente para evidenciar a materialidade nas organizações e no ambiente da secretaria unificada." ;
+    :semestreLetivoDocumento "2020/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 119 ;
+	:uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_16916_vers%E3o%20final.pdf".
+	
+	#temVocabularioIdioma : Portugues.
+	
+data:DOC00005 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 00005 ;
+    :tituloDocumento "Redes de biblioteca escolar no espírito santo: estudo de caso da rede de vila velha"@pt ;
+    :resumoDocumento "Este estudo busca compreender as mudanças que vêm ocorrendo nas bibliotecas escolares, mas especificamente as formas de atuação conjunta articuladas em redes, trazendo consigo características modernas e inovadoras para o ambiente educacional. No contexto brasileiro, a temática rede de biblioteca escolar é pouco explorada. Porém, nota-se que, no âmbito da Ciência da Informação e na história da Biblioteconomia, nos últimos dez anos, de forma gradativa, o tema tem ganhado mais adeptos entre os pesquisadores da área, aguçando a busca por uma compreensão mais sólida de como se dá essa nova forma de atuação das bibliotecas nas esferas dos sistemas de educação. Dentro dessa perspectiva, o objetivo principal foi analisar a formação e configuração das redes de biblioteca escolar no Estado do Espírito Santo em suas dimensões organizacional e pedagógica, assim como compreender de que forma essas redes podem indicar o fortalecimento e a qualificação das bibliotecas como ambientes significativos de aprendizagem. A metodologia de pesquisa adotada foi de cunho exploratório e documental. A análise dos resultados com abordagem qualitativa e o estudo de caso da rede de biblioteca escolar municipal de Vila Velha/ES foram estabelecidos a partir do mapeamento das bibliotecas no Estado. Os eixos norteadores e pilares para o delineamento e as configurações identitárias de uma rede biblioteca nas dimensões organizacional e pedagógica, foram evidenciados com base no referencial teórico (OLIVER, 1990; NOHRIA, 1992; KLIJN; KOPPENJAN; TERMEER, 1995; MIGUELETTO, 2001, CASTELLS, 2006; CARVALHO, 2017) e nos documentos na área da Biblioteconomia e Educação. Na discussão dos resultados da pesquisa, foi possível verificar que um dos principais sucessos da constituição da rede é a articulação, pois estabelece ações comunicativas e dialógicas, voltadas à cooperação entre as equipes, e apresenta ações referentes à efetividade dos produtos e serviços de qualidade à comunidade escolar. A partir disso, a rede promove o empreendedorismo interno e externo para as bibliotecas, bibliotecários e comunidade em geral. Com base nos resultados, conclui que, quando há o estabelecimento de uma coordenação central na sede da Secretaria de Educação, percebe-se a representação significativa nas atividades educacionais, fortalecendo ações que reverberam em todas as bibliotecas, dando visibilidade e reconhecimento ao profissional, além de potencializar reivindicações de melhoria nas estruturas físicas das bibliotecas e de renovação do acervo. O estudo constata que a rede de Vila Velha, ano após ano, vem se consolidando com a constituição de documentação legal e cumprimento das legislações na área da Biblioteconomia e da Educação. Palavras-chave: Rede de biblioteca escolar de Vila Velha/ES. Coordenação de redes de bibliotecas. Redes de cooperação e colaboração bibliotecária. Rede organizacional e pedagógica. Gestão em biblioteca escolar." ;
+    :semestreLetivoDocumento "2019/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 156 ;
+	:uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15309_Disserta%E7%E3o%20Eliana%20Terra%20Barbosa20220615-85050.pdf".
+
+	#temVocabularioIdioma : Portugues.
+	
+data:DOC00006 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 00006 ;
+    :tituloDocumento "Diretrizes à mediação cultural com documentos arquivísticos: um estudo sobre práticas com o acervo do Arquivo Público De Vitória (ES) a partir da Base Nacional Comum Curricular"@pt ;
+    :resumoDocumento "O estudo tem como objetivo geral investigar de que forma as práticas de mediação cultural a partir do acervo Arquivo Público Municipal de Vitória podem colaborar nos processos de ensino e aprendizagem de alunos do Ensino Fundamental segundo as orientações da Base Nacional Comum Curricular - BNCC e como essa dinâmica com a escola pode estreitar os laços do Arquivo com a comunidade. Como objetivos específicos, a pesquisa discute o conceito de mediação cultural em ambientes arquivísticos no contexto da Ciência da Informação; descreve a instituição Arquivo Público Municipal de Vitória e levantar as suas práticas de mediação cultural; apresenta o mapeamento e a categorização dos usuários do Arquivo Público Municipal de Vitória; contextualiza a Base Nacional Comum Curricular, sua trajetória e concepções, destacando as competências no processo ensino e aprendizagem que envolvem os arquivos; compara as práticas de mediação cultural desenvolvidas no ambiente arquivístico em relação às atividades propostas na BNCC para indicar as convergências bem como e as necessidades de adaptação àquelas diretrizes; e apresenta a elaboração de práticas de mediação cultural associadas às orientações normativas da Base Nacional Comum Curricular e ao uso do acervo do Arquivo Público Municipal de Vitória (ES). Com base nos objetivos delimitados para o desenvolvimento da pesquisa, o estudo no qual possui aspectos de uma pesquisa exploratória e descritiva, caracterizando-se como uma pesquisa-ação com o emprego da pesquisa bibliográfica e documental utilizando como instrumento de coleta de dados a aplicação de questionários. Como resultado, observou-se que tanto a literatura consultada, quanto os dados obtidos junto aos participantes, corroboram para a importância da oferta dos serviços educativos por parte das instituições arquivísticas, indicando ainda a necessidade de que as ações dessa natureza sejam planejadas e articuladas aos currículos escolares, de modo que além de serem executadas, possam fazer parte do cotidiano arquivístico da instituição em questão" ;
+    :semestreLetivoDocumento "2019/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 141 ;
+	:uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15612_Fab%EDola%20Costa%20-%20Disserta%E7%E3o%20final%20-%20Mar.2022%20%282%29.pdf".
+	
+	#temVocabularioIdioma : Portugues.
+	
+data:DOC00007 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 00007 ;
+    :tituloDocumento "Documento, (des)informacao e poder: memoria da ditadura militar brasileira pela obra \"1964 0 brasil entre armas e livros"@pt ;
+    :resumoDocumento "Realiza ampliação conceitual sobre a noção de documento, práticas documentárias e regimes de informação para análise das relações de saber e poder e de memória e esquecimento sobre a ditadura militar brasileira (1964-1985) presentes no documento audiovisual “1964: o Brasil entre armas e livros” da produtora Brasil Paralelo, veiculado no YouTube e sua relação com o autoritarismo político na pós-verdade. Em pesquisa exploratório-descritiva de abordagem qualitativa da Ciência da Informação, em interdisciplinaridade com a História e a Sociologia, apresenta aportes teóricometodológicos sobre discursos de verdade, documento, memória, desinformação, negacionismo e pós-verdade operacionalizada por pesquisa bibliográfica, documental e análise genealógica e crítica de base pós-estruturalista foucaultiana do discurso. Identifica práticas da rede de desinformação e negacionismos na pós-verdade, demonstrando uma dupla relação da pós-verdade com a “verdade” iluminista, ao passo que é herdeira de ideais autoritários do processo civilizatório colonialista europeu e recusa suas bases racionais em favor de crenças de um passado conservador idealizado. Apresenta aspectos de negacionismos baseados no racismo estrutural, no antissemitismo nazista e no anticomunismo militar evidenciados no negacionismo anti-histórico sobre a ditadura militar brasileira (1964-1985) no ciberespaço, presentes no regime de (des)informação do/no documento audiovisual analisado. Os resultados demonstram a materialidade da (des)informação em favor do autoritarismo, fortalecido no fenômeno da pós-verdade, com memórias negacionistas e práticas de desinformação provenientes de narrativas de militares e civis de extrema-direita circunscritas em documentos criados para disputar as narrativas de memória sobre a ditadura militar brasileira (1964-1985). Reflete sobre a relação entre narrativas ultraliberais e a propagação de memórias autoritárias e contrafactuais de extrema-direita. Evidencia práticas de desinformação utilizadas pela extrema-direita no filme da Brasil Paralelo para afirmação de enunciados negacionistas, de silenciamento dos saberes e de ataque aos debates acadêmicocientíficos. Contribui interdisciplinarmente ao enfrentamento do negacionismo autoritário e das práticas de desinformação enunciadas por meio de documentos audiovisuais em plataformas digitais no ciberespaço, fomentando novos estudos." ;
+    :semestreLetivoDocumento "2019/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 147 ;
+	:uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15091_SOELLA%2C%20G.%20M.%20Documento%2C%20%28des%29informa%E7%E3o%20e%20poder.%20Mem%F3ria%20da%20ditadura%20militar%20brasileira%20pela%20obra%201964%20o%20Brasil%20entre%20armas%20e%20livros.%202021%20%282%29.pdf".
+	
+	#temVocabularioIdioma : Portugues.
+	
+data:DOC00008 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 00008 ;
+    :tituloDocumento "A invisibilidade das bibliotecas públicas municipais do estado do espírito santo: um projeto neoliberal como barreira para uma biblioteca pública municipal orientada pelo agir comunicativo"@pt ;
+    :resumoDocumento "A pesquisa versa sobre o cenário de invisibilidade das bibliotecas públicas municipais no contexto da sociedade capitalista contemporânea. Analisa o impacto da narrativa neoliberal e das tecnologias da informação e comunicação nas políticas públicas para bibliotecas no âmbito das prefeituras municipais do Estado do Espírito Santo. Verifica como a narratividade neoliberal incide sobre o Estado e opera para o esvaziamento das bibliotecas públicas municipais enquanto espaços de promoção de uma sociedade de direitos. Empreende-se uma pesquisa documental de caráter analítica-crítica pela qual busca-se analisar, dados relativos ao orçamento público e por estes instrumentos, busca-se aferir o orçamento destinado à promoção da cultura dos municípios selecionados e, se estão sendo empregados os recursos para garantir o adequado funcionamento das bibliotecas públicas municipais. Objetiva-se desvelar como se constitui a produção de invisibilidade das BPMs no Estado do Espírito Santo, no contexto da sociedade capitalista neoliberal contemporânea, pela via da precarização desse serviço público. Ao propor demonstrar a insuficiência de recursos destinados às bibliotecas públicas municipais, pretendemos não apenas evidenciar que há um projeto de precarização que inviabiliza essa instituição, mas também defender que as bibliotecas públicas municipais são instituições mediadoras da informação com capacidade de estabelecerem diálogos e interações transversais e multidisciplinares com a sociedade para a promoção de uma via informativa que propicie uma relação ética de função emancipatória crítica e por meio da mediação da informação realizada pelo profissional bibliotecário, orientada pelo agir comunicativo, numa proposta de bibliotecas públicas municipais como esferas públicas na perspectiva habermasiana." ;
+    :semestreLetivoDocumento "2019/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 128 ;
+	:uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15614_Disserta%E7%E3o_Gerson%20Moreira%20Ramos%20Junior%20_%20Vers%E3o%20final%20%282%29.pdf".
+	
+	#temVocabularioIdioma: Portugues.
+	
+data:DOC00009 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 00009 ;
+    :tituloDocumento "A Preservação da Memória Institucional: o acervo fotográfico do IFES Campus Cachoeiro de Itapemirim"@pt ;
+    :resumoDocumento "A fotografia foi uma invenção revolucionária para a época de sua criação, um instrumento capaz de paralisar o tempo, impedir o esquecimento de fatos ocorridos dentro de um lapso temporal. Ela pode ser considerada um " ;
+    :semestreLetivoDocumento "2020/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 178 ;
+	:uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_16678_Disserta%E7%E3o_Jacqueline_Vers%E3o%20final.pdf".
+	
+	#temVocabularioIdioma : Portugues.
+	
+data:DOC000010 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 000010 ;
+    :tituloDocumento "O fluxo de informação dos processos de consulta tributária da receita federal do brasil: análise baseada no modelo australiano records continuum"@pt ;
+    :resumoDocumento "Analisa as implicações das diretrizes e acesso à informação e transparência pública, trazidas pela Lei nº 12.527/2011, no fluxo de informação do processo de consulta tributária da Secretaria da Receita Federal do Brasil, regulamentada pela Instrução Normativa RFB nº 1.396/2013. Utiliza como hipótese a aplicação do modelo Records Continuum como recurso orientador por entender que a sua utilização pela Administração Pública pode ser uma forma de se atender aos anseios da Lei de Acesso à Informação, pois os princípios que norteiam esse modelo visam a não enclausurar os registros e documentos. Trata-se de uma pesquisa exploratória de abordagem qualitativa que emprega a pesquisa bibliográfica e documental de natureza aplicada. Explana acerca do fluxo de informação no contexto da gestão da informação e da gestão documental. De forma mais específica, mapeia e estuda o fluxo de informação da consulta tributária que começa com o pedido do contribuinte consulente e termina com a publicação da solução de consulta pela Receita Federal. Realiza a análise de dados em três etapas: inicialmente, busca o entendimento dos eixos e coordenadas do modelo Records Continuum aplicados ao processo de consulta tributária. Em seguida, analisa o instrumento do Direito Tributário a partir das características das dimensões jurídicas do modelo Records Continuum. Por último, analisa as informações apresentadas pela Receita Federal sob a óptica das diretrizes da Lei de Acesso à Informação. Aponta como resultados melhorias identificadas e condizentes com a aplicação das diretrizes da Lei de Acesso à Informação no ambiente informacional avaliado na Receita Federal, pois foi identificado o aperfeiçoamento nos mecanismos de acesso à informação e transparência nas soluções de consulta e evidenciaram o modelo Records Continuum como capaz de auxiliar a análise do fluxo de informações tributárias pela Receita Federal do Brasil para o cumprimento da sua missão de promoção de justiça fiscal em benefício da sociedade." ;
+    :semestreLetivoDocumento "2019/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 206 ;
+	:uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15092_JULIANO%20DISSERTA%C7%C3O%20%28VERSAO%20FINAL%29.pdf".
+	
+	#temVocabularioIdioma: Portugues.
+	
+data:DOC000011 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 000011 ;
+    :tituloDocumento "Práticas informacionais de travestis da Grande Vitória (ES)"@pt ;
+    :resumoDocumento "Toda ação social deriva da dupla movimentação entre a subjetividade e os condicionamentos culturais a que os sujeitos estão alicerçados. Os estudos sobre práticas informacionais evidenciam como as ações cotidianas, os inter-relacionamentos, a interseccionalidade e os contextos socioculturais dinamizam e interferem no percurso informacional. As pesquisas sobre práticas informacionais de sujeitos LGBTQIA+ demonstram haver uma lacuna no que diz respeito às especificidades dos processos de busca, acesso, apropriação, uso e compartilhamento da informação da comunidade de travestis. Como as travestis são concomitantemente visíveis (pelas mídias) e invisíveis (pelas discriminações), é um desafio examinar questões relacionadas aos seus engajamentos com a informação. Levando em consideração que os sujeitos informacionais não estão isolados em um ambiente privado, que as identidades se constroem a partir das inter-relações e que os fenômenos informacionais são atravessados pelas demarcações políticas, econômicas, simbólicas e identitárias, chegou-se a seguinte questão: em que medida a identidade de gênero influencia nos aspectos voltados à busca, ao acesso, à apropriação, ao uso e à disseminação da informação das travestis da Grande Vitória (ES) em seus cotidianos? Nesse sentido, tornou-se imprescindível investigar as necessidades, fontes, disposições sociais/coletivas e as negociações informacionais dessa população em um viés interseccional, abarcando categorias como gênero, raça/etnia e classe social. Para tanto, o objetivo geral desta pesquisa consiste em analisar as práticas informacionais das travestis da Grande Vitória (ES) frente ao processo de construção da identidade de gênero. Do ponto de vista metodológico, trata-se de uma pesquisa exploratória com caráter qualitativo. Como método para coleta de dados, empregou-se a entrevista semiestruturada, guiada por um roteiro de três blocos, com oito travestis residentes da Grande Vitória (ES). Os resultados demonstraram que desde a infância as travestis relacionam-se com a feminilidade e que o ambiente doméstico se apresenta como parte da extensão dos valores cisgêneros e heterossexuais. As principais necessidades de informação condizem com a reestruturação do corpo por meio dos mecanismos sintéticos e anticoncepcionais. As fontes de informação mais utilizadas pelas travestis retroalimentam-se no ciclo contínuo da troca informacional: as travestis buscam com outras travestis. Os marcadores de diferença (gênero, raça/etnia, classe social) simbolizam uma tripla inferência na busca informacional. O uso da informação ocorre com o objetivo de reconstruir a cidadania e na disseminação de informações sobre performance, corpo, identidade e feminilidade através de suas corporeidades feminilizadas. O contexto das travestis é imbricado por intersecções e interações sociais que influenciam em todo o processo das práticas informacionais." ;
+    :semestreLetivoDocumento "2019/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 120 ;
+	:uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15234_Disserta%E7%E3o%20Finalizada%20Marcela%20Aguiar%20%281%29.pdf".
+	
+	#temVocabularioIdioma: Portugues.
+	
+data:DOC000012 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 000012 ;
+    :tituloDocumento "As vinculações entre competência em informação, tecnologias e protagonismo social: análise sob uma abordagem social"@pt ;
+    :resumoDocumento "Investiga as vinculações teórico-conceituais entre competência em informação e usos sociais de Tecnologias da Informação e da Comunicação (TIC) para produção de protagonismo social de minorias sociais. Sob o paradigma social: a) caracteriza a emergência do termo mediação sob um viés social e suas vinculações com o paradigma social da informação; b) discute usos sociais e potenciais aplicações de Tecnologias da Informação e da Comunicação (TIC) nos processos de desenvolvimento de competência em informação para produção de protagonismo social; c) distingue modelos teóricos e metodologias de desenvolvimento de competência em informação que propiciam a produção de protagonismo social; d) caracteriza produção científica brasileira, no campo da Ciência da Informação, relacionada ao desenvolvimento da competência em informação, mediada por tecnologias, para produção de protagonismo social de minorias sociais. Considera como ambiente empírico de investigação da pesquisa a produção científica nacional em Ciência da Informação publicada nos anais do Encontro Nacional de Pesquisa e Pós-Graduação em Ciência da Informação (Enancib) durante o período de 2016 a 2019 tratando de competência em informação. Constitui a pesquisa como do tipo exploratória e utiliza a pesquisa bibliográfica como estratégia de produção de dados. Desenvolve revisão da literatura tratando de temáticas que se constituem como pano de fundo para constituição do marco teórico: os conceitos de informação e de conhecimento sob o paradigma social, a percepção do sujeito como social e revisão de abordagens sobre mediação e apropriação da informação na dinâmica social. Desdobra o marco teórico em três partes discutindo à luz da literatura os fundamentos teóricos da competência em informação, das vinculações com as Tecnologias da Informação e da Comunicação (TIC) para a produção de protagonismo social de minorias sociais. No desfecho da pesquisa bibliográfica constitui a caracterização de estudos e de práticas identificadas de desenvolvimento da competência em informação mediada por tecnologias para produção de protagonismo de minorias sociais, na amostra estratificada. Entre os Grupos temáticos de trabalho (GT) averiguamos que o GT 3 Mediação, Circulação e Apropriação da Informação agrupou o maior quantitativo dos estudos. Em seguida, foi o GT 2 Organização e Representação do Conhecimento concentrou. Foram identificados um total de 51 autores. A maioria (73%) representada por autoras e os demais (27%) por autores. Entre os públicos mencionados nos estudos, verificamos que as mulheres, as pessoas negras, quilombolas e pessoas trans foram amplamente contempladas nos estudos. Entre os grupos sociais mencionados como minorias sociais, foram listados: Adultos em processo de escolarização tardia e matriculados em turmas de Educação de Jovens e Adultos, quilombolas, alunos com deficiência, mulheres negras, deficiente visual, estudantes com deficiência no ensino superior." ;
+    :semestreLetivoDocumento "2019/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 210 ;
+	:uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15613_Dissertacao03dez2021%20MONICA%20%28FINALIZADA%20PARA%20IMPRESSAO%20%282%29%20%281%29.pdf".
+	
+	#temVocabularioIdioma: Portugues.
+	
+data:DOC000013 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 000013 ;
+    :tituloDocumento "Entre promessas e realidade? as ações institucionalizadas de preservação da memória e do patrimônio cultural material de bento rodrigues e paracatu de baixo após o desastre ambiental"@pt ;
+    :resumoDocumento "Os impactos em Bento Rodrigues e Paracatu de Baixo com o rompimento da barragem de Fundão foram diversos, comprometendo o patrimônio histórico, arquitetônico, artístico e cultural da região de Mariana, Minas Gerais (MG), que abriga, até hoje, riquezas dos tempos do Brasil-colônia ligadas à religiosidade e à produção de ouro. Essa pesquisa investiga, à luz do Termo de Transação e Ajustamento de Conduta, os relatórios do Programa 12 da Fundação Renova que discorrem sobre as ações executadas de preservação da memória e do patrimônio cultural material dos subdistritos de Bento Rodrigues e Paracatu de Baixo após o rompimento da barragem de Fundão (MG) no período de 2016 a 2019. Os recursos metodológicos conjugam uma pesquisa bibliográfica e documental, com abordagem qualitativa, pautada pelas categorias: patrimônio, preservação, identidade, lugar de memória e memória no contexto da Ciência da Informação. O rompimento da barragem de Fundão causou diversos impactos no patrimônio cultural de Bento Rodrigues e Paracatu de Baixo, lugares que congregavam uma rica história do período colonial brasileiro. Assim, garantir a preservação da história e a memória do patrimônio cultural material destes subdistritos possibilita restabelecer os laços afetivos e de identidade de um grupo. Os resultados obtidos mostraram elaboração parcial de projetos, inventários, processo de desinfecção de fungos e bactérias, restauração em peças sacras, oficinas e capacitações com fraca participação das comunidades de Bento Rodrigues e de Paracatu de Baixo, além de sugerir que a raiz de alguns problemas acerca do patrimônio cultural material atingidos pela lama da barragem nos subdistritos pesquisados se encontram no Termo de Transação e Ajustamento de Conduta, ao configurar-se um documento subjetivo em seu teor, limitando-se a apontar caminhos concretos para a reparação dos danos." ;
+    :semestreLetivoDocumento "2019/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 170 ;
+	:uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15611_Disserta%E7%E3o%20VERS%C3O%20%20final%20Nayane%20Viale%20%20Vargas%20-%20PPGCI%20%281%29_08%20NOV.pdf".
+
+	#temVocabularioIdioma : Portugues.
+	
+data:DOC000014 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 000014 ;
+    :tituloDocumento "A competência em informação em institutos federais de educação, ciência e tecnologia: sentidos, práticas e desafios a partir das bibliotecas multiníveis"@pt ;
+    :resumoDocumento "" ;
+    :semestreLetivoDocumento "2020/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 0 ;
+	:uriDisseminacaoDocumento: "".
+
+	#temVocabularioIdioma: Portugues.
+	
+data:DOC000015 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 000015 ;
+    :tituloDocumento "Proposta de implantação de repositório arquivístico digital confiável (rdc-arq): o caso do governo do estado do Espírito Santo"@pt ;
+    :resumoDocumento "A transformação digital representa um grande desafio na reestruturação, não só dos processos, como na cultura organizacional. Os impactos causados por essa transformação têm sido motivo de grande interesse, especialmente pela comunidade científica. Participando desse desafio, este estudo buscou elaborar uma proposta de modelo de implantação de um Repositório Arquivístico Digital Confiável (RDC-Arq). Para alcançar este propósito maior, foram traçados objetivos específicos como: 1. apresentar os aspectos legais e teóricos para a implantação de um RDC-Arq, fundamentados nas diretrizes aprovadas pela Resolução do Conarq nº 43 de 2015, que tiveram como base a Norma ISO 16363:2012 e a norma ISO 14721:2012; 2. elaborar um modelo de implantação de um RDC-Arq, identificando suas principais etapas, com base na Resolução do Conarq nº 43 de 2015; 3. aplicar o modelo de implantação do RDC-Arq ao contexto do Governo do Estado do Espírito Santo. Considerando as demandas do produtor e/ou custodiador dos objetos de arquivo, no caso, o Governo do Estado do Espírito Santo. Este estudo foi conduzido por uma pesquisa de natureza aplicada, com objetivos de uma pesquisa descritiva, utilizando uma abordagem qualitativa e com procedimentos de uma pesquisa bibliográfica e documental. A partir de uma revisão de literatura, foi possível comprovar a relevância e a urgência sobre o tema da preservação digital em um ambiente capaz de garantir a preservação, o acesso e a difusão da informação, em um ambiente digital, pelo tempo necessário. A preocupação por este tema é representada aqui na fala Duranti (2016) “Avremo un sistema di conservazione affidabile in futuro”? Assim, a fim de reunir informações necessárias para executar essa tarefa, foram apresentados aspectos legais e teóricos capazes de subsidiar a elaboração desta proposta de modelo. De forma estruturada, este estudo apresenta uma análise do Open Archival Information System (Oais), por ser um Sistema de Arquivamento da Informação, armazenamento, preservação e acesso da informação digital; realiza uma abordagem teórico conceitual sobre as Diretrizes para a Implementação de Repositórios Arquivísticos Digitais Confiáveis, aprovadas pela Resolução do Conarq nº 43 de 2015, e suas principais bases teóricas (ISO 16363:2012 e ISO 14721:2012); apresenta uma proposta de modelo para implantação do RDC-Arq; traz ainda uma adaptação do modelo ao contexto do Governo do Estado do Espírito Santo; e finalmente, apresenta suas considerações." ;
+    :semestreLetivoDocumento "2020/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 103 ;
+	:uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_16629_2022.09.20_Disserta%E7%E3o_Vers%E3o%20final_Organizado_Rosemery.pdf".
+
+	#temVocabularioIdioma: Portugues.
+
+data:DOC000016 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 000016 ;
+    :tituloDocumento "Projeto memórias reveladas no arquivo público do estado do Espírito Santo a partir do acervo da dops/es: acervos arquivísticos e a construção de identidade social"@pt ;
+    :resumoDocumento "Trata-se de um estudo sobre o Projeto Memórias Reveladas e sua contribuição para a construção da Identidade Social do Arquivo Público do Estado do Espírito Santo (APEES), a partir da custódia de documentos do acervo da Delegacia de Ordem Política e Social do Estado do Espírito Santo (DOPS/ES). Analisa, via publicações recuperadas durante pesquisa em repositórios científicos e revisão de literatura, em que medida se encontra articulado à construção, à cooperação e ao fortalecimento da memória social do Arquivo. A metodologia utiliza pesquisa bibliográfica, descritiva e exploratória tendo como pano de fundo um estudo de caso. Como objetivo pretendese identificar em que medida custodiar o acervo do Projeto Memórias Reveladas contribuiu para consolidar o papel da memória social do Arquivo, com documentos do período da ditadura militar (1964 - 1985), no recorte temporal de onze anos (2009 – 2020). Para tanto, utilizou-se de aplicação de um questionário, cujo resultado apontou entre outras variáveis a relevância do acervo da DOPS/ES na elaboração dos Relatórios das Comissões da Verdade da UFES e do Governo do Estado do Espírito Santo, bem como a fidelização do Arquivo como local onde a memória é fomentada. Como objetivo, pretende contribuir para estimular a produção científica relacionada à temática memória, arquivo e ditadura militar, principalmente, no contexto da Ciência da Informação, no que tange o âmbito social. Os resultados finais evidenciam que a temática não se esgota, apresentando oportunidade de aumento na produção de conhecimento voltado a acervos de violação de direitos humanos" ;
+    :semestreLetivoDocumento "2020/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 0 ;
+	:uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_16680_9%20-%20Disserta%E7%E3o%20-%20ROSILDA_%20Vers%E3o%20Final%2011.10.22_MEM%D3RIAS%20REVELADAS_DOPSES%20%281%29.pdf".
+
+	#temVocabularioIdioma: Portugues.
+	
+data:DOC000017 a :Documento, owl:NamedIndividual ;
+    :identificacaoUnicaDocumento 000017 ;
+    :tituloDocumento "Desenvolvimento da competência leitora nas bibliotecas escolares de ensino fundamental: esquema metodológico de competências na área da informação"@pt ;
+    :resumoDocumento "" ;
+    :semestreLetivoDocumento "2020/1" ;
+	:idiomaDocumento "Português" ;
+	:numeroPaginasDocumento: 0 ;
+	:uriDisseminacaoDocumento: "".
+
+	#temVocabularioIdioma: Portugues.	
+
+# Instituição de Ensino Superior
+data:INS0001 a :InstituicaoEnsinoSuperior, owl:NamedIndividual ;
+    :siglaIES "UFES" ;
+    :nomeIES "Universidade Federal do Espírito Santo"@pt ;
+	:webPageIES "https://www.ufes.br/" ;
+    :uriIES "https://www.ufes.br/" ;
+	:unidadeIES "Campus Vitória";
+	:localizadaEmLocalFisico :LOC0001;
+	:temOrganizacaoAcademica :Universidade ; 
+	:temCategoriaAdministrativa :PublicaFederal .
+
+data:INS0002 a :InstituicaoEnsinoSuperior, owl:NamedIndividual ;
+    :siglaIES "UFES" ;
+    :nomeIES "Universidade Federal do Espírito Santo"@pt ;
+	:webPageIES "https://alegre.ufes.br/" ;
+    :uriIES "https://alegre.ufes.br/" ;
+	:unidadeIES "Campus Alegre";
+	:localizadaEmLocalFisico :LOC0003 ;
+	:temOrganizacaoAcademica :Universidade ; 
+	:temCategoriaAdministrativa :PublicaFederal .
+
+
+data:INS0003 a :InstituicaoEnsinoSuperior, owl:NamedIndividual ;
+    :siglaIES "UFES" ;
+    :nomeIES "Universidade Federal do Espírito Santo"@pt ;
+	:webPageIES "https://www.ufes.br/" ;
+    :uriIES "https://www.ufes.br/" ;
+	:unidadeIES "Campus Goiabeiras";
+	:localizadaEmLocalFisico :LOC0001;
+	:temOrganizacaoAcademica :Universidade ; 
+	:temCategoriaAdministrativa :PublicaFederal .
+
+data:INS0004 a :InstituicaoEnsinoSuperior, owl:NamedIndividual ;
+    :siglaIES "UFES" ;
+    :nomeIES "Universidade Federal do Espírito Santo"@pt ;
+	:webPageIES "https://ccs.ufes.br/" ;
+    :uriIES "https://ccs.ufes.br/" ;
+	:unidadeIES "Campus Maruípe";
+	:localizadaEmLocalFisico :LOC0001;
+	:temOrganizacaoAcademica :Universidade ; 
+	:temCategoriaAdministrativa :PublicaFederal .
+
+data:INS0005 a :InstituicaoEnsinoSuperior, owl:NamedIndividual ;
+    :siglaIES "UFES" ;
+    :nomeIES "Universidade Federal do Espírito Santo"@pt ;
+	:webPageIES "https://saomateus.ufes.br/" ;
+    :uriIES "https://saomateus.ufes.br/" ;
+	:unidadeIES "Campus São Mateus";
+	:localizadaEmLocalFisico :LOC0002;
+	:temOrganizacaoAcademica :Universidade ; 
+	:temCategoriaAdministrativa :PublicaFederal .
+	
+	
+data:INS0006 a :InstituicaoEnsinoSuperior, owl:NamedIndividual ;
+    :siglaIES "IFES" ;
+    :nomeIES "Instituto Federal do Espírito Santo"@pt ;
+	:webPageIES "https://vitoria.ifes.edu.br/" ;
+    :uriIES "https://vitoria.ifes.edu.br/" ;
+	:unidadeIES "Campus Vitória";
+	:localizadaEmLocalFisico :LOC0001 ;
+	:temOrganizacaoAcademica :InstitutoFederalEducacaoCienciaTecnologia ; 
+	:temCategoriaAdministrativa :PublicaFederal .
+
+# Local Físico (cidade)
+data:CID0001 a :LocalFisico, owl:NamedIndividual ;
+	:cidadeLocalFisico "Vitória" ;
+	:estadoLocalFisico "ES" ;
+	:paisLocalFisico "Brasil" .
+
+data:CID0002 a :LocalFisico, owl:NamedIndividual ;
+	:cidadeLocalFisico "São Mateus" ;
+	:estadoLocalFisico "ES" ;
+	:paisLocalFisico "Brasil" .
+
+data:CID0003 a :LocalFisico, owl:NamedIndividual ;
+	:cidadeLocalFisico "Alegre" ;
+	:estadoLocalFisico "ES" ;
+	:paisLocalFisico "Brasil" .
+
+# Pessoa
+# Indicar no texto (dissertação) cada dado identificador de um indivíduo (segundo LGPD): nome da pessoa, CPF, RG, data de nascimento, e-mail(alternativo/pessoal), etc (inserir no item resultados e discussão).
+data:PES0001 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Adriana Isidório da Silva Zamite" ;
+	:funcaoPessoa "discente" ;
+	:emailAlternativoPessoa "adrianaisidoriosilva@gmail.com".
+
+data:PES0002 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Alessandra Monteiro Pattuzzo Caetano" ;
+	:funcaoPessoa "discente" ;
+	:emailAlternativoPessoa "apattuzzo@gmail.com".
+
+data:PES0003 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Daniela Lucas da Silva Lemos" ;
+	:funcaoPessoa "docente" ;
+	:emailInstitucionalPessoa "daniela.l.silva@ufes.br" ;
+	:emailAlternativoPessoa "danielalucas@hotmail.com".
+
+data:PES0004 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Dirceu Flavio Macedo" ;
+	:funcaoPessoa "discente" ;
+	:emailAlternativoPessoa "dfmacedo@gmail.com".
+
+data:PES0005 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Edma Jantorno" ;
+	:funcaoPessoa "discente" ;
+	:emailAlternativoPessoa "ejantorno28@gmail.com".
+
+data:PES0006 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Eliana Terra Barbosa" ;
+	:funcaoPessoa "discente" ;
+	:emailAlternativoPessoa "elianaterra@hotmail.com".
+
+data:PES0007 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Fabiola Pereira Costa" ;
+	:funcaoPessoa "discente" ;
+	:emailAlternativoPessoa "fabiolajpc@hotmail.com".
+
+data:PES0008 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Gabriel Meneguelli Soella" ;
+	:funcaoPessoa "discente" ;
+	:emailAlternativoPessoa "gabrielmsoella@gmail.com".
+	
+data:PES0009 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Gerson Moreira Ramos Junior" ;
+	:funcaoPessoa "discente" ;
+	:emailAlternativoPessoa "g.ramosjunior@gmail.com".
+	
+data:PES0010 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Gleice Pereira" ;
+	:funcaoPessoa "docente" ;
+	:emailInstitucionalPessoa "gleice.pereira@ufes.br" ;
+	:emailAlternativoPessoa "gleiceufes@gmail.com".	
+	
+data:PES0011 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Henrique Monteiro Cristovao" ;
+	:funcaoPessoa "docente" ;
+	:emailInstitucionalPessoa "henrique.cristovao@ufes.br" ;
+	:emailAlternativoPessoa "hmcristovao@gmail.com".	
+
+data:PES0012 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Jacqueline Machado Silva" ;
+	:funcaoPessoa "discente" ;
+	:emailInstitucionalPessoa "" ;
+	:emailAlternativoPessoa "jacmsilva@yahoo.com.br".	
+	
+data:PES0013 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Juliano Rezende Gama" ;
+	:funcaoPessoa "discente" ;
+	:emailInstitucionalPessoa "" ;
+	:emailAlternativoPessoa "julianojrg@gmail.com".		
+	
+data:PES0014 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Lucileide Andrade de Lima do Nascimento" ;
+	:funcaoPessoa "docente" ;
+	:emailInstitucionalPessoa "lucileide.nascimento@ufes.br" ;
+	:emailAlternativoPessoa "lucileidelima@gmail.com".
+
+data:PES0015 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Luiz Carlos da Silva" ;
+	:funcaoPessoa "docente" ;
+	:emailInstitucionalPessoa "luiz.c.silva@ufes.br" ;
+	:emailAlternativoPessoa "luizarquivologia@gmail.com".
+
+data:PES0016 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Maira Cristina Grigoleto" ;
+	:funcaoPessoa "docente" ;
+	:emailInstitucionalPessoa "maira.grigoleto@ufes.br" ;
+	:emailAlternativoPessoa "magrigo@hotmail.com".
+	
+data:PES0017 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Marcela Aguiar da Silva Nascimento" ;
+	:funcaoPessoa "discente" ;
+	:emailInstitucionalPessoa "" ;
+	:emailAlternativoPessoa "agr.marcela@gmail.com".	
+
+data:PES0018 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Margarete Farias de Moraes" ;
+	:funcaoPessoa "docente" ;
+	:emailInstitucionalPessoa "margarete.moraes@ufes.br" ;
+	:emailAlternativoPessoa "margamoraes@gmail.com".
+
+data:PES0019 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Marta Leandro da Mata" ;
+	:funcaoPessoa "docente" ;
+	:emailInstitucionalPessoa "marta.mata@ufes.br" ;
+	:emailAlternativoPessoa "martaleandrodamata@gmail.com".
+
+data:PES0020 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Meri Nadia Marques Gerlin" ;
+	:funcaoPessoa "docente" ;
+	:emailInstitucionalPessoa "meri.gerlin@ufes.br" ;
+	:emailAlternativoPessoa "merinadia@hotmail.com".
+
+data:PES0021 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Mônica Alves da Fonseca" ;
+	:funcaoPessoa "discente" ;
+	:emailInstitucionalPessoa "" ;
+	:emailAlternativoPessoa "monicadafonseca@uol.com.br".
+
+data:PES0022 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Nayane Viale Vargas" ;
+	:funcaoPessoa "discente" ;
+	:emailInstitucionalPessoa "" ;
+	:emailAlternativoPessoa "nay.nvv@gmail.com".
+
+data:PES0023 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Pedro Ernesto Fagundes" ;
+	:funcaoPessoa "discente" ;
+	:emailInstitucionalPessoa "" ;
+	:emailAlternativoPessoa "pefagundes@uol.com.br".
+
+data:PES0024 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Ronald Tavares Leão Moret" ;
+	:funcaoPessoa "discente" ;
+	:emailInstitucionalPessoa "" ;
+	:emailAlternativoPessoa "leao.moret@gmail.com".
+
+data:PES0025 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Rosa da Penha Ferreira da Costa" ;
+	:funcaoPessoa "docente" ;
+	:emailInstitucionalPessoa "rosa.costa@ufes.br" ;
+	:emailAlternativoPessoa "rosapenha2012@gmail.com".
+
+data:PES0026 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Rosemery Araujo Xavier" ;
+	:funcaoPessoa "discente" ;
+	:emailInstitucionalPessoa "" ;
+	:emailAlternativoPessoa "raraujoxavier@gmail.com".
+
+data:PES0027 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Rosilda Adelaide Rufo" ;
+	:funcaoPessoa "discente" ;
+	:emailInstitucionalPessoa "" ;
+	:emailAlternativoPessoa "rosildinha@hotmail.com".
+
+data:PES0028 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Taiguara Villela Aldabalde" ;
+	:funcaoPessoa "docente" ;
+	:emailInstitucionalPessoa "taiguara.aldabalde@ufes.br" ;
+	:emailAlternativoPessoa "gnose888@gmail.com".
+
+data:PES0029 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Tânia Barbosa Salles Gava" ;
+	:funcaoPessoa "docente" ;
+	:emailInstitucionalPessoa "" ;
+	:emailAlternativoPessoa "".
+
+data:PES0030 a :Pessoa, owl:NamedIndividual ;
+	:nomePessoa "Vânia Célia de Oliveira" ;
+	:funcaoPessoa "discente" ;
+	:emailInstitucionalPessoa "" ;
+	:emailAlternativoPessoa "vania.coliver@yahoo.com.br".
+
+# Pessoa Institucionalizada
+data:PTZ0001 a :Pessoa, owl:NamedIndividual ;
+	:orcidPessoaInstitucionalizada "" ;
+	:lattesPessoaInstitucionalizada "http://lattes.cnpq.br/2544521607642897" ;
+	:associadaIES :INS0003.
+
+data:PTZ0002 a :Pessoa, owl:NamedIndividual ;
+	:orcidPessoaInstitucionalizada "https://orcid.org/0000-0001-6291-8608" ;
+	:lattesPessoaInstitucionalizada "http://lattes.cnpq.br/4610955539025040" ;
+	:associadaIES :INS0003.
+
+data:PTZ0003 a :Pessoa, owl:NamedIndividual ;
+	:orcidPessoaInstitucionalizada "https://orcid.org/0000-0003-1565-7366" ;
+	:lattesPessoaInstitucionalizada "http://lattes.cnpq.br/9280443047358807" ;
+	:associadaIES:INS0003.
+
+data:PTZ0004 a :Pessoa, owl:NamedIndividual ;
+	:orcidPessoaInstitucionalizada "https://orcid.org/0000-0003-4837-3618" ;
+	:lattesPessoaInstitucionalizada "http://lattes.cnpq.br/2765166629600107" ;
+	:associadaIES :INS0003.
+
+data:PTZ0005 a :Pessoa, owl:NamedIndividual ;
+	:orcidPessoaInstitucionalizada "https://orcid.org/0000-0002-6411-0853" ;
+	:lattesPessoaInstitucionalizada "http://lattes.cnpq.br/6940649213589691" ;
+	:associadaIES :INS0003.
+
+data:PTZ0006 a :Pessoa, owl:NamedIndividual ;
+	:orcidPessoaInstitucionalizada "" ;
+	:lattesPessoaInstitucionalizada "http://lattes.cnpq.br/4637550692768963" ;
+	:associadaIES :INS0003.
+
+data:PTZ0007 a :Pessoa, owl:NamedIndividual ;
+	:orcidPessoaInstitucionalizada "https://orcid.org/0000-0002-0456-8897" ;
+	:lattesPessoaInstitucionalizada "http://lattes.cnpq.br/0957039987080230" ;
+	:associadaIES :INS0003.
+
+# Membro
+#:MBR0001 a :PessoaInstitucionalizada, owl:NamedIndividual ;
+#	modalidadeParticipacaoMembro "Presencial" ;
+#	:temModalidadeParticipacao :PES0007.
+	
+#:PESITZ0003 a :Pessoa, owl:NamedIndividual ;
+#	:orcidPessoaInstitucionalizada "https://orcid.org/0000-0003-1565-7366" ;
+#	:lattesPessoaInstitucionalizada "http://lattes.cnpq.br/9280443047358807" ;
+#	:associadaIES :PES0003.
+
+# Coorientador
+#:COO0001 a :Coorientador, owl:NamedIndividual.

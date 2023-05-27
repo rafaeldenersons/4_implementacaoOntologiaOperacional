@@ -1,0 +1,668 @@
+# Ontologia operacional parcial - inicialmente gerada por Export-gUFO no VP
+
+# Alterações aplicadas:
+# - eliminação completa de todas as entidades enumeration e todos os seus itens
+# - exclusão do object owl:NamedIndividual de todas as classes
+# - exclusão completa dos rdfs:label e rdfs:comment de todas as entidades (classes e propriedades)
+
+# Namespaces básicos
+@prefix : <http://dados.ufes.br/tcc/onto#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix data: <http://dados.ufes.br/tcc/data#>.
+
+<http://dados.ufes.br/tcc/onto> rdf:type owl:Ontology;
+    owl:imports gufo:.
+
+#==================
+# Classes 
+#==================
+
+# Pessoa
+:Pessoa rdf:type owl:Class, gufo:Kind ;
+rdfs:subClassOf gufo:FunctionalComplex .
+
+# Acervo
+:Acervo rdf:type owl:Class, gufo:Kind ;
+rdfs:subClassOf gufo:FunctionalComplex .
+		
+# Cadastrador
+:Cadastrador rdf:type owl:Class, gufo:SubKind  .
+:Cadastrador rdfs:subClassOf :Pessoa.
+:Cadastrador rdfs:subClassOf :PessoaInstitucionalizada.
+
+# Discente
+:Discente rdf:type owl:Class, gufo:SubKind  .
+:Discente rdfs:subClassOf :Pessoa.
+:Discente rdfs:subClassOf :PessoaInstitucionalizada.
+
+# Discente Egresso
+:DiscenteEgresso rdf:type owl:Class, gufo:SubKind  .
+:DiscenteEgresso rdfs:subClassOf :Discente.
+
+# Membro
+:Membro rdf:type owl:Class, gufo:SubKind  .
+:Membro rdfs:subClassOf :Pessoa.
+
+# Digitalizador
+:Digitalizador rdf:type owl:Class, gufo:SubKind  .
+:Digitalizador rdfs:subClassOf :Pessoa.
+:Digitalizador rdfs:subClassOf :PessoaInstitucionalizada.
+
+# Bolsa de Estudo
+:BolsaEstudo rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:FunctionalComplex.	
+
+# Bolsista
+:Bolsista rdf:type owl:Class, gufo:SubKind  .
+:Bolsista rdfs:subClassOf :Discente.
+
+# Não Bolsista
+:NaoBolsista rdf:type owl:Class, gufo:SubKind  .
+:NaoBolsista rdfs:subClassOf :Discente.
+
+# Orientador
+:Orientador rdf:type owl:Class, gufo:SubKind  .
+:Orientador rdfs:subClassOf :Membro.
+
+# Coorientador
+:Coorientador rdf:type owl:Class, gufo:SubKind  .
+:Coorientador rdfs:subClassOf :Membro.
+
+# Patrocinador
+:Patrocinador rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:FunctionalComplex.
+
+# Contrato
+:Contrato rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:FunctionalComplex.
+
+# Defesa
+:Defesa rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:Relator.
+
+# Cadastro
+:Cadastro rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:Relator.
+
+# Trabalho de Conclusão de Curso
+:TrabalhoConclusaoCurso rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:FunctionalComplex.
+
+# Banca
+:Banca rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:FunctionalComplex.
+
+# Examinador
+:Examinador rdf:type owl:Class, gufo:SubKind  .
+:Examinador rdfs:subClassOf :Membro.
+
+# Examinador Interno
+:ExaminadorInterno rdf:type owl:Class, gufo:SubKind  .
+:ExaminadorInterno rdfs:subClassOf :Examinador.
+
+# Examinador Externo
+:ExaminadorExterno rdf:type owl:Class, gufo:SubKind  .
+:ExaminadorExterno rdfs:subClassOf :Examinador.
+
+# Documento de Aprovação
+:DocumentoDeAprovacao  rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:FunctionalComplex.
+
+# Pessoa Institucionalizada
+:PessoaInstitucionalizada rdf:type owl:Class, gufo:SubKind  .
+:PessoaInstitucionalizada rdfs:subClassOf :Pessoa.
+
+# Programa de Pós-Graduação
+:ProgramaPosGraduacao rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:FunctionalComplex.
+
+# Tese
+:Tese rdf:type owl:Class, gufo:SubKind  .
+:Tese rdfs:subClassOf :TrabalhoConclusaoCurso.
+
+# Dissertação
+:Dissertacao rdf:type owl:Class, gufo:SubKind  .
+:Dissertacao rdfs:subClassOf :TrabalhoConclusaoCurso.
+
+# Documento
+:Documento  rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:FunctionalComplex.
+
+# Documento Impresso
+:DocumentoImpresso rdf:type owl:Class, gufo:SubKind  .
+:DocumentoImpresso rdfs:subClassOf :Documento.
+
+# Documento Digital
+:DocumentoDigital rdf:type owl:Class, gufo:SubKind  .
+:DocumentoDigital rdfs:subClassOf :Documento.
+
+# Nato Digital
+:NatoDigital rdf:type owl:Class, gufo:SubKind  .
+:NatoDigital rdfs:subClassOf :DocumentoDigital.
+
+# Digitalizado
+:Digitalizado rdf:type owl:Class, gufo:SubKind  .
+:Digitalizado rdfs:subClassOf :DocumentoDigital.
+
+# Local
+:Local rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:FunctionalComplex.
+
+# Local Físico
+:LocalFisico rdf:type owl:Class, gufo:SubKind  .
+:LocalFisico rdfs:subClassOf :Local.
+
+# Local Virtual
+:LocalVirtual rdf:type owl:Class, gufo:SubKind  .
+:LocalVirtual rdfs:subClassOf :Local.
+
+# Palavra-Chave
+:PalavraChave rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:FunctionalComplex.
+
+# Área de Conhecimento do CNPq
+:AreaConhecimentoCNPq rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:FunctionalComplex.
+
+# Área Primária
+:AreaPrimaria rdf:type owl:Class, gufo:SubKind  .
+:AreaPrimaria rdfs:subClassOf :AreaConhecimentoCNPq.
+
+# Área Secundária
+:AreaSecundaria rdf:type owl:Class, gufo:SubKind  .
+:AreaSecundaria rdfs:subClassOf :AreaConhecimentoCNPq.
+
+# Área Terciária
+:AreaTerciaria rdf:type owl:Class, gufo:SubKind  .
+:AreaTerciaria rdfs:subClassOf :AreaConhecimentoCNPq.
+
+# Grande Área
+:GrandeArea rdf:type owl:Class, gufo:SubKind  .
+:GrandeArea rdfs:subClassOf :AreaConhecimentoCNPq.
+
+# Área 
+:Area rdf:type owl:Class, gufo:SubKind  .
+:Area rdfs:subClassOf :AreaConhecimentoCNPq.
+
+# Subárea 
+:Subarea rdf:type owl:Class, gufo:SubKind  .
+:Subarea rdfs:subClassOf :AreaConhecimentoCNPq.
+
+# Especialidade
+:Especialidade rdf:type owl:Class, gufo:SubKind  .
+:Especialidade rdfs:subClassOf :AreaConhecimentoCNPq.
+
+# Rede de Ensino
+:RedeEnsino  rdf:type owl:Class, gufo:SubKind  .
+:RedeEnsino rdfs:subClassOf :OrganizacaoEnsino.
+
+# Convênio
+:Convenio rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:FunctionalComplex.
+
+# Produto
+:Produto rdf:type owl:Class, gufo:SubKind  .
+:Produto rdfs:subClassOf :TrabalhoConclusaoCurso.
+
+# Mestrado
+:Mestrado rdf:type owl:Class, gufo:SubKind  .
+:Mestrado rdfs:subClassOf :CursoPosGraduacao.
+
+# Doutorado
+:Doutorado rdf:type owl:Class, gufo:SubKind  .
+:Doutorado rdfs:subClassOf :CursoPosGraduacao.
+
+# Curso Acadêmico
+:CursoAcademico rdf:type owl:Class, gufo:SubKind  .
+:CursoAcademico rdfs:subClassOf :CursoPosGraduacao.
+
+# Curso Profissional
+:CursoProfissional rdf:type owl:Class, gufo:SubKind  .
+:CursoProfissional rdfs:subClassOf :CursoPosGraduacao.
+
+# Organização de Ensino
+:OrganizacaoEnsino rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:FunctionalComplex.
+
+# Instituição de Ensino Superior
+:InstituicaoEnsinoSuperior rdf:type owl:Class, gufo:SubKind  .
+:InstituicaoEnsinoSuperior rdfs:subClassOf :OrganizacaoEnsino.	
+
+# Condição para Aprovação
+:CondicaoAprovacao rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:FunctionalComplex.
+
+# Curso de Pós-Graduação
+:CursoPosGraduacao rdf:type owl:Class, gufo:SubKind  .
+rdfs:subClassOf gufo:FunctionalComplex.
+	
+#==================
+# DatatypeProperty
+#==================
+
+#Pessoa
+:nomePessoa rdfs:domain :Pessoa;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:funcaoPessoa rdfs:domain :Pessoa;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:emailInstitucionalPessoa rdfs:domain :Pessoa;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+	
+:emailAlternativoPessoa rdfs:domain :Pessoa;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.	
+
+# Discente
+#:matriculaDiscente rdfs:domain :Pessoa;
+:matriculaDiscente rdfs:domain :PessoaInstitucionalizada;
+    rdfs:range xsd:int;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+#:telefoneDiscente rdfs:domain :Pessoa;
+:telefoneDiscente rdfs:domain :PessoaInstitucionalizada;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+# Membro
+:modalidadeParticipacaoMembro rdfs:domain :Pessoa;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+# Patrocinador
+:nomePatrocinador rdfs:domain :Patrocinador;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+# Contrato
+:inicioContrato rdfs:domain :Contrato;
+    rdfs:range xsd:date;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:fimContrato rdfs:domain :Contrato;
+    rdfs:range xsd:date;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+# Defesa
+:dataHoraAvaliacaoDefesa rdfs:domain :Defesa;
+    rdfs:range xsd:date;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.										   
+
+# Pessoa Institucionalizada
+:orcidPessoaInstitucionalizada rdfs:domain :Pessoa;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:lattesPessoaInstitucionalizada rdfs:domain :Pessoa;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+# Cadastro
+:identificadorRegistroCadastro rdfs:domain :Cadastro;
+    rdfs:range xsd:int;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:dataHoraRegistroCadastro rdfs:domain :Cadastro;
+    rdfs:range xsd:date;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+# Programa de Pós-Graduação
+:nomeProgramaPosGraduacao rdfs:domain :ProgramaPosGraduacao;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+# Documento
+:identificacaoUnicaDocumento rdfs:domain :Documento;
+    rdfs:range xsd:int;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:tituloDocumento rdfs:domain :Documento;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:resumoDocumento rdfs:domain :Documento;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:semestreLetivoDocumento rdfs:domain :Documento;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:idiomaDocumento rdfs:domain :Documento;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:numeroPaginasDocumento rdfs:domain :Documento;
+    rdfs:range xsd:int;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:uriDisseminacaoDocumento rdfs:domain :Documento;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+# Documento Digital
+:nomePDF rdfs:domain :DocumentoDigital;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:tipoPDF rdfs:domain :DocumentoDigital;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:tamanhoKilobites rdfs:domain :DocumentoDigital;
+    rdfs:range xsd:int;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:descricaoAnexos rdfs:domain :DocumentoDigital;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+# Digitalizado
+:dataDigitalizacaoDigitalizado rdfs:domain :Digitalizado;
+    rdfs:range xsd:date;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:modoOcrImagemDigitalizado rdfs:domain :Digitalizado;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+# Local Físico
+:cidade rdfs:domain :LocalFisico;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:estado rdfs:domain :LocalFisico;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:pais rdfs:domain :LocalFisico;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+# Local Virtual
+:descricaoCaminhoLocalVirtual rdfs:domain :LocalVirtual;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+# Palavra-Chave
+:termoPortuguesPalavraChave rdfs:domain :PalavraChave;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+                                     
+:termoInglesPalavraChave rdfs:domain :PalavraChave;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+# Instituição de Ensino Superior
+:sigla rdfs:domain :InstituicaoEnsinoSuperior;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:nome rdfs:domain :InstituicaoEnsinoSuperior;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:webPage rdfs:domain :InstituicaoEnsinoSuperior;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:uri rdfs:domain :InstituicaoEnsinoSuperior;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+:unidade rdfs:domain :InstituicaoEnsinoSuperior;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+# Curso de Pós-Graduação
+:nomeCursoPosGraduacao rdfs:domain :CursoPosGraduacao;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+
+#==================
+# ObjectProperty
+#==================
+
+# Acervo pertenceIES InstituicaoEnsinoSuperior
+:pertenceIES rdf:type owl:ObjectProperty;
+    rdfs:domain :Acervo;
+    rdfs:range :InstituicaoEnsinoSuperior.
+	
+# Cadastrador registraCadastro Cadastro	
+:registraCadastro rdf:type owl:ObjectProperty;
+    rdfs:domain :Cadastrador;
+    rdfs:range :Cadastro.
+
+# Bolsista recebeContrato Contrato	
+:recebeContrato rdf:type owl:ObjectProperty;
+    rdfs:domain :Bolsista;
+    rdfs:range :Contrato.
+
+# Contrato porBolsaEstudo BolsaEstudo
+:porBolsaEstudo rdf:type owl:ObjectProperty;
+    rdfs:domain :Contrato;
+    rdfs:range :BolsaEstudo.
+
+# Patrocinador disponibilizaBolsaEstudos BolsaEstudo
+:disponibilizaBolsaEstudo rdf:type owl:ObjectProperty;
+    rdfs:domain :Patrocinador;
+    rdfs:range :BolsaEstudo.
+
+# Digitalizador digitalizaDocumento Documento
+:digitalizaDocumento rdf:type owl:ObjectProperty;
+    rdfs:domain :Digitalizador;
+    rdfs:range :Documento.
+
+#  DocumentoDigital guardado LocalVirtual
+:guardado rdf:type owl:ObjectProperty;
+    rdfs:domain :DocumentoDigital;
+    rdfs:range :LocalVirtual.
+
+# DocumentoImpresso armazenadoNoLocalFisico LocalFisico 
+:armazenadoNoLocalLocalFisico rdf:type owl:ObjectProperty;
+    rdfs:domain :DocumentoImpresso;
+    rdfs:range :LocalFisico.
+
+# InstituicaoEnsinoSuperior localizadaEmLocalFisico LocalFisico
+:localizadaEmLocalFisico rdf:type owl:ObjectProperty;
+    rdfs:domain :InstituicaoEnsinoSuperior;
+    rdfs:range :LocalFisico.
+
+# TrabalhoConclusaoCurso compostoPorPalavraChave PalavraChave 
+:compostoPorPalavraChave rdf:type owl:ObjectProperty;
+    rdfs:domain :TrabalhoConclusaoCurso;
+    rdfs:range :PalavraChave.
+
+# TrabalhoConclusaoCurso vinculado AreaConhecimentoCNPq
+:vinculado rdf:type owl:ObjectProperty;
+    rdfs:domain :TrabalhoConclusaoCurso;
+    rdfs:range :AreaConhecimentoCNPq.
+
+#  GrandeArea compostaPorArea Area
+:compostaPorArea rdf:type owl:ObjectProperty;
+    rdfs:domain :GrandeArea;
+    rdfs:range :Area.
+
+# Area compostaPorSubarea Subarea 
+:compostaPorSubarea rdf:type owl:ObjectProperty;
+    rdfs:domain :Area;
+    rdfs:range :Subarea.
+
+# Subarea compostaPorEspecialidade Especialidade 
+:compostaPorEspecialidade rdf:type owl:ObjectProperty;
+    rdfs:domain :Subarea;
+    rdfs:range :Especialidade.
+
+# Doutorado finalizadoComTese Tese
+:finalizadoComTese rdf:type owl:ObjectProperty;
+    rdfs:domain :Doutorado;
+    rdfs:range :Tese.
+
+# Mestrado finalizadoComDissertacao Dissertacao
+:finalizadoComDissertacao rdf:type owl:ObjectProperty;
+    rdfs:domain :Mestrado;
+    rdfs:range :Dissertacao.
+
+# Produto temComoResultadoProduto CursoProfissional 
+:temComoResultadoProduto rdf:type owl:ObjectProperty;
+    rdfs:domain :Produto;
+    rdfs:range :CursoProfissional.
+
+# CursoPosGraduacao estabeleceCondicaoAprovacao CondicaoAprovacao
+:estabeleceCondicaoAprovacao rdf:type owl:ObjectProperty;
+    rdfs:domain :CursoPosGraduacao;
+    rdfs:range :CondicaoAprovacao.
+
+# OrganizacaoEnsino ofereceCursoPosGraduacao CursoPosGraduacao
+:ofereceCursoPosGraduacao rdf:type owl:ObjectProperty;
+    rdfs:domain :OrganizacaoEnsino;
+    rdfs:range :CursoPosGraduacao.
+
+# OrganizacaoEnsino temConvenio Convenio
+:temConvenio rdf:type owl:ObjectProperty;
+    rdfs:domain :OrganizacaoEnsino;
+    rdfs:range :Convenio.
+
+# Discente realizaDefesa Defesa
+:realizaDefesa rdf:type owl:ObjectProperty;
+    rdfs:domain :Discente;
+    rdfs:range :Defesa.
+
+# Orientador orientaTCC TrabalhoConclusaoCurso
+:orientaTCC rdf:type owl:ObjectProperty;
+    rdfs:domain :Orientador;
+    rdfs:range :TrabalhoConclusaoCurso.
+
+# ProgramaPosGraduacao compostoPorCursoPosGraduacao CursoPosGraduacao
+:compostoPorCursoPosGraduacao rdf:type owl:ObjectProperty;
+    rdfs:domain :ProgramaPosGraduacao;
+    rdfs:range :CursoPosGraduacao.
+
+# RedeEnsino compostaPorOrganizacaoEnsino OrganizacaoEnsino
+:compostaPorOrganizacaoEnsino rdf:type owl:ObjectProperty;
+    rdfs:domain :RedeEnsino;
+    rdfs:range :OrganizacaoEnsino.
+
+# Defesa geraDocumentoAprovacao DocumentoDeAprovacao
+:geraDocumentoAprovacao rdf:type owl:ObjectProperty;
+    rdfs:domain :Defesa;
+    rdfs:range :DocumentoDeAprovacao.
+
+# Coorientador coorientaTCC TrabalhoConclusaoCurso
+:coorientaTCC rdf:type owl:ObjectProperty;
+    rdfs:domain :Coorientador;
+    rdfs:range :TrabalhoConclusaoCurso.
+
+# Banca avaliaDefesa Defesa
+:avaliaDefesa rdf:type owl:ObjectProperty;
+    rdfs:domain :Banca;
+    rdfs:range :Defesa.
+
+#  CursoPosGraduacao geridoOrganizacaoEnsino OrganizacaoEnsino
+:geridoOrganizacaoEnsino rdf:type owl:ObjectProperty;
+    rdfs:domain :CursoPosGraduacao;
+    rdfs:range :OrganizacaoEnsino.
+
+# Defesa referenteTCC TrabalhoConclusaoCurso
+:referenteTCC rdf:type owl:ObjectProperty;
+    rdfs:domain :Defesa;
+    rdfs:range :TrabalhoConclusaoCurso.
+
+# ProgramaPosGraduacao pertenceOrganizacaoEnsino OrganizacaoEnsino
+:pertenceOrganizacaoEnsino rdf:type owl:ObjectProperty;
+    rdfs:domain :ProgramaPosGraduacao;
+    rdfs:range :OrganizacaoEnsino.
+
+# PessoaInstitucionalizada associadaIES InstituicaoEnsinoSuperior
+:associadaIES rdf:type owl:ObjectProperty;
+    rdfs:domain :PessoaInstitucionalizada;
+    rdfs:range :InstituicaoEnsinoSuperior.
+
+# Defesa ocorreEmUmLocal Local 
+:ocorreEmUmLocal rdf:type owl:ObjectProperty;
+    rdfs:domain :Defesa;
+    rdfs:range :Local.
+
+# Discente elaboraTCC TrabalhoConclusaoCurso
+:elaboraTCC rdf:type owl:ObjectProperty;
+    rdfs:domain :Discente;
+    rdfs:range :TrabalhoConclusaoCurso.
+
+# Banca compostaPorMembro Membro
+:compostaPorMembro rdf:type owl:ObjectProperty;
+    rdfs:domain :Banca;
+    rdfs:range :Membro.
+
+# InstituicaoEnsinoSuperior temOrganizacaoAcademica VocabularioOrganizacaoAcademica
+:temOrganizacaoAcademica rdf:type owl:ObjectProperty;
+    rdfs:domain :InstituicaoEnsinoSuperior;
+    rdfs:range :VocabularioOrganizacaoAcademica.
+
+# DocumentoDigital temVocabularioPDF VocabularioPDF 
+:temVocabularioPDF rdf:type owl:ObjectProperty;
+    rdfs:domain :DocumentoDigital;
+    rdfs:range :VocabularioPDF.
+
+# Documento temVocabularioIdioma VocabularioIdioma
+:temVocabularioIdioma rdf:type owl:ObjectProperty;
+    rdfs:domain :Documento;
+    rdfs:range :VocabularioIdioma.
+
+# InstituicaoEnsinoSuperior temCategoriaAdministrativa VocabularioCategoriaAdministrativa
+:temCategoriaAdministrativa rdf:type owl:ObjectProperty;
+    rdfs:domain :InstituicaoEnsinoSuperior;
+    rdfs:range :VocabularioCategoriaAdministrativa.
+
+# Membro temModalidadeParticipacao VocabularioModalidadeParticipacao
+:temModalidadeParticipacao rdf:type owl:ObjectProperty;
+    rdfs:domain :Membro;
+    rdfs:range :VocabularioModalidadeParticipacao.

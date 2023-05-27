@@ -1,0 +1,3016 @@
+@prefix : <http://dados.ufes.br/tcc/onto#> .
+@prefix grddl: <http://www.w3.org/2003/g/data-view#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix data: <http://dados.ufes.br/tcc/data#> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix schema: <http://schema.org/> .
+@prefix caresses: <http://caressesrobot.org/ontology#> .
+@prefix dqm: <http://purl.org/dqm-vocabulary/v1/dqm#> .
+@prefix wdo: <http://www.wikidata.org/ontology#> .
+@prefix pext: <http://www.ontotext.com/proton/protonext#> .
+@prefix frapo: <http://purl.org/cerif/frapo> .
+@prefix iol: <http://www.ontologydesignpatterns.org/ont/dul/IOLite.owl#> .
+@prefix frbrer: <http://iflastandards.info/ns/fr/frbr/frbrer/> .
+@prefix cwrc: <http://sparql.cwrc.ca/ontology/cwrc#> .
+@prefix meb: <http://rdf.myexperiment.org/ontologies/base/> .
+@prefix ptop: <http://www.ontotext.com/proton/protontop#> .
+@prefix sur: <https://w3id.org/survey-ontology#> .
+@prefix essglobal: <http://purl.org/essglobal/vocab/> .
+@prefix whois: <http://www.kanzaki.com/ns/whois#> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix pproc: <http://contsem.unizar.es/def/sector-publico/pproc#> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix xapi: <http://ns.inria.fr/ludo/v1/xapi> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> .
+@prefix seo: <https://w3id.org/seo#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix scoro: <http://purl.org/spar/scoro/> .
+@prefix km4c: <http://www.disit.org/km4city/schema#> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix gn: <https://sws.geonames.org/> .
+@prefix ov: <http://open.vocab.org/terms/> .
+@prefix teach: <http://linkedscience.org/teach/ns#> .
+@prefix voag: <http://voag.linkedmodel.org/voag#> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix poder: <http://dev.poderopedia.com/vocab/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix base-gleif: <https://www.gleif.org/ontology/v1.0/Base/index-en.html#> .
+@prefix sro: <http://salt.semanticauthoring.org/ontologies/sro#> .
+@prefix itsmo: <http://ontology.it/itsmo/v1#> .
+@prefix cwmo: <http://purl.org/cwmo/#> .
+@prefix dcndl: <http://ndl.go.jp/dcndl/terms/> .
+@prefix bibframe: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix crsw: <http://courseware.rkbexplorer.com/ontologies/courseware#> .
+@prefix mrel: <http://id.loc.gov/vocabulary/relators/> .
+
+rdfs:subClassOf gufo:FunctionalComplex ""^^xsd:integer;
+  gufo:Relator ""^^xsd:integer .
+
+<http://dados.ufes.br/tcc/onto> a owl:Ontology;
+  rdfs:label "OntoTCC";
+  rdfs:comment "Projeto de elaboração de OntoTCC: Uma ontologia de Acervo de Dissertações"@pt;
+  owl:imports <http://purl.org/nemo/gufo#>;
+  owl:versionInfo "1.0";
+  dct:title "Ontologia Microdados OntoTCC"@pt;
+  dct:contributor "Henrique Monteiro Cristovao", "Maria das Graças da Silva Teixeira";
+  dct:description "Ontologia operacional de alguns elementos da base de dados de dissertações do PPGCI/UFES"@pt;
+  dct:creator "Rafael Denerson Ramos de Sousa";
+  dct:created "2022-12-06"^^xsd:date;
+  dct:modified "2023-02-10"^^xsd:date;
+  <http://creativecommons.org/ns#licence> "https://creativecommons.org/licenses/by-sa/4.0/"^^xsd:anyURI .
+
+:Pessoa a owl:Class, owl:NamedIndividual, gufo:Kind;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "Pessoa"@pt, "Pessoa"@en;
+  rdfs:comment "Criatura humana ou indivíduo humano enquanto sujeito de direitos e deveres."@pt,
+    """# Design annotations 
+ 
+:Pessoa
+rdfs:label \"Pessoa\"@pt;
+rdfs:comment \"Criatura humana ou indiv�duo humano enquanto sujeito de direitos e deveres.\"@pt;
+owl:equivalentClass schema:Person.
+
+:nomePessoa
+a owl:FunctionalProperty;
+rdfs:label \"nome da pessoa\"@pt;
+rdfs:comment \"Nome completo e por extenso da pessoa\"@pt;
+owl:equivalentProperty foaf:name,
+                                     dc:name.
+
+:funcaoPessoa
+a owl:FunctionalProperty;
+rdfs:label \"fun��o\"@pt;
+rdfs:comment \"Fun��o exercida por uma pessoa.\"@pt;
+owl:equivalentProperty bibframe:role.
+
+:emailInstitucionalPessoa
+a owl:FunctionalProperty;
+rdfs:label \"e-mail institucional\"@pt;
+rdfs:comment \"Trata-se do e-mail Institucional de uma pessoa.\"@pt;
+owl:equivalentProperty foaf:mbox,
+                                      pext:hasEMail.
+
+:emailAlternativoPessoa
+a owl:FunctionalProperty;
+rdfs:label \"e-mail alternativo\"@pt;
+rdfs:comment \"Trata-se do e-mail alternativo de uma pessoa.\"@pt;
+owl:equivalentProperty km4c:alternativeEmail."""@en;
+  owl:equivalentClass schema:Person .
+
+:Acervo a owl:Class, owl:NamedIndividual, gufo:Kind;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "Acervo"@pt, "Acervo"@en;
+  rdfs:comment "Local que contém todos os documentos depositados em suas bibliotecas e que estão à disposição do público para estudo e pesquisa, na dependência específica de reprodução."@pt,
+    """# Design annotations 
+ 
+:Acervo
+rdfs:label \"Acervo\"@pt;
+rdfs:comment \"Local que cont�m todos os documentos depositados em suas bibliotecas e que est�o � disposi��o do p�blico para estudo e pesquisa, na depend�ncia espec�fica de reprodu��o.\"@pt;
+owl:equivalentClass fabio:WorkCollection,
+                                 fabio:DocumentRepository."""@en;
+  owl:equivalentClass fabio:WorkCollection, fabio:DocumentRepository .
+
+:Cadastrador a owl:Class, owl:NamedIndividual, gufo:SubKind, gufo:Role;
+  rdfs:subClassOf :Pessoa, :PessoaInstitucionalizada;
+  rdfs:label "Cadastrador"@pt, "Cadastrador"@en;
+  rdfs:comment "Trata-se de quem cadastra as teses e as dissertações em um Acervo."@pt,
+    """# Design annotations 
+ 
+:Cadastrador
+rdfs:label \"Cadastrador\"@pt;
+rdfs:comment \"Trata-se de quem cadastra as teses e as disserta��es em um Acervo.\"@pt;
+owl:equivalentClass caresses:User."""@en;
+  owl:equivalentClass caresses:User .
+
+:PessoaInstitucionalizada a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :Pessoa;
+  rdfs:label "Pessoa Institucionalizada"@pt, "PessoaInstitucionalizada"@en;
+  rdfs:comment "Refere-se a um indivíduo humano associado a uma Instituição de Ensino Superior."@pt,
+    """# Design annotations 
+ 
+:PessoaInstitucionalizada
+rdfs:label \"Pessoa Institucionalizada\"@pt;
+rdfs:comment \"Refere-se a um indiv�duo humano associado a uma Institui��o de Ensino Superior.\"@pt;
+owl:equivalentClass scoro:EducationalRole,
+                                 whois:academicCareer. #(whois)
+
+:orcidPessoaInstitucionalizada
+a owl:FunctionalProperty;
+rdfs:label \"orcid\"@pt;
+rdfs:comment \"Diz respeito ao orcid de uma pessoa associada a uma Institui��o.\"@pt;
+owl:equivalentProperty scoro:hasORCID.
+
+:lattesPessoaInstitucionalizada
+a owl:FunctionalProperty;
+rdfs:label \"lattes\"@pt;
+rdfs:comment \"Diz respeito ao lattes de uma pessoa associada a uma Institui��o.\"@pt;
+owl:equivalentProperty frapo:hasCurriculumVitae.
+
+# :referenciaAcademica
+# a owl:FunctionalProperty;
+# rdfs:label \"refer�ncia acad�mica\"@pt;
+# rdfs:comment \"Diz respeito aa pr�pria refer�ncia acad�mica da pessoa institucionalizada.\"@pt;
+# owl:equivalentProperty bibframe:references."""@en;
+  owl:equivalentClass scoro:EducationalRole, whois:academicCareer .
+
+:Discente a owl:Class, owl:NamedIndividual, gufo:SubKind, gufo:Role;
+  rdfs:subClassOf :Pessoa, :PessoaInstitucionalizada;
+  rdfs:label "Discente"@pt, "Discente"@en;
+  rdfs:comment "Na Educação Superior o verbete aluno refere-se ao estudante. Trata-se do enfoque no processo de aprendizagem, dos saberes discentes e dos diferentes tipos de estudantes (considerados em suas distinções pessoais e nas circunstâncias da academia)."@pt,
+    """# Design annotations 
+ 
+:Discente
+rdfs:label \"Discente\"@pt;
+rdfs:comment \"Na Educa��o Superior o verbete aluno refere-se ao estudante. Trata-se do enfoque no processo de aprendizagem, dos saberes discentes e dos diferentes tipos de estudantes (considerados em suas distin��es pessoais e nas circunst�ncias da academia).\"@pt;
+owl:equivalentClass sio:SIO_000405,
+                                 seo:Student.
+                                 # para indiv�duo -> scoro: postgraduate-student.
+
+:matriculaDiscente
+a owl:FunctionalProperty;
+rdfs:label \"matr�cula do discente\"@pt;
+rdfs:comment \"A matr�cula de um discente � o seu identificador �nico.\"@pt;
+owl:equivalentProperty dc:identifier.
+
+:telefoneDiscente
+a owl:FunctionalProperty;
+rdfs:label \"telefone do discente\"@pt;
+rdfs:comment \"Diz respeito ao n�mero de telefone do discente.\"@pt;
+owl:equivalentProperty foaf:phone."""@en;
+  owl:equivalentClass sio:SIO_000405, seo:Student .
+
+:DiscenteEgresso a owl:Class, owl:NamedIndividual, gufo:SubKind, gufo:Role;
+  rdfs:subClassOf :Discente;
+  rdfs:label "Discente Egresso"@pt, "DiscenteEgresso"@en;
+  rdfs:comment "."@pt, """# Design annotations 
+ 
+:DiscenteEgresso
+rdfs:label \"Discente Egresso\"@pt;
+rdfs:comment \".\"@pt;
+owl:equivalentClass sio:SIO_000399."""@en;
+  owl:equivalentClass sio:SIO_000399 .
+
+:Membro a owl:Class, owl:NamedIndividual, gufo:SubKind, gufo:Role;
+  rdfs:subClassOf :Pessoa;
+  rdfs:label "Membro"@pt, "Membro"@en;
+  rdfs:comment "Trata-se de integrante da comissão examinadora de defesa de qualificação, dissertação ou tese interno ou externo ao programa de pós-graduação e à Instituição que participa."@pt,
+    """# Design annotations 
+ 
+:Membro
+rdfs:label \"Membro\"@pt;
+rdfs:comment \"Trata-se de integrante da comiss�o examinadora de defesa de qualifica��o, disserta��o ou tese interno ou externo ao programa de p�s-gradua��o e � Institui��o que participa.\"@pt;
+owl:equivalentClass foaf:Group,
+                                 scoro:EducationalRole,
+                                 vivo:MemberRole.
+
+:modalidadeParticipacaoMembro
+a owl:FunctionalProperty;
+rdfs:label \"modalidade de participa��o\"@pt;
+rdfs:comment \"Trata-se da modalidade de participa��o da banca de avalia��o por parte do membro: presencial ou online.\"@pt;
+owl:equivalentProperty pproc:criterionEvaluationMode.
+
+
+
+
+
+MEMBRO INSTITUCIONALIZADO (documentar)
+
+owl:class MembroInstitucionalizado
+rdfs:comment \"Trata-se de integrante da comiss�o examinadora de defesa de qualifica��o, disserta��o ou tese interno ao programa de p�s-gradua��o e � Institui��o que participa.\"@pt
+rdfs:label \"MembroInstitucionalizado\"@pt
+owl:equivalentClass
+vivo:MemberRole
+owl:datatypeProperty 
+matriculaSiape[1]: xsd:string
+rdfs:comment \"Identificador �nico de um coorientador\"@pt
+rdfs:label \"matr�cula siape\"@pt
+owl:equivalentProperty
+dc:identifier
+ 
+ """@en;
+  owl:equivalentClass foaf:Group, scoro:EducationalRole, vivo:MemberRole .
+
+:Digitalizador a owl:Class, owl:NamedIndividual, gufo:SubKind, gufo:Role;
+  rdfs:subClassOf :Pessoa, :PessoaInstitucionalizada;
+  rdfs:label "Digitalizador"@pt, "Digitalizador"@en;
+  rdfs:comment "Trata-se de uma pessoa institucionalizada que digitaliza as teses e as dissertações."@pt,
+    """# Design annotations 
+ 
+:Digitalizador
+rdfs:label \"Digitalizador\"@pt;
+rdfs:comment \"Trata-se de uma pessoa institucionalizada que digitaliza as teses e as disserta��es.\"@pt."""@en .
+
+:BolsaEstudo a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "Bolsa de Estudo"@pt, "BolsaEstudo"@en;
+  rdfs:comment "Trata-se de um patrocínio do governo."@pt, """# Design annotations 
+ 
+:BolsaEstudo 
+rdfs:label \"Bolsa de Estudo\"@pt;
+rdfs:comment \"Trata-se de um patroc�nio do governo.\"@pt;
+owl:equivalentClass frapo:scholarship,
+                                 frapo:Studentship."""@en;
+  owl:equivalentClass <http://purl.org/cerif/fraposcholarship>, <http://purl.org/cerif/frapoStudentship> .
+
+:Bolsista a owl:Class, owl:NamedIndividual, gufo:SubKind, gufo:Role;
+  rdfs:subClassOf :Discente;
+  rdfs:label "Bolsista"@pt, "Bolsista"@en;
+  rdfs:comment "É todo aluno que recebe uma Bolsa de Estudos."@pt, """# Design annotations 
+ 
+:Bolsista
+rdfs:label \"Bolsista\"@pt;
+rdfs:comment \"� todo aluno que recebe uma Bolsa de Estudos.\"@pt;
+owl:equivalentClass scoro:FinancialRole,
+                                 sio:SIO_000406."""@en;
+  owl:equivalentClass scoro:FinancialRole, sio:SIO_000406 .
+
+:NaoBolsista a owl:Class, owl:NamedIndividual, gufo:SubKind, gufo:Role;
+  rdfs:subClassOf :Discente;
+  rdfs:label "NaoBolsista"@pt, "NaoBolsista"@en;
+  rdfs:comment "Aluno que faz parte de uma pesquisa acadêmica por espontânea vontade e sem retribuição financeira."@pt,
+    """# Design annotations 
+ 
+:NaoBolsista
+rdfs:label \"NaoBolsista\"@pt;
+rdfs:comment \"Aluno que faz parte de uma pesquisa acad�mica por espont�nea vontade e sem retribui��o financeira.\"@pt."""@en .
+
+:Orientador a owl:Class, owl:NamedIndividual, gufo:SubKind, gufo:Role;
+  rdfs:subClassOf :Membro;
+  rdfs:label "Orientador"@pt, "Orientador"@en;
+  rdfs:comment "É membro e presidente da Banca Examinadora. Caracteriza-se pelo processo de acompanhamento, tutoria, direcionamento e apoio ao estudante orientando em uma série de aspectos pesquisados, que são decisivos na formação dos futuros orientadores e pesquisadores."@pt,
+    """# Design annotations 
+ 
+:Orientador
+rdfs:label \"Orientador\"@pt;
+rdfs:comment \"� membro e presidente da Banca Examinadora. Caracteriza-se pelo processo de acompanhamento, tutoria, direcionamento e apoio ao estudante orientando em uma s�rie de aspectos pesquisados, que s�o decisivos na forma��o dos futuros orientadores e pesquisadores.\"@pt;
+owl:equivalentClass mrel:ths,
+                                 sio:SIO_000878, # (Orientador)
+                                 mrel:Thesis advisor.
+
+ """@en;
+  owl:equivalentClass mrel:ths, sio:SIO_000878, mrel:Thesisadvisor .
+
+:Coorientador a owl:Class, owl:NamedIndividual, gufo:SubKind, gufo:Role;
+  rdfs:subClassOf :Membro;
+  rdfs:label "Coorientador"@pt, "Coorientador"@en;
+  rdfs:comment "É membro da Banca Examinadora (BRASIL, 2022b) que é caracterizado por acompanhar o processo de tutoria, direcionar e apoiar ao aluno orientando em uma série de aspectos pesquisados, que são decisivos na formação dos futuros orientadores e pesquisadores."@pt,
+    """
+# Design annotations 
+ 
+:Coorientador
+rdfs:label \"Coorientador\"@pt;
+rdfs:comment \"� membro da Banca Examinadora (BRASIL, 2022b) que � caracterizado por acompanhar o processo de tutoria, direcionar e apoiar ao aluno orientando em uma s�rie de aspectos pesquisados, que s�o decisivos na forma��o dos futuros orientadores e pesquisadores.\"@pt;
+owl:equivalentClass mrel:ths,
+                                 sio:SIO_000878, #(Orientador)
+                                 mrel:Thesis advisor."""@en;
+  owl:equivalentClass mrel:ths, sio:SIO_000878, mrel:Thesisadvisor .
+
+:Patrocinador a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "Patrocinador"@pt, "Patrocinador"@en;
+  rdfs:comment "Trata-se do patrocinador que disponibiliza Bolsa de Estudo."@pt, """# Design annotations 
+ 
+:Patrocinador
+rdfs:label \"Patrocinador\"@pt;
+rdfs:comment \"Trata-se do patrocinador que disponibiliza Bolsa de Estudo.\"@pt;
+owl:equivalentClass frapo:FinancialEntity,
+                                  frapo:FundingProgramme.
+
+:nomePatrocinador
+a owl:FunctionalProperty;
+rdfs:label \"nome do patrocinador\"@pt;
+rdfs:comment \"Trata-se do nome do Patrocinador.\"@pt;"""@en;
+  owl:equivalentClass <http://purl.org/cerif/frapoFinancialEntity>, <http://purl.org/cerif/frapoFundingProgramme> .
+
+:Contrato a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf gufo:Relator;
+  rdfs:label "Contrato"@pt, "Contrato"@en;
+  rdfs:comment "Diz respeito ao contrato de bolsa de estudos que é disponibilizado por um patrocinador (agência de fomento)."@pt,
+    """# Design annotations 
+ 
+:Contrato
+rdfs:label \"Contrato\"@pt;
+rdfs:comment \"Diz respeito ao contrato de bolsa de estudos que � disponibilizado por um patrocinador (ag�ncia de fomento).\"@pt;
+
+:inicioContrato
+a owl:FunctionalProperty;
+rdfs:label \"in�cio\"@pt;
+rdfs:comment \"Diz respeito a data de in�cio referente um contrato que um bolsista recebe por bolsa de estudos.\"@pt;
+
+:fimContrato
+a owl:FunctionalProperty;
+rdfs:label \"fim\"@pt;
+rdfs:comment \"Diz respeito a data fim em um contrato que um bolsista recebe por bolsa de estudos.\"@pt."""@en .
+
+:Defesa a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf gufo:Relator;
+  rdfs:label "Defesa"@pt, "Defesa"@en;
+  rdfs:comment "."@pt, """# Design annotations 
+ 
+:Defesa
+rdfs:label \"Defesa\"@pt ;
+rdfs:comment \".\"@pt;
+owl:equivalentClass schema:EducationEvent,
+                                 sro:Evaluation,
+                                 sro:Discussion,
+                                 sro:Argument,
+                                 sro:Claim.
+
+:dataHoraAvaliacaoDefesa
+a owl:FunctionalProperty;
+rdfs:label \"data e hora de avalia��o\"@pt;
+rdfs:comment \"Diz respeito a data e a hora de avalia��o de uma defesa.\"@pt;
+owl:equivalentProperty fabio: hasDecisionDate,
+                                     dcat:record,
+                                     ptop:registeredIn."""@en;
+  owl:equivalentClass schema:EducationEvent, sro:Evaluation, sro:Discussion, sro:Argument,
+    sro:Claim .
+
+:Cadastro a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf gufo:Relator, _:node1gs845llsx38, _:node1gs845llsx39;
+  rdfs:label "Cadastro"@pt, "Cadastro"@en;
+  rdfs:comment "."@pt, """# Design annotations 
+ 
+:Cadastro
+rdfs:label \"Cadastro\"@pt;
+rdfs:comment \".\"@pt;
+owl:equivalentClass fabio:ArchivalRecordSet.
+
+:identificadorRegistroCadastro
+a owl:FunctionalProperty;
+rdfs:label \"identificador do registro\"@pt;
+rdfs:comment \"Diz respeito ao identificador �nico de um registro quanto ao Cadastro referente ao Trabalho de Conclus�o de Curso que ocorre no acervo.\"@pt;
+owl:equivalentProperty frapo:identifier.
+
+:dataHoraRegistroCadastro
+a owl:FunctionalProperty;
+rdfs:label \"data/hora do registro\"@pt;
+rdfs:comment \"Diz respeito a data/hora de um registro quanto ao Cadastro referente ao Trabalho de Conclus�o de Curso que ocorre no acervo.\"@pt;
+owl:equivalentProperty fabio:hasDateCollected,
+                                      bibframe:date,
+                                      dc:date,
+                                      dc:dateSubmitted."""@en;
+  owl:equivalentClass fabio:ArchivalRecordSet .
+
+:TrabalhoConclusaoCurso a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "Trabalho de Conclusão de Curso"@pt, "TrabalhoConclusaoCurso"@en;
+  rdfs:comment "Deve ser um trabalho acadêmico de finalização do curso, sendo necessariamente, pelo menos, na modalidade de uma monografia, ou outros trabalhos técnicos associados quando previstos. São trabalhos que retratam o resultado de estudo ou pesquisa sobre um tema, sejam eles exigidos por disciplina, módulo, estudo independente, curso e programa."@pt,
+    """# Design annotations 
+ 
+:TrabalhoConclusaoCurso
+rdfs:label \"Trabalho de Conclus�o de Curso\"@pt;
+rdfs:comment \"Deve ser um trabalho acad�mico de finaliza��o do curso, sendo necessariamente, pelo menos, na modalidade de uma monografia, ou outros trabalhos t�cnicos associados quando previstos.
+S�o trabalhos que retratam o resultado de estudo ou pesquisa sobre um tema, sejam eles exigidos por disciplina, m�dulo, estudo independente, curso e programa.\"@pt;
+owl:equivalentClass schema:Thesis,
+                                 fabio:ScholarlyWork,
+                                 frbrer:C1004,
+                                 dbpedia:Trabalho_de_conclus�o_de_curso."""@en;
+  owl:equivalentClass schema:Thesis, fabio:ScholarlyWork, frbrer:C1004, dbpedia:Trabalho_de_conclusão_de_curso .
+
+:Banca a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "Banca"@pt, "Banca"@en;
+  rdfs:comment "Trata-se da composição de membros (no mínimo três titulares e um suplente) para avaliar a defesa de um estudante de pós-graduação em uma Instituição de Ensino Superior."@pt,
+    """# Design annotations 
+ 
+:Banca
+rdfs:label \"Banca\"@pt;
+rdfs:comment \"Trata-se da composi��o de membros (no m�nimo tr�s titulares e um suplente) para avaliar a defesa de um estudante de p�s-gradua��o em uma Institui��o de Ensino Superior.\"@pt;
+owl:equivalentClass fabio:ExaminationPaper,
+                                  scoro:ContributionSituation. #(scoro)"""@en;
+  owl:equivalentClass fabio:ExaminationPaper, scoro:ContributionSituation .
+
+:Examinador a owl:Class, owl:NamedIndividual, gufo:SubKind, gufo:Role;
+  rdfs:subClassOf :Membro;
+  rdfs:label "Examinador"@pt, "Examinador"@en;
+  rdfs:comment "Trata-se de integrante da comissão examinadora de defesa de qualificação, dissertação ou tese. É o membro que recebe o convite para participar de uma banca de defesa de qualificação, dissertação ou tese."@pt,
+    """# Design annotations 
+ 
+:Examinador
+rdfs:label \"Examinador\"@pt;
+rdfs:comment \"Trata-se de integrante da comiss�o examinadora de defesa de qualifica��o, disserta��o ou tese. � o membro que recebe o convite para participar de uma banca de defesa de qualifica��o, disserta��o ou tese.\"@pt;
+owl:equivalentClass sur:Participant,
+                                 cwmo:Evaluator.
+
+ """@en;
+  owl:equivalentClass sur:Participant, cwmo:Evaluator .
+
+:ExaminadorInterno a owl:Class, owl:NamedIndividual, gufo:SubKind, gufo:Role;
+  rdfs:subClassOf :Examinador;
+  rdfs:label "Examinador Interno"@pt, "ExaminadorInterno"@en;
+  rdfs:comment "."@pt, """# Design annotations 
+ 
+:Examinador Interno
+rdfs:label \"Examinador Interno\"@pt ;
+rdfs:comment \".\"@pt;
+owl:equivalentClass sur:Participant,
+                                 cwmo:Evaluator."""@en;
+  owl:equivalentClass sur:Participant, cwmo:Evaluator .
+
+:ExaminadorExterno a owl:Class, owl:NamedIndividual, gufo:SubKind, gufo:Role;
+  rdfs:subClassOf :Examinador;
+  rdfs:label "Examinador Externo"@pt, " ExaminadorExterno"@en;
+  rdfs:comment "."@pt, """# Design annotations 
+ 
+:ExaminadorExterno
+rdfs:label \"Examinador Externo\"@pt ;
+rdfs:comment \".\"@pt;
+owl:equivalentClass sur:Participant,
+                                 cwmo:Evaluator."""@en;
+  owl:equivalentClass sur:Participant, cwmo:Evaluator .
+
+:DocumentoDeAprovacao a owl:Class, gufo:SubKind;
+  rdfs:label "Documento de Aprovação"@pt;
+  rdfs:comment " "@pt;
+  owl:equivalentClass schema:EducationalOccupationalCredential, fabio:Diary .
+
+:ProgramaPosGraduacao a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "Programa de Pós-Graduação"@pt, "ProgramaPosGraduacao"@en;
+  rdfs:comment "Trata-se de uma programação de curso de pós-graduação que são criados quando constatados da sua viabilidade, relevância e número adequado de professores pesquisadores com titulação e produção científica suficientes para dar sustentação à criação de curso de mestrado e/ou doutorado em determinada área de conhecimento, bem como a sua adequação aos critérios da Coordenação de Aperfeiçoamento de Pessoal do Ensino Superior - Capes para apresentação e propostas de cursos novos. Programa de Pós-Graduação pode ser gerido por uma única Instituição de Ensino Superior ou por Rede de Ensino. Assim, compreende programa de mestrado, doutorado, cursos de especialização, aperfeiçoamento, dentre outros, e são abertos a candidatos diplomados em cursos de graduação e que atendam os requisitos das instituições de ensino. Compreende programas de mestrado e doutorado."@pt,
+    """# Design annotations 
+ 
+:ProgramaPosGraduacao
+rdfs:label \"Programa de P�s-Gradua��o\"@pt;
+rdfs:comment \"Trata-se de uma programa��o de curso de p�s-gradua��o que s�o criados quando constatados da sua viabilidade, relev�ncia e n�mero adequado de professores pesquisadores com titula��o e produ��o cient�fica suficientes para dar sustenta��o � cria��o de curso de mestrado e/ou doutorado em determinada �rea de conhecimento, bem como a sua adequa��o aos crit�rios da Coordena��o de Aperfei�oamento de Pessoal do Ensino Superior - Capes para apresenta��o e propostas de cursos novos. Programa de P�s-Gradua��o pode ser gerido por uma �nica Institui��o de Ensino Superior ou por Rede de Ensino. Assim, compreende programa de mestrado, doutorado, cursos de especializa��o, aperfei�oamento, dentre outros, e s�o abertos a candidatos diplomados em cursos de gradua��o e que atendam os requisitos das institui��es de ensino. Compreende programas de mestrado e doutorado.\"@pt;
+owl:equivalentClass fabio:AcademicProceedings,
+                                 schema:EducationalOccupationalProgram,
+                                 teach:StudyProgram, #(teach)
+                                 xapi:Grouping.
+
+:nomeProgramaPosGraduacao
+a owl:FunctionalProperty;
+rdfs:label \"nome\"@pt;
+rdfs:comment \"Trata-se de uma programa��o de curso de p�s-gradua��o que s�o criados quando constatados da sua viabilidade, relev�ncia e n�mero adequado de professores pesquisadores com titula��o e produ��o cient�fica suficientes para dar sustenta��o � cria��o de curso de mestrado e/ou doutorado em determinada �rea de conhecimento, bem como a sua adequa��o aos crit�rios da Coordena��o de Aperfei�oamento de Pessoal do Ensino Superior - Capes para apresenta��o e propostas de cursos novos.\"@pt;
+owl:equivalentProperty xapi:hasName.
+
+
+ """@en;
+  owl:equivalentClass fabio:AcademicProceedings, schema:EducationalOccupationalProgram,
+    teach:StudyProgram, <http://ns.inria.fr/ludo/v1/xapiGrouping> .
+
+:Tese a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :TrabalhoConclusaoCurso;
+  rdfs:label "Tese"@pt, "Tese"@en;
+  rdfs:comment "Colaboração acadêmica original para o conhecimento e apresentada para obter o grau acadêmico de doutor e dos títulos universitários livre-docente e professor titular. Constitui o trabalho de pesquisa original e individual que forneça contribuição importante para a área de conhecimento na qual está inserida."@pt,
+    """# Design annotations 
+ 
+:Tese
+rdfs:label \"Tese\"@pt;
+rdfs:comment \"Colabora��o acad�mica original para o conhecimento e apresentada para obter o grau acad�mico de doutor e dos t�tulos universit�rios livre-docente e professor titular. Constitui o trabalho de pesquisa original e individual que forne�a contribui��o importante para a �rea de conhecimento na qual est� inserida.\"@pt;
+owl:equivalentClass fabio:DoctoralThesis,
+                                 fabio:Thesis,
+                                 fabio:Proposition."""@en;
+  owl:equivalentClass fabio:DoctoralThesis, fabio:Thesis, fabio:Proposition .
+
+:Dissertacao a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :TrabalhoConclusaoCurso;
+  rdfs:label "Dissertação"@pt, "Dissertacao"@en;
+  rdfs:comment "owl:class Curso Dissertação é o resultado de um trabalho de pesquisa desenvolvido, documentado e defendido publicamente em cursos de pós-graduação de mestrado, destinado a obtenção do grau acadêmico de mestre."@pt,
+    """# Design annotations 
+ 
+:Disserta��o
+rdfs:label \"Disserta��o\"@pt;
+rdfs:comment \"owl:class Curso Disserta��o � o resultado de um trabalho de pesquisa desenvolvido, documentado e defendido publicamente em cursos de p�s-gradua��o de mestrado, destinado a obten��o do grau acad�mico de mestre.\"@pt;
+owl:equivalentClass bibframe:Dissertation,
+                                 fabio: MastersThesis,
+                                 sio:SIO_000167. #(disserta��o)"""@en;
+  owl:equivalentClass bibframe:Dissertation, fabio:MastersThesis, sio:SIO_000167 .
+
+:Documento a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "Documento"@pt, "Documento"@en;
+  rdfs:comment "Trata-se de um documento digital ou impresso para o contexto aplicado."@pt,
+    """# Design annotations 
+ 
+:Documento
+rdfs:label \"Documento\"@pt;
+rdfs:comment \"Trata-se de um documento digital ou impresso para o contexto aplicado.\"@pt;
+owl:equivalentClass foaf:Document,
+                                 dbpedia:Documento.
+
+:identificacaoUnicaDocumento
+a owl:FunctionalProperty;
+rdfs:label \"identifica��o �nica\"@pt;
+rdfs:comment \"Trata-se de uma identifica��o inequ�voca de um documento.\"@pt;
+owl:equivalentProperty fabio:identifier.
+
+:tituloDocumento
+a owl:FunctionalProperty;
+rdfs:label \"t�tulo\"@pt;
+rdfs:comment \"Trata-se do t�tulo de um documento.\"@pt;
+owl:equivalentProperty bibframe:title,
+                                      fabio:title.
+
+:resumoDocumento
+a owl:FunctionalProperty;
+rdfs:label \"resumo\"@pt;
+rdfs:comment \"Trata-se do resumo de um documento.\"@pt;
+owl:equivalentProperty bibframe:summary,
+                                      fabio:abstract.
+
+# :abstractDocumento
+#  a owl:FunctionalProperty;
+#  rdfs:label \"abstract\"@pt;
+#  rdfs:comment \"Trata-se do abstract de um documento.\"@pt;
+#  owl:equivalentProperty dc:abstract.
+
+:semestreLetivoDocumento
+a owl:FunctionalProperty;
+rdfs:label \"semestre letivo\"@pt;
+rdfs:comment \"Trata-se do semestre letivo de um documento.\"@pt;
+owl:equivalentProperty ov:semester.
+
+#:disseminarMetadadoDocumento
+#a owl:FunctionalProperty;
+#rdfs:label \"disseminar metadado\"@pt;
+#rdfs:comment \"Trata-se de indicar se a dissemina��o de um metadado relacionada a um documento ser� ou n�o #realizada.\"@pt;
+#owl:equivalentProperty dc:publisher.
+
+:idiomaDocumento
+a owl:FunctionalProperty;
+rdfs:label \"idioma\"@pt;
+rdfs:comment \"Trata-se do idioma de um documento.\"@pt;
+owl:equivalentProperty bibframe:language.
+
+:numeroPaginasDocumento
+a owl:FunctionalProperty;
+rdfs:label \"n�mero de p�ginas\"@pt;
+rdfs:comment \"Trata-se do n�mero de p�ginas de um documento.\"@pt;
+owl:equivalentProperty fabio:bibframe:count,
+                                      hasPageCount.
+
+#:disseminarConteudoDocumento
+#a owl:FunctionalProperty;
+#rdfs:label \"disseminar conte�do\"@pt;
+#rdfs:comment \"Trata-se de indicar se a dissemina��o de um conte�do relacionada a um documento ser� ou n�o #realizada.\"@pt;
+#owl:equivalentProperty dc:publisher.
+
+:uriDisseminacaoDocumento
+a owl:FunctionalProperty;
+rdfs:label \"uri dissemina��o\"@pt;
+rdfs:comment \"Trata-se da uri a ser disseminada de um documento.\"@pt;
+owl:equivalentProperty meb:uri. #(meb)"""@en;
+  owl:equivalentClass foaf:Document, dbpedia:Documento .
+
+:DocumentoImpresso a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :Documento;
+  rdfs:label "Documento Impresso"@pt, "DocumentoImpresso"@en;
+  rdfs:comment "São artefatos digitais. Qualquer escrito ou impresso que fornece uma informação ou prova, usado para esclarecimento de algo. Neste caso, trata-se de Trabalhos de Conclusão de Curso como Teses e Dissertações."@pt,
+    """# Design annotations 
+ 
+:Documento Impresso
+rdfs:label \"Documento Impresso\"@pt;
+rdfs:comment \"S�o artefatos digitais. Qualquer escrito ou impresso que fornece uma informa��o ou prova, usado para esclarecimento de algo. Neste caso, trata-se de Trabalhos de Conclus�o de Curso como Teses e Disserta��es.\"@pt."""@en .
+
+:DocumentoDigital a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :Documento;
+  rdfs:label "Documento Digital"@pt, "DocumentoDigital"@en;
+  rdfs:comment "Entende-se por documento digital a conversão da fiel imagem de um documento para o código digital.Trata-se de um documento que pode ser digitalizado (o ato ou o efeito da conversão de um documento que contém informação ou dados analógicos para um formato digital) ou nato digital (documento que já nasce digitalmente)."@pt,
+    """# Design annotations 
+ 
+:DocumentoDigital
+rdfs:label \"Documento Digital\"@pt;
+rdfs:comment \"Entende-se por documento digital a convers�o da fiel imagem de um documento para o c�digo digital.Trata-se de um documento que pode ser digitalizado (o ato ou o efeito da convers�o de um documento que cont�m informa��o ou dados anal�gicos para um formato digital) ou nato digital (documento que j� nasce digitalmente).\"@pt;
+owl:equivalentClass fabio: DigitalItem.
+
+:nomePdfDocumentoDigital
+a owl:FunctionalProperty;
+rdfs:label \"nome do PDF\"@pt;
+rdfs:comment \"Diz respeito ao nome do PDF.\"@pt;
+owl:equivalentProperty foaf:name.
+
+:tipoPdfDocumentoDigital
+a owl:FunctionalProperty;
+rdfs:label \"tipo do PDF\"@pt;
+rdfs:comment \"Diz respeito ao tipo do PDF (Os tipos de PDF s�o: PDF/A-1a, PDF/A-1b, PDF/A-21, PDF/A-2b, PDF/A-2u, PDF/A-3a, PDF/A-3b, PDF/A-3u, PDF/A-4f, PDF/A-4e).\"@pt;
+owl:equivalentProperty bibframe:digitalCharacteristic.
+
+:tamanhoKilobitesDocumentoDigital
+a owl:FunctionalProperty;
+rdfs:label \"tamanho em kilobites\"@pt;
+rdfs:comment \"Diz respeito ao tamanho em kilobites.\"@pt;
+owl:equivalentProperty bibframe:FileSize.
+
+:descricaoAnexosDocumentoDigital
+a owl:FunctionalProperty;
+rdfs:label \"descri��o dos anexos\"@pt;
+rdfs:comment \"Diz respeito a descri��o dos anexos.\"@pt;
+owl:equivalentProperty bibframe:supplementaryContent."""@en;
+  owl:equivalentClass fabio:DigitalItem .
+
+:NatoDigital a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :DocumentoDigital;
+  rdfs:label "Nato Digital"@pt, "NatoDigital"@en;
+  rdfs:comment "É um documento que já nasce em formato digital. Elaborado originalmente em meio eletrônico como documento, contrato, diploma, publicação, material, conteúdo, etc. Trata-se de uma modalidade digital."@pt,
+    """# Design annotations 
+ 
+:NatoDigital
+rdfs:label \"Nato Digital\"@pt;
+rdfs:comment \"� um documento que j� nasce em formato digital. Elaborado originalmente em meio eletr�nico como documento, contrato, diploma, publica��o, material, conte�do, etc. Trata-se de uma modalidade digital.\"@pt."""@en .
+
+:Digitalizado a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :DocumentoDigital;
+  rdfs:label "Digitalizado"@pt, "Digitalizado"@en;
+  rdfs:comment "É a representação digital do processo de digitalização do documento físico e seus metadados, isto é, trata-se de um documento digital no estado digitalizado. Um documento deste tipo tem o mesmo efeito jurídico conferido aos documentos microfilmados, nos termos da Lei nº 5.433, de 8 de maio de 1968, e de regulamentação posterior. São documentos no formato digital e que foram digitalizados (eram físicos mas passaram a ser documentos digitais)."@pt,
+    """# Design annotations 
+ 
+:Digitalizado
+rdfs:label \"Digitalizado\"@pt;
+rdfs:comment \"� a representa��o digital do processo de digitaliza��o do documento f�sico e seus metadados, isto �, trata-se de um documento digital no estado digitalizado. Um documento deste tipo tem o mesmo efeito jur�dico conferido aos documentos microfilmados, nos termos da Lei n� 5.433, de 8 de maio de 1968, e de regulamenta��o posterior. S�o documentos no formato digital e que foram digitalizados (eram f�sicos mas passaram a ser documentos digitais).\"@pt;
+
+:dataDigitalizacaoDigitalizado
+a owl:FunctionalProperty;
+rdfs:label \"data da digitaliza��o\"@pt;
+rdfs:comment \"Diz respeito a data de digitaliza��o de um Documento Digital Digitalizado.\"@pt;
+owl:equivalentProperty fabio: hasAccessDate,
+                                      bibframe:date,
+                                      dc:date,
+                                      dcndl:dateDigitized.
+
+:modoOcrImagemDigitalizado
+a owl:FunctionalProperty;
+rdfs:label \"modo OCR imagem\"@pt;
+rdfs:comment \"Diz respeito ao modo OCR imagem.\"@pt;
+owl:equivalentProperty bibframe:media."""@en .
+
+:Local a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "Local"@pt, "Local"@en;
+  rdfs:comment "Trata-se do lugar físico ou virtual de registro do Trabalho de Conclusão de Curso. Quanto ao local físico, refere-se ao nome da cidade de apresentação do trabalho acadêmico. Neste caso, refere-se ao Trabalho de Conclusão de Curso de pós-graduação stricto sensu (dissertação ou tese). Quando se refere ao local virtual, diz respeito ao nome do caminho ou diretório de um computador ou no âmbito Web."@pt,
+    """# Design annotations 
+ 
+:Local
+rdfs:label \"Local\"@pt;
+rdfs:comment \"Trata-se do lugar f�sico ou virtual de registro do Trabalho de Conclus�o de Curso. Quanto ao local f�sico, refere-se ao nome da cidade de apresenta��o do trabalho acad�mico. Neste caso, refere-se ao Trabalho de Conclus�o de Curso de p�s-gradua��o stricto sensu (disserta��o ou tese). Quando se refere ao local virtual, diz respeito ao nome do caminho ou diret�rio de um computador ou no �mbito Web.\"@pt;
+owl:equivalentClass bibframe:Place,
+                                 schema:Place,
+                                 dc:Location."""@en;
+  owl:equivalentClass bibframe:Place, schema:Place, dc:Location .
+
+:LocalFisico a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :Local;
+  rdfs:label "Local Físico"@pt, "LocalFisico"@en;
+  rdfs:comment "Trata-se do local físico (concreto) dos documentos acadêmicos e institucionais."@pt,
+    """# Design annotations 
+ 
+:LocalFisico
+rdfs:label \"Local F�sico\"@pt;
+rdfs:comment \"Trata-se do local f�sico (concreto) dos documentos acad�micos e institucionais.\"@pt;
+owl:equivalentClass bibframe:Place,
+                                 schema:Place,
+                                 dc:Location.
+
+rdfs:comment \"Bases promissoras para reconcilia��o de indiv�duos e enriquecimento sem�ntico com owl:sameAs = wde, gn\" .
+
+:cidadeLocalFisico
+a owl:FunctionalProperty;
+rdfs:label \"cidade\"@pt;
+rdfs:comment \"Diz respeito ao nome da cidade e que corresponde ao local f�sico.\"@pt;
+owl:equivalentProperty wdo:Q82799, #(name)
+                                      schema:name,
+                                      gn:name.
+
+:estadoLocalFisico
+a owl:FunctionalProperty;
+rdfs:label \"estado\"@pt;
+rdfs:comment \"Diz respeito ao nome do estado e que corresponde ao local f�sico.\"@pt;
+owl:equivalentProperty wdo:Q82799, #(name)
+                                      schema:name,
+                                      gn:name.
+
+:paisLocalFisico
+a owl:FunctionalProperty;
+rdfs:label \"pa�s\"@pt;
+rdfs:comment \"Diz respeito ao nome do pa�s e que corresponde ao local f�sico.\"@pt;
+owl:equivalentProperty wdo:Q82799, #(name)
+                                      schema:name,
+                                      gn:name."""@en;
+  owl:equivalentClass bibframe:Place, schema:Place, dc:Location .
+
+:LocalVirtual a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :Local;
+  rdfs:label "Local Virtual"@pt, "LocalVirtual"@en;
+  rdfs:comment "Trata-se do local (caminho) virtual dos documentos acadêmicos e institucionais . Refere-se ao caminho do computador ou na internet que pode tratar um lugar virtual como se fosse um lugar físico, mas o local virtual é, na realidade, uma parte da memória do computador usada como se fosse um local físico."@pt,
+    """# Design annotations 
+ 
+:LocalVirtual
+rdfs:label \"Local Virtual\"@pt;
+rdfs:comment \"Trata-se do caminho virtual dos documentos acad�micos e institucionais . Refere-se ao caminho do computador ou na internet que pode tratar um lugar virtual como se fosse um lugar f�sico, mas o local virtual �, na realidade, uma parte da mem�ria do computador usada como se fosse um local f�sico.\"@pt;
+
+:descricaoCaminhoLocalVirtual
+a owl:FunctionalProperty;
+rdfs:label \"descri��o do caminho\"@pt;
+rdfs:comment \"Diz respeito a descri��o do um caminho de um Documento Digital que � guardado em um Local Virtual.\"@pt;
+owl:equivalentProperty."""@en .
+
+:PalavraChave a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "Palavra-Chave"@pt, "PalavraChave"@en;
+  rdfs:comment "Termo que resume as ideias ou temas centrais de uma obra. Trata-se da palavra que identifica um elemento particular ou o seu conteúdo."@pt,
+    """# Design annotations
+
+:PalavraChave
+rdfs:label \"Palavra-Chave\"@pt;
+rdfs:comment \"Termo que resume as ideias ou temas centrais de uma obra. Trata-se da palavra que identifica um elemento particular ou o seu conte�do.\"@pt;
+
+:termoPortuguesPalavraChave
+a owl:FunctionalProperty;
+rdfs:label \"termo em Portugu�s\"@pt;
+rdfs:comment \"Diz respeito ao termo da palavra-chave em portugu�s.\"@pt;
+owl:equivalentProperty fabio: keyword,
+                                     schema:keywords.
+                                     
+:termoInglesPalavraChave
+a owl:FunctionalProperty;
+rdfs:label \"termo em Ingl�s\"@pt;
+rdfs:comment \"Diz respeito ao termo da palavra-chave em Ingl�s.\"@pt;
+owl:equivalentProperty fabio: keyword,
+                                     schema:keywords."""@en .
+
+:AreaConhecimentoCNPq a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "Área do Conhecimento do CNPq"@pt, "AreaConhecimentoCNPq"@en;
+  rdfs:comment "Grupo de informações e referenciais metódicos, agrupados segundo um ponto de vista, que sustenta relações de complementaridade recíproca. No Brasil, uma classificação difundida e que tem sido utilizada para a pesquisa e a pós-graduação, é a classificação de Áreas do Conhecimento do CNPq. Sua classificação original apresentou uma hierarquização em quatro níveis. Trata-se das áreas do conhecimento indicadas pelo CNPq."@pt,
+    """# Design annotations 
+ 
+:AreaConhecimentoCnpq
+rdfs:label \"�rea do Conhecimento do CNPq\"@pt ;
+rdfs:comment \"Grupo de informa��es e referenciais met�dicos, agrupados segundo um ponto de vista, que sustenta rela��es de complementaridade rec�proca. No Brasil, uma classifica��o difundida e que tem sido utilizada para a pesquisa e a p�s-gradua��o, � a classifica��o de �reas do Conhecimento do CNPq. Sua classifica��o original apresentou uma hierarquiza��o em quatro n�veis. Trata-se das �reas do conhecimento indicadas pelo CNPq.\"@pt."""@en .
+
+:AreaPrimaria a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :AreaConhecimentoCNPq;
+  rdfs:label "Área Primária"@pt, "AreaPrimaria"@en;
+  rdfs:comment "Refere-se à primeira área de concentração de uma linha de pesquisa."@pt,
+    """# Design annotations 
+ 
+:AreaPrimaria
+rdfs:label \"�rea Prim�ria\"@pt ;
+rdfs:comment \"Refere-se � primeira �rea de concentra��o de uma linha de pesquisa.\"@pt.
+
+ """@en .
+
+:AreaSecundaria a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :AreaConhecimentoCNPq;
+  rdfs:label "Área Secundária"@pt, "AreaSecundaria"@en;
+  rdfs:comment "Refere-se à segunda área de concentração de uma linha de pesquisa."@pt,
+    """# Design annotations 
+ 
+:AreaSecundaria
+rdfs:label \"�rea Secund�ria\"@pt ;
+rdfs:comment \"Refere-se � segunda �rea de concentra��o de uma linha de pesquisa.\"@pt."""@en .
+
+:AreaTerciaria a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :AreaConhecimentoCNPq;
+  rdfs:label "Área Terciária"@pt, "AreaTerciaria"@en;
+  rdfs:comment "Refere-se à terceira área de concentração de uma linha de pesquisa."@pt,
+    """# Design annotations 
+ 
+:AreaTerciaria
+rdfs:label \"�rea Terci�ria\"@pt ;
+rdfs:comment \"Refere-se � terceira �rea de concentra��o de uma linha de pesquisa.\"@pt."""@en .
+
+:GrandeArea a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :AreaConhecimentoCNPq;
+  rdfs:label "Grande Área"@pt, "GrandeArea"@en;
+  rdfs:comment "Diz respeito ao 1º nível da área de conhecimento do CPNq. Trata-se da aglomeração de diversas áreas do conhecimento devido a afinidade de seus objetos, métodos cognitivos e recursos instrumentais representando contextos sociopolíticos específicos."@pt,
+    """# Design annotations 
+ 
+:GrandeArea
+rdfs:label \"Grande �rea\"@pt ;
+rdfs:comment \"Diz respeito ao 1� n�vel da �rea de conhecimento do CPNq. Trata-se da aglomera��o de diversas �reas do conhecimento devido a afinidade de seus objetos, m�todos cognitivos e recursos instrumentais representando contextos sociopol�ticos espec�ficos.\"@pt."""@en .
+
+:Area a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :AreaConhecimentoCNPq;
+  rdfs:label "Área"@pt, "Area"@en;
+  rdfs:comment "Trata-se do 2º nível da área de conhecimento do CNPq, ou seja, é o conjunto de conhecimentos interrelacionados, construídos coletivamente, reunidos segundo a natureza do tema de investigação com objetivos de ensino, pesquisa e aplicações experimentais."@pt,
+    """# Design annotations 
+ 
+:Area
+rdfs:label \"�rea\"@pt ;
+rdfs:comment \"Trata-se do 2� n�vel da �rea de conhecimento do CNPq, ou seja, � o conjunto de conhecimentos interrelacionados, constru�dos coletivamente, reunidos segundo a natureza do tema de investiga��o com objetivos de ensino, pesquisa e aplica��es experimentais.\"@pt;
+owl:equivalentClass bibframe:Topic,
+                                 sio:SIO_001340,
+                                 dbo:Area.
+ """@en;
+  owl:equivalentClass bibframe:Topic, sio:SIO_001340, dbo:Area .
+
+:Subarea a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :AreaConhecimentoCNPq;
+  rdfs:label "Subárea"@pt, "Subarea"@en;
+  rdfs:comment "É o fracionamento da área do conhecimento definida com base no objeto de estudo e procedimentos metodológicos aceitos e amplamente usados. Diz respeito ao 3º nível da área de conhecimento do CNPq."@pt,
+    """# Design annotations 
+ 
+:Subarea
+rdfs:label \"Sub�rea\"@pt ;
+rdfs:comment \"� o fracionamento da �rea do conhecimento definida com base no objeto de estudo e procedimentos metodol�gicos aceitos e amplamente usados. Diz respeito ao 3� n�vel da �rea de conhecimento do CNPq.\"@pt."""@en .
+
+:Especialidade a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :AreaConhecimentoCNPq;
+  rdfs:label "Especialidade"@pt, "Especialidade"@en;
+  rdfs:comment "Trata-se do 4º nível da área de conhecimento do CNPq. É a caracterização temática da atividade de ensino e pesquisa. Ela pode ser incorporada em distintas grandes áreas, áreas e subáreas."@pt,
+    """# Design annotations 
+ 
+:Especialidade
+rdfs:label \"Especialidade\"@pt ;
+rdfs:comment \"Trata-se do 4� n�vel da �rea de conhecimento do CNPq. � a caracteriza��o tem�tica da atividade de ensino e pesquisa. Ela pode ser incorporada em distintas grandes �reas, �reas e sub�reas.\"@pt."""@en .
+
+:RedeEnsino a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf :OrganizacaoEnsino;
+  rdfs:label "Rede de Ensino"@pt, "RedeEnsino"@en;
+  rdfs:comment "É um coletivo de Instituição de Ensino Superior."@pt, """# Design annotations 
+ 
+:RedeEnsino
+rdfs:label \"Rede de Ensino\"@pt;
+rdfs:comment \"� um coletivo de Institui��o de Ensino Superior.\"@pt;
+owl:equivalentClass sio:SIO_000620.
+ """@en;
+  owl:equivalentClass sio:SIO_000620 .
+
+:OrganizacaoEnsino a owl:Class, owl:NamedIndividual, gufo:SubKind, gufo:Category;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "Organização de Ensino"@pt, "OrganizacaoEnsino"@en;
+  rdfs:comment "Ente que trabalha com educação de ensino superior. Ele pode ser uma rede de ensino (quando existe) ou uma instituição de ensino superior isolada (quando a rede de ensino não existe). Esse ente é caracterizado por oferecer e gerir o curso de pós-graduação."@pt,
+    """# Design annotations 
+ 
+:OrganizacaoEnsino
+rdfs:label \"Organização de Ensino\"@pt;
+rdfs:comment \"Ente que trabalha com educa��o de ensino superior. Ele pode ser uma rede de ensino (quando existe) ou uma institui��o de ensino superior isolada (quando a rede de ensino n�o existe). Esse ente � caracterizado por oferecer e gerir o curso de p�s-gradua��o.\"@pt
+owl:equivalentClass pext:Educational Organization, #(Educational Organization)
+                                 cwrc:EducationalOrganization,
+                                 km4c:Higher_education.
+
+
+ """@en;
+  owl:equivalentClass pext:EducationalOrganization, cwrc:EducationalOrganization, km4c:Higher_education .
+
+:Convenio a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "Convênio"@pt, "Convenio"@en;
+  rdfs:comment "Acordo firmado por organizações educacionais (instituições educacionais de ensino superior) para ofertar programas ou cursos de pós-graduação."@pt,
+    """# Design annotations 
+ 
+:Convenio
+rdfs:label \"Conv�nio\"@pt;
+rdfs:comment \"Acordo firmado por organiza��es educacionais (institui��es educacionais de ensino superior) para ofertar programas ou cursos de p�s-gradua��o.\"@pt;
+owl:equivalentClass itsmo:Agreement.
+
+ """@en;
+  owl:equivalentClass itsmo:Agreement .
+
+:Produto a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :TrabalhoConclusaoCurso;
+  rdfs:label "Produto"@pt, "Produto"@en;
+  rdfs:comment "Produto é o resultado técnico-científico (projeto experimental ou produto técnico) de um curso de Programa de Pós-Graduação Stricto Sensu (também conhecido como mestrado ou doutorado profissional). É o produto técnico/tecnológico ou trabalho final de pós-graduação como resultado de um curso profissional de Pós-Graduação junto a tese quando mestrado, ou anexo ao doutorado quando se trata de uma tese."@pt,
+    """# Design annotations 
+ 
+:Produto
+rdfs:label \"Produto\"@pt;
+rdfs:comment \"Produto � o resultado t�cnico-cient�fico (projeto experimental ou produto t�cnico) de um curso de Programa de P�s-Gradua��o Stricto Sensu (tamb�m conhecido como mestrado ou doutorado profissional). � o produto t�cnico/tecnol�gico ou trabalho final de p�s-gradua��o como resultado de um curso profissional de P�s-Gradua��o junto a tese quando mestrado, ou anexo ao doutorado quando se trata de uma tese.\"@pt;
+owl:equivalentClass schema: IndividualProduct."""@en;
+  owl:equivalentClass schema:IndividualProduct .
+
+:Mestrado a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :CursoPosGraduacao;
+  rdfs:label "Mestrado"@pt, "Mestrado"@en;
+  rdfs:comment "Trata-se de um curso de pós-graduação stricto sensu que visa amplificar e aperfeiçoar a competência didática, científica, cultural e profissional dos indivíduos graduados."@pt,
+    """# Design annotations 
+ 
+:Mestrado
+rdfs:label \"Mestrado\"@pt ;
+rdfs:comment \"Trata-se de um curso de p�s-gradua��o stricto sensu que visa amplificar e aperfei�oar a compet�ncia did�tica, cient�fica, cultural e profissional dos indiv�duos graduados.\"@pt."""@en .
+
+:CursoPosGraduacao a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "Curso de Pós-Graduação"@pt, "CursoPosGraduacao"@en;
+  rdfs:comment "Arranjo de disciplinas e atividades estruturadas em assuntos amplos ou particulares do conhecimento, visando auxiliar aos objetivos educacionais determinados pela instituição e de acordo com as diretrizes curriculares. São aplicados ao programa de pós-graduação, seja gerido por uma única Instituição de Ensino Superior ou por Rede de Ensino. Curso de pós-graduação stricto sensu, compreende programas de mestrado e doutorado que atendem às exigências de autorização, reconhecimento e renovação de reconhecimento previstas na legislação. Os cursos de pós-graduação de mestrado e doutorado profissionais visam contribuir para o incremento da qualificação da prática e experimental profissional, concedendo competências para avaliação crítica, intervenção e resposta a problemas a ela relacionados, bem como a realização de tecnologias aplicadas ao trabalho."@pt,
+    """# Design annotations 
+ 
+:CursoPosGraduacao
+rdfs:label \"Curso de P�s-Gradua��o\"@pt;
+rdfs:comment \"Arranjo de disciplinas e atividades estruturadas em assuntos amplos ou particulares do conhecimento, visando auxiliar aos objetivos educacionais determinados pela institui��o e de acordo com as diretrizes curriculares. S�o aplicados ao programa de p�s-gradua��o, seja gerido por uma �nica Institui��o de Ensino Superior ou por Rede de Ensino. Curso de p�s-gradua��o stricto sensu, compreende programas de mestrado e doutorado que atendem �s exig�ncias de autoriza��o, reconhecimento e renova��o de reconhecimento previstas na legisla��o. Os cursos de p�s-gradua��o de mestrado e doutorado profissionais visam contribuir para o incremento da qualifica��o da pr�tica e experimental profissional, concedendo compet�ncias para avalia��o cr�tica, interven��o e resposta a problemas a ela relacionados, bem como a realiza��o de tecnologias aplicadas ao trabalho.\"@pt;
+owl:equivalentClass wdo:Q600134, # (course)
+                                 schema:Course.
+
+:nomeCursoPosGraduacao
+a owl:FunctionalProperty;
+rdfs:label \"nome\"@pt;
+rdfs:comment \"nome do curso de p�s-gradua��o\"@pt;
+owl:equivalentProperty dc:title
+                                      teach:courseTitle. #(teach)"""@en;
+  owl:equivalentClass wdo:Q600134, schema:Course .
+
+:Doutorado a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :CursoPosGraduacao;
+  rdfs:label "Doutorado"@pt, "Doutorado"@en;
+  rdfs:comment "Diz respeito a um curso de pós-graduação stricto sensu visa propiciar formação científica e cultural aprofundada, formando profissionais com a finalidade de desenvolver formas independentes de atividades de ensino, pesquisa e inovação, e também para atuar na formação de profissionais de alta qualificação científica e técnico-profissional (no âmbito de uma área específica de conhecimento)."@pt,
+    """# Design annotations 
+ 
+:Doutorado
+rdfs:label \"Doutorado\"@pt ;
+rdfs:comment \"Diz respeito a um curso de p�s-gradua��o stricto sensu visa propiciar forma��o cient�fica e cultural aprofundada, formando profissionais com a finalidade de desenvolver formas independentes de atividades de ensino, pesquisa e inova��o, e tamb�m para atuar na forma��o de profissionais de alta qualifica��o cient�fica e t�cnico-profissional (no �mbito de uma �rea espec�fica de conhecimento).\"@pt."""@en .
+
+:CursoAcademico a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :CursoPosGraduacao;
+  rdfs:label "Curso Acadêmico"@pt, "CursoAcademico"@en;
+  rdfs:comment "."@pt, """# Design annotations 
+ 
+:CursoAcademico
+rdfs:label \"Curso Acadêmico\"@pt ;
+rdfs:comment \".\"@pt;"""@en .
+
+:CursoProfissional a owl:Class, owl:NamedIndividual, gufo:SubKind;
+  rdfs:subClassOf :CursoPosGraduacao;
+  rdfs:label "Curso Profissional"@pt, "CursoProfissional"@en;
+  rdfs:comment "Pretende colaborar para o acréscimo da qualificação da prática profissional, fornecendo competências para avaliação crítica, interferência e resolução de problemas, e também objetivando o desenvolvimento de tecnologias aplicadas ao trabalho."@pt,
+    """# Design annotations 
+ 
+:CursoProfissional
+rdfs:label \"Curso Profissional\"@pt ;
+rdfs:comment \"Pretende colaborar para o acr�scimo da qualifica��o da pr�tica profissional, fornecendo compet�ncias para avalia��o cr�tica, interfer�ncia e resolu��o de problemas, e tamb�m objetivando o desenvolvimento de tecnologias aplicadas ao trabalho..\"@pt."""@en .
+
+:InstituicaoEnsinoSuperior a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf :OrganizacaoEnsino;
+  rdfs:label "Instituição de Ensino Superior"@pt, "InstituicaoEnsinoSuperior"@en;
+  rdfs:comment "Diz respeito à Instituição que fornece um ensino superior aceito pela autoridade competente e faz parte da integração do sistema de ensino superior"@pt,
+    """# Design annotations
+
+:InstituicaoEnsinoSuperior
+rdfs:label \"Instituição de Ensino Superior\"@pt;
+rdfs:comment \"Diz respeito � Institui��o que fornece um ensino superior aceito pela autoridade competente e faz parte da integra��o do sistema de ensino superior\"@pt;
+owl:equivalentClass wdo:Q2385804, #(educational institution)
+                                 wdo:Q5341295, #(educational organization)
+                                 wdo:Q1211427, # (academia)
+                                 schema:EducationalOrganization,
+                                 perxt:EducationalOrganization,
+                                 perxt:University,
+                                 cwrc:EducationalOrganization,
+                                 sio:SIO_000290,
+                                 dbo:EducationalInstitution.
+rdfs:comment \"Bases promissoras para reconcilia��o de indiv�duos e enriquecimento sem�ntico com owl:sameAs = wde\".
+
+:siglaIES 
+a owl:FunctionalProperty;
+rdfs:label \"sigla da IES\"@pt;
+rdfs:comment \"Acr�nimo da Institui��o de Ensino Superior\"@pt;
+owl:equivalentProperty vivo:abbreviation.
+
+:nomeIES
+a owl:FunctionalProperty;
+rdfs:label \"nome da IES\"@pt;
+rdfs:comment \"Nome completo e por extenso da Institui��o de Ensino Superior\"@pt;
+owl:equivalentProperty bibframe:grantingInstitution,
+                                      wdo:PP1813, # (short name).
+
+:webPageIES
+a owl:functionalProperty;
+rdfs:label \"web page da IES\"@pt;
+rdfs:comment \"Web page da Institui��o de Ensino Superior\"@pt;
+owl:equivalentProperty foaf:homepage,
+                                     xapi:hasHomePage.
+
+:uriIES
+a owl:functionalProperty
+rdfs:label \"uri da IES\"@pt
+rdfs:comment \"URI da Institui��o de Ensino Superior\"@pt
+owl:equivalentProperty dqm:hasURI. 
+
+:unidadeIES
+a owl:functionalProperty
+rdfs:label \"unidade\"@pt
+rdfs:comment \"unidade da Instituição de Ensino Superior (IES). Diz respeito ao campus da IES. É definido com o termo 'Campus' seguido do município que a IES está localizada.\"@pt."""@en;
+  owl:equivalentClass cwrc:EducationalOrganization, wdo:Q2385804, wdo:Q5341295, wdo:Q1211427,
+    schema:EducationalOrganization, sio:SIO_000290, dbo:EducationalInstitution .
+
+:CondicaoAprovacao a owl:Class, owl:NamedIndividual, gufo:Kind, gufo:SubKind;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "Condição para Aprovação"@pt, "CondicaoAprovacao"@en;
+  rdfs:comment "Trata-se de cada pré-requisito para aprovação no curso stricto sensu."@pt,
+    """# Design annotations 
+ 
+:CondicaoAprovacao
+rdfs:label \"Condição para Aprova��o\"@pt;
+rdfs:comment \"Trata-se de cada pr�-requisito para aprova��o no curso stricto sensu..\"@pt;
+owl:equivalentClass schema: coursePrerequisites,
+                                 crsw: Pre-requisite."""@en;
+  owl:equivalentClass schema:coursePrerequisites, crsw:Pre-requisite .
+
+:nomePessoa a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "nome da pessoa"@pt, "nomePessoa"@en;
+  rdfs:comment "Nome completo e por extenso da pessoa"@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :Pessoa;
+  owl:equivalentProperty foaf:name, dc:name;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:funcaoPessoa a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "função"@pt, "funcaoPessoa"@en;
+  rdfs:comment "Função exercida por uma pessoa."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :Pessoa;
+  owl:equivalentProperty bibframe:role;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:emailInstitucionalPessoa a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "e-mail institucional"@pt, "emailInstitucionalPessoa"@en;
+  rdfs:comment "Trata-se do e-mail Institucional de uma pessoa."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :Pessoa;
+  owl:equivalentProperty foaf:mbox, pext:hasEMail;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:emailAlternativoPessoa a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "e-mail alternativo"@pt, "emailAlternativoPessoa"@en;
+  rdfs:comment "Trata-se do e-mail alternativo de uma pessoa."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :Pessoa;
+  owl:equivalentProperty km4c:alternativeEmail;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:matriculaDiscente a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "matrícula do discente"@pt, "matriculaDiscente"@en;
+  rdfs:comment "A matrícula de um discente é o seu identificador único."@pt;
+  rdfs:range xsd:int;
+  rdfs:domain :PessoaInstitucionalizada, :Discente;
+  owl:equivalentProperty dc:identifier;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:telefoneDiscente a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "telefone do discente"@pt, "telefoneDiscente"@en;
+  rdfs:comment "Diz respeito ao número de telefone do discente."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :PessoaInstitucionalizada, :Discente;
+  owl:equivalentProperty foaf:phone;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:modalidadeParticipacaoMembro a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "modalidade de participação"@pt, "modalidadeParticipacaoMembro"@en;
+  rdfs:comment "Trata-se da modalidade de participação da banca de avaliação por parte do membro: presencial ou online."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :Pessoa, :Membro;
+  owl:equivalentProperty pproc:criterionEvaluationMode;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:nomePatrocinador a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "nome do patrocinador"@pt, "nomePatrocinador"@en;
+  rdfs:comment "Trata-se do nome do Patrocinador."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :Patrocinador;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:inicioContrato a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "início"@pt, "inicioContrato"@en;
+  rdfs:comment "Diz respeito a data de início referente um contrato que um bolsista recebe por bolsa de estudos."@pt;
+  rdfs:range xsd:date;
+  rdfs:domain :Contrato;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:fimContrato a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "fim"@pt, "fimContrato"@en;
+  rdfs:comment "Diz respeito a data fim em um contrato que um bolsista recebe por bolsa de estudos."@pt;
+  rdfs:range xsd:date;
+  rdfs:domain :Contrato;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:dataHoraAvaliacaoDefesa a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "data e hora de avaliação"@pt, "dataHoraAvaliacaoDefesa"@en;
+  rdfs:comment "Diz respeito a data e a hora de avaliação de uma defesa."@pt;
+  rdfs:range xsd:date;
+  rdfs:domain :Defesa;
+  owl:equivalentProperty fabio:hasDecisionDate, <http://www.w3.org/ns/dcat#record>,
+    ptop:registeredIn;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:orcidPessoaInstitucionalizada a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "orcid"@pt, "orcidPessoaInstitucionalizada"@en;
+  rdfs:comment "Diz respeito ao orcid de uma pessoa associada a uma Instituição."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :Pessoa, :PessoaInstitucionalizada;
+  owl:equivalentProperty scoro:hasORCID;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:lattesPessoaInstitucionalizada a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "lattes"@pt, "lattesPessoaInstitucionalizada"@en;
+  rdfs:comment "Diz respeito ao lattes de uma pessoa associada a uma Instituição."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :Pessoa, :PessoaInstitucionalizada;
+  owl:equivalentProperty <http://purl.org/cerif/frapohasCurriculumVitae>;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:identificadorRegistroCadastro a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "identificador do registro"@pt, "identificadorRegistroCadastro"@en;
+  rdfs:comment "Diz respeito ao identificador único de um registro quanto ao Cadastro referente ao Trabalho de Conclusão de Curso que ocorre no acervo."@pt;
+  rdfs:range xsd:int;
+  rdfs:domain :Cadastro;
+  owl:equivalentProperty <http://purl.org/cerif/frapoidentifier>;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:dataHoraRegistroCadastro a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "data/hora do registro"@pt, "dataHoraRegistroCadastro"@en;
+  rdfs:comment "Diz respeito a data/hora de um registro quanto ao Cadastro referente ao Trabalho de Conclusão de Curso que ocorre no acervo."@pt;
+  rdfs:range xsd:date;
+  rdfs:domain :Cadastro;
+  owl:equivalentProperty fabio:hasDateCollected, bibframe:date, dc:date, dc:dateSubmitted;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:nomeProgramaPosGraduacao a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "nome"@pt, "nomeProgramaPosGraduacao"@en;
+  rdfs:comment "Trata-se de uma programação de curso de pós-graduação que são criados quando constatados da sua viabilidade, relevância e número adequado de professores pesquisadores com titulação e produção científica suficientes para dar sustentação à criação de curso de mestrado e/ou doutorado em determinada área de conhecimento, bem como a sua adequação aos critérios da Coordenação de Aperfeiçoamento de Pessoal do Ensino Superior - Capes para apresentação e propostas de cursos novos."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :ProgramaPosGraduacao;
+  owl:equivalentProperty <http://ns.inria.fr/ludo/v1/xapihasName>;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:identificacaoUnicaDocumento a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "identificação única"@pt, "identificacaoUnicaDocumento"@en;
+  rdfs:comment "Trata-se de uma identificação inequívoca de um documento."@pt;
+  rdfs:range xsd:int;
+  rdfs:domain :Documento;
+  owl:equivalentProperty fabio:identifier;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:tituloDocumento a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "título"@pt, "tituloDocumento"@en;
+  rdfs:comment "Trata-se do título de um documento."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :Documento;
+  owl:equivalentProperty bibframe:title, fabio:title;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:resumoDocumento a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "resumo"@pt, "resumoDocumento"@en;
+  rdfs:comment "Trata-se do resumo de um documento."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :Documento;
+  owl:equivalentProperty bibframe:summary, fabio:abstract;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:semestreLetivoDocumento a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "semestre letivo"@pt, "semestreLetivoDocumento"@en;
+  rdfs:comment "Trata-se do semestre letivo de um documento."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :Documento;
+  owl:equivalentProperty ov:semester;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:idiomaDocumento a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "idioma"@pt, "idiomaDocumento"@en;
+  rdfs:comment "Trata-se do idioma de um documento."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :Documento;
+  owl:equivalentProperty bibframe:language;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:numeroPaginasDocumento a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "número de páginas"@pt, "numeroPaginasDocumento"@en;
+  rdfs:comment "Trata-se do número de páginas de um documento."@pt;
+  rdfs:range xsd:int;
+  rdfs:domain :Documento;
+  owl:equivalentProperty bibframe:count, fabio:hasPageCount;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:uriDisseminacaoDocumento a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "uri disseminação"@pt, "uriDisseminacaoDocumento"@en;
+  rdfs:comment "Trata-se da uri a ser disseminada de um documento."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :Documento;
+  owl:equivalentProperty meb:uri;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:nomePDF a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "nome do PDF"@pt;
+  rdfs:comment "Diz respeito ao nome do PDF."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :DocumentoDigital;
+  owl:equivalentProperty foaf:name;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:tipoPDF a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "tipo do PDF"@pt;
+  rdfs:comment "Diz respeito ao tipo do PDF (Os tipos de PDF são: PDF/A-1a, PDF/A-1b, PDF/A-21, PDF/A-2b, PDF/A-2u, PDF/A-3a, PDF/A-3b, PDF/A-3u, PDF/A-4f, PDF/A-4e)."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :DocumentoDigital;
+  owl:equivalentProperty bibframe:digitalCharacteristic;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:tamanhoKilobites a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "tamanho em kilobites"@pt;
+  rdfs:comment "Diz respeito ao tamanho em kilobites."@pt;
+  rdfs:range xsd:int;
+  rdfs:domain :DocumentoDigital;
+  owl:equivalentProperty bibframe:FileSize;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:descricaoAnexos a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "descrição dos anexos"@pt;
+  rdfs:comment "Diz respeito a descrição dos anexos."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :DocumentoDigital;
+  owl:equivalentProperty bibframe:supplementaryContent;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:dataDigitalizacaoDigitalizado a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "data da digitalização"@pt, "dataDigitalizacaoDigitalizado"@en;
+  rdfs:comment "Diz respeito a data de digitalização de um Documento Digital Digitalizado."@pt;
+  rdfs:range xsd:date;
+  rdfs:domain :Digitalizado;
+  owl:equivalentProperty bibframe:date, dc:date, fabio:hasAccessDate, dcndl:dateDigitized;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:modoOcrImagemDigitalizado a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "modo OCR imagem"@pt, "modoOcrImagemDigitalizado"@en;
+  rdfs:comment "Diz respeito ao modo OCR imagem."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :Digitalizado;
+  owl:equivalentProperty bibframe:media;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:cidade a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "cidade"@pt;
+  rdfs:comment "Diz respeito ao nome da cidade e que corresponde ao local físico."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :LocalFisico;
+  owl:equivalentProperty wdo:Q82799, schema:name, gn:name;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:estado a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "estado"@pt;
+  rdfs:comment "Diz respeito ao nome do estado e que corresponde ao local físico."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :LocalFisico;
+  owl:equivalentProperty wdo:Q82799, schema:name, gn:name;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:pais a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "país"@pt;
+  rdfs:comment "Diz respeito ao nome do país e que corresponde ao local físico."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :LocalFisico;
+  owl:equivalentProperty wdo:Q82799, schema:name, gn:name;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:descricaoCaminhoLocalVirtual a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "descrição do caminho"@pt, "descricaoCaminhoLocalVirtual"@en;
+  rdfs:comment "Diz respeito a descrição do um caminho de um Documento Digital que é guardado em um Local Virtual."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :LocalVirtual;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:termoPortuguesPalavraChave a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "termo em Português"@pt, "termoPortuguesPalavraChave"@en;
+  rdfs:comment "Diz respeito ao termo da palavra-chave em português."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :PalavraChave;
+  owl:equivalentProperty fabio:keyword, schema:keywords;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:termoInglesPalavraChave a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "termo em Inglês"@pt, "termoInglesPalavraChave"@en;
+  rdfs:comment "Diz respeito ao termo da palavra-chave em Inglês."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :PalavraChave;
+  owl:equivalentProperty fabio:keyword, schema:keywords;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:sigla a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "sigla da IES"@pt;
+  rdfs:comment "Acrônimo da Instituição de Ensino Superior"@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :InstituicaoEnsinoSuperior;
+  owl:equivalentProperty vivo:abbreviation;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:nome a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "nome da IES"@pt;
+  rdfs:comment "Nome completo e por extenso da Instituição de Ensino Superior"@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :InstituicaoEnsinoSuperior;
+  owl:equivalentProperty bibframe:grantingInstitution, wdo:PP1813;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:webPage a owl:DatatypeProperty, owl:functionalProperty;
+  rdfs:label "web page da IES"@pt;
+  rdfs:comment "Web page da Instituição de Ensino Superior"@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :InstituicaoEnsinoSuperior;
+  owl:equivalentProperty foaf:homepage, <http://ns.inria.fr/ludo/v1/xapihasHomePage>;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:uri a owl:DatatypeProperty, owl:functionalProperty;
+  rdfs:label "uri da IES"@pt;
+  rdfs:comment "URI da Instituição de Ensino Superior"@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :InstituicaoEnsinoSuperior;
+  owl:equivalentProperty dqm:hasURI;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:unidade a owl:DatatypeProperty, owl:functionalProperty;
+  rdfs:label "unidade"@pt;
+  rdfs:comment "unidade da Instituição de Ensino Superior (IES). Diz respeito ao campus da IES. É definido com o termo 'Campus' seguido do município que a IES está localizada."@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :InstituicaoEnsinoSuperior;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:nomeCursoPosGraduacao a owl:DatatypeProperty, owl:FunctionalProperty;
+  rdfs:label "nome"@pt, "nomeCursoPosGraduacao"@en;
+  rdfs:comment "nome do curso de pós-graduação"@pt;
+  rdfs:range xsd:string;
+  rdfs:domain :CursoPosGraduacao;
+  owl:equivalentProperty dc:title, teach:courseTitle;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:pertenceIES a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+  rdfs:label "pertence"@pt, "pertenceIES"@en;
+  rdfs:comment "Acervo pertence a Instituição de Ensino Superior."@pt, """# Design annotations 
+ 
+:pertenceIES
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"pertence\"@pt .
+rdfs:comment \"Acervo pertence a Institui��o de Ensino Superior.\"@pt;"""@en;
+  rdfs:range :InstituicaoEnsinoSuperior;
+  rdfs:domain :Acervo .
+
+:registraCadastro a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "registra cadastro"@pt, "registraCadastro"@en;
+  rdfs:comment "Cadastrador registra o Cadastro."@pt, """# Design annotations 
+ 
+:registraCadastro
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"registra cadastro\"@pt .
+rdfs:comment \"Cadastrador registra o Cadastro.\"@pt
+owl:equivalentPropert dcat:record,
+                                    ptop:registeredIn."""@en;
+  rdfs:range :Cadastro;
+  rdfs:domain :Cadastrador;
+  owl:equivalentPropert <http://www.w3.org/ns/dcat#record>, ptop:registeredIn .
+
+:recebeContrato a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "recebe contrato"@pt, "recebeContrato"@en;
+  rdfs:comment "Bolsista recebe Contrato por Bolsa de Estudos."@pt, """# Design annotations 
+ 
+:recebeContrato
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"recebe contrato\"@pt .
+rdfs:comment \"Bolsista recebe Contrato por Bolsa de Estudos.\"@pt
+owl:equivalentPropert frapo: supports,
+                                    vivo:teachingOverview."""@en;
+  rdfs:range :Contrato;
+  rdfs:domain :Bolsista;
+  owl:equivalentPropert <http://purl.org/cerif/fraposupports>, vivo:teachingOverview .
+
+:porBolsaEstudo a owl:ObjectProperty;
+  rdfs:range :BolsaEstudo;
+  rdfs:domain :Contrato .
+
+:disponibilizaBolsaEstudo a owl:ObjectProperty;
+  rdfs:range :BolsaEstudo;
+  rdfs:domain :Patrocinador .
+
+:digitalizaDocumento a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "digitaliza documento"@pt, "digitalizaDocumento"@en;
+  rdfs:comment "Digitalizador digitaliza o Documento."@pt, """# Design annotations 
+ 
+:digitalizaDocumento
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"digitaliza documento\"@pt .
+rdfs:comment \"Digitalizador digitaliza o Documento.\"@pt
+owl:equivalentPropert iol:isEncodedBy."""@en;
+  rdfs:range :Documento;
+  rdfs:domain :Digitalizador;
+  owl:equivalentPropert iol:isEncodedBy .
+
+:guardado a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+  rdfs:label "é guardado"@pt, "guardado"@en;
+  rdfs:comment "Documento Digital é guardado em um Local Virtual."@pt, """# Design annotations 
+ 
+:guardado
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"� guardado\"@pt ;
+rdfs:comment \"Documento Digital � guardado em um Local Virtual.\"@pt;
+owl:equivalentPropert dcat:record,
+                                    ptop:registeredIn."""@en;
+  rdfs:range :LocalVirtual;
+  rdfs:domain :DocumentoDigital;
+  owl:equivalentPropert <http://www.w3.org/ns/dcat#record>, ptop:registeredIn .
+
+:armazenadoNoLocalLocalFisico a owl:ObjectProperty;
+  rdfs:range :LocalFisico;
+  rdfs:domain :DocumentoImpresso .
+
+:localizadaEmLocalFisico a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "localizada em local físico"@pt, "localizadaEmLocalFisico"@en;
+  rdfs:comment "Instituição de Ensino Superior fica localizada em um Local Físico."@pt,
+    """# Design annotations 
+ 
+:localizadaEmLocalFisico
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"localizada em local f�sico\"@pt .
+rdfs:comment \"Institui��o de Ensino Superior fica localizada em um Local F�sico.\"@pt
+owl:equivalentPropert wdo:Q82799, #(name)
+                                    schema:name,
+                                    gn:name."""@en;
+  rdfs:range :LocalFisico;
+  rdfs:domain :InstituicaoEnsinoSuperior;
+  owl:equivalentPropert wdo:Q82799, schema:name, gn:name .
+
+:compostoPorPalavraChave a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "composto por palavra-chave"@pt;
+  rdfs:comment "Trabalho de Conclusão de Curso é composto por composto por palavra-chave."@pt;
+  rdfs:range :PalavraChave;
+  rdfs:domain :TrabalhoConclusaoCurso;
+  owl:equivalentPropert fabio:keyword, schema:keywords .
+
+:vinculado a owl:AsymmetricProperty, owl:ObjectProperty, owl:IrreflexiveProperty;
+  rdfs:label "vinculado"@en;
+  rdfs:comment "Trabalho de Conclusão de Curso é vinculado a Área de Conhecimento do CNPq."@pt,
+    """# Design annotations 
+ 
+:vinculado
+a owl:asymmetric
+a owl:irreflexive
+rdfs:label: \"� vinculado\"@pt
+rdfs:comment \"Trabalho de Conclus�o de Curso � vinculado a �rea de Conhecimento do CNPq.\"@pt;
+owl:equivalentPropert dc:title.
+ """@en;
+  rdfs:range :AreaConhecimentoCNPq;
+  rdfs:domain :TrabalhoConclusaoCurso;
+  owl:equivalentPropert dc:title;
+  rdfs:label: "é vinculado"@pt .
+
+:compostaPorArea a owl:AsymmetricProperty, owl:ObjectProperty, owl:IrreflexiveProperty;
+  rdfs:label "composta por Área"@pt;
+  rdfs:comment "Significa que GrandeArea é composta por Area."@pt;
+  rdfs:range :Area;
+  rdfs:domain :GrandeArea;
+  owl:equivalentPropert dc:title .
+
+:compostaPorSubarea a owl:AsymmetricProperty, owl:ObjectProperty, owl:IrreflexiveProperty;
+  rdfs:label "composta por Área."@pt;
+  rdfs:comment "Significa que Area é composta por Subarea."@pt;
+  rdfs:range :Subarea;
+  rdfs:domain :Area;
+  owl:equivalentPropert dc:title .
+
+:compostaPorEspecialidade a owl:AsymmetricProperty, owl:ObjectProperty, owl:IrreflexiveProperty;
+  rdfs:label "composta por Especialidade."@pt;
+  rdfs:comment "Significa que Subarea é composta por Especialidade."@pt;
+  rdfs:range :Especialidade;
+  rdfs:domain :Subarea;
+  owl:equivalentPropert dc:title .
+
+:finalizadoComTese a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "é finalizado com tese"@pt, "finalizadoComTese"@en;
+  rdfs:comment "Doutorado é finalizado com Tese."@pt, """# Design annotations 
+ 
+:finalizadoComTese
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"� finalizado com tese\"@pt .
+rdfs:comment \"Doutorado � finalizado com Tese.\"@pt
+
+
+
+#bibiframe (verificar, pois parece mais prop�cio a mestrado): http://id.loc.gov/ontologies/bibframe/degree"""@en;
+  rdfs:range :Tese, :Doutorado;
+  rdfs:domain :Tese, :Doutorado .
+
+:finalizadoComDissertacao a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "é finalizado com dissertação"@pt, "finalizadoComDissertacao"@en;
+  rdfs:comment "Mestrado é finalizado com Dissertação."@pt, """# Design annotations 
+ 
+:finalizadoComDissertacao
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"� finalizado com disserta��o\"@pt .
+rdfs:comment \"Mestrado � finalizado com Disserta��o.\"@pt
+
+
+#bibiframe: http://id.loc.gov/ontologies/bibframe/degree"""@en;
+  rdfs:range :Dissertacao, :Mestrado;
+  rdfs:domain :Dissertacao, :Mestrado .
+
+:temComoResultadoProduto a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "tem como resultado um produto"@pt, "temComoResultadoProduto"@en;
+  rdfs:comment "Curso Profissional tem como resultado um Produto."@pt, """# Design annotations 
+ 
+:temComoResultadoProduto
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"tem como resultado um produto\"@pt .
+rdfs:comment \"Curso Profissional tem como resultado um Produto.\"@pt"""@en;
+  rdfs:range :CursoProfissional;
+  rdfs:domain :Produto .
+
+:estabeleceCondicaoAprovacao a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "estabelece"@pt, "estabeleceCondicaoAprovacao"@en;
+  rdfs:comment "Curso de Pós-Graduação estabelece Condição para Aprovação."@pt, """# Design annotations 
+ 
+:estabeleceCondicaoAprovacao
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"estabelece\"@pt .
+rdfs:comment \"Curso de P�s-Gradua��o estabelece Condi��o para Aprova��o.\"@pt
+owl:equivalentPropert schema:coursePrerequisites,
+                                    schema:programPrerequisites,
+                                    voag:hasApprovalProcess."""@en;
+  rdfs:range :CursoPosGraduacao, :CondicaoAprovacao;
+  rdfs:domain :CursoPosGraduacao, :CondicaoAprovacao;
+  owl:equivalentPropert schema:coursePrerequisites, schema:programPrerequisites, voag:hasApprovalProcess .
+
+:ofereceCursoPosGraduacao a owl:ObjectProperty;
+  rdfs:label "ofereceCursoPosGraduacao"@en;
+  rdfs:comment """# Design annotations 
+ 
+:ofereceCursoPosGreaduacao
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"oferece curso de p�s-gradua��o\"@pt .
+rdfs:comment \"Organiza��o de Ensino oferece Curso de P�s-Gradua��o.\"@pt
+owl:equivalentPropert schema:hasCourseInstance,
+                                    schema:hasCourse,
+                                    schema:course,
+                                    ov:deliveredBy, #(ov)
+                                    ov:offersCourse. #(ov)"""@en;
+  rdfs:range :CursoPosGraduacao;
+  rdfs:domain :OrganizacaoEnsino .
+
+:temConvenio a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+  rdfs:label "tem convênio"@pt, "temConvenio"@en;
+  rdfs:comment "Celebrar convênio. Essa relação é opcional pois ela pode existir ou não."@pt,
+    """# Design annotations 
+ 
+:temConvenio
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"tem conv�nio\"@pt .
+rdfs:comment \"Celebrar conv�nio. Essa rela��o � opcional pois ela pode existir ou n�o.\"@pt
+owl:equivalentPropert itsmo:hasAgreement."""@en;
+  rdfs:range :Convenio;
+  rdfs:domain :OrganizacaoEnsino;
+  owl:equivalentPropert itsmo:hasAgreement .
+
+:realizaDefesa a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "realiza a defesa"@pt, "realizaDefesa"@en;
+  rdfs:comment "Discente realiza a Defesa."@pt, """# Design annotations 
+ 
+:realizaDefesa
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"realiza a defesa\"@pt .
+rdfs:comment \"Discente realiza a Defesa.\"@pt
+owl:equivalentPropert fabio:hasDecisionDate."""@en;
+  rdfs:range :Defesa;
+  rdfs:domain :Discente;
+  owl:equivalentPropert fabio:hasDecisionDate .
+
+:orientaTCC a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+  rdfs:label "orienta TCC"@pt, "orientaTCC"@en;
+  rdfs:comment "Orientador orienta Trabalho de Conclusão de Curso."@pt, """# Design annotations 
+ 
+:orientaTCC
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"orienta TCC\"@pt .
+rdfs:comment \"Orientador orienta Trabalho de Conclus�o de Curso.\"@pt"""@en;
+  rdfs:range :TrabalhoConclusaoCurso;
+  rdfs:domain :Orientador .
+
+:compostoPorCursoPosGraduacao a owl:AsymmetricProperty, owl:ObjectProperty, owl:IrreflexiveProperty;
+  rdfs:label "é composto por Cursos de Pós-Graduação"@pt;
+  rdfs:comment "Programa de Pós-Graduação é composto por Cursos de Pós-Graduacao."@pt;
+  rdfs:range :CursoPosGraduacao;
+  rdfs:domain :ProgramaPosGraduacao;
+  owl:equivalentProperty schema:hasCourseInstance, schema:hasCourse, schema:course,
+    ov:deliveredBy, ov:offersCourse, ov:composedBy, essglobal:isComposedBy .
+
+:compostaPorOrganizacaoEnsino a owl:ObjectProperty;
+  rdfs:range :OrganizacaoEnsino;
+  rdfs:domain :RedeEnsino .
+
+:geraDocumentoAprovacao a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "gera documento de aprovação"@pt, "geraDocumentoAprovacao"@en;
+  rdfs:comment "Defesa gera Documento de Aprovação."@pt, """# Design annotations 
+ 
+:geraDocumentoAprovacao
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"gera documento de aprova��o\"@pt .
+rdfs:comment \"Defesa gera Documento de Aprova��o.\"@pt
+owl:equivalentPropert schema: occupationalCredentialAwarded,
+                                    bibiframe: degree,
+                                    schema: coursePrerequisites,
+                                    schema: programPrerequisites,
+                                    voag: hasApprovalProcess."""@en;
+  rdfs:range :DocumentoDeAprovacao, :DocumentoAprovacao;
+  rdfs:domain :Defesa;
+  owl:equivalentPropert schema:coursePrerequisites, schema:programPrerequisites, voag:hasApprovalProcess,
+    schema:occupationalCredentialAwarded, bibframe:degree .
+
+:coorientaTCC a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "coorienta TCC"@pt, "coorientaTCC"@en;
+  rdfs:comment "Coorientador coorienta Trabalho de Conclusão de Curso."@pt, """# Design annotations 
+ 
+:coorientaTCC
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"coorienta TCC\"@pt .
+rdfs:comment \"Coorientador coorienta Trabalho de Conclus�o de Curso.\"@pt"""@en;
+  rdfs:range :TrabalhoConclusaoCurso;
+  rdfs:domain :Coorientador .
+
+:avaliaDefesa a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "avalia banca"@pt, "avaliaDefesa"@en;
+  rdfs:comment "Banca avalia a Defesa."@pt, """# Design annotations 
+ 
+:avaliaDefesa
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"avalia banca\"@pt .
+rdfs:comment \"Banca avalia a Defesa.\"@pt
+owl:equivalentPropert schema: assesses,
+                                    pproc:criterionEvaluationMode."""@en;
+  rdfs:range :Defesa;
+  rdfs:domain :Banca;
+  owl:equivalentPropert pproc:criterionEvaluationMode, schema:assesses .
+
+:geridoOrganizacaoEnsino a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "é gerido por Organização de Ensino"@pt, "geridoOrganizacaoEnsino "@en;
+  rdfs:comment "Curso de Pós-Graduação é gerido por Organização de Ensino."@pt, """# Design annotations 
+ 
+:geridoOrganizacaoEnsino 
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"� gerido por Organiza��o de Ensino\"@pt .
+rdfs:comment \"Curso de P�s-Gradua��o � gerido por Organiza��o de Ensino.\"@pt
+owl:equivalentPropert base-gleif:isManagedBy,
+                                    poder:hasAcademicOrganization,
+                                    poder:organizationParticipant."""@en;
+  rdfs:range :OrganizacaoEnsino;
+  rdfs:domain :CursoPosGraduacao;
+  owl:equivalentPropert base-gleif:isManagedBy, poder:hasAcademicOrganization, poder:organizationParticipant .
+
+:referenteTCC a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "é referente ao TCC"@pt, "referenteTCC"@en;
+  rdfs:comment "Defesa é referente ao Trabalho de Conclusão de Curso."@pt, """# Design annotations 
+ 
+:referenteTCC
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"� referente ao TCC\"@pt .
+rdfs:comment \"Defesa � referente ao Trabalho de Conclus�o de Curso.\"@pt"""@en;
+  rdfs:range :TrabalhoConclusaoCurso;
+  rdfs:domain :Defesa .
+
+:pertenceOrganizacaoEnsino a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "pertence a Organização de Ensino"@pt, "pertenceOrganizacaoEnsino"@en;
+  rdfs:comment "Programa de Pós-Graduação pertence a Organização de Ensino."@pt, """# Design annotations 
+ 
+:pertenceOrganizacaoEnsino
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"pertence a Organiza��o de Ensino\"@pt .
+rdfs:comment \"Programa de P�s-Gradua��o pertence a Organiza��o de Ensino.\"@pt
+owl:equivalentPropert poder:hasAcademicOrganization,
+                                    poder:organizationParticipant."""@en;
+  rdfs:range :OrganizacaoEnsino;
+  rdfs:domain :ProgramaPosGraduacao;
+  owl:equivalentPropert poder:hasAcademicOrganization, poder:organizationParticipant .
+
+:associadaIES a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "é associada"@pt, "associadaIES"@en;
+  rdfs:comment "Pessoa Institucionalizada é associada a Instituição de Ensino Superior."@pt,
+    """
+# Design annotations 
+ 
+:associadaIES
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"� associada\"@pt .
+rdfs:comment \"Pessoa Institucionalizada � associada a Institui��o de Ensino Superior.\"@pt
+owl:equivalentPropert rico:teachingRelationHasSource,
+                                    bibframe:grantingInstitution."""@en;
+  rdfs:range :InstituicaoEnsinoSuperior;
+  rdfs:domain :PessoaInstitucionalizada;
+  owl:equivalentPropert bibframe:grantingInstitution, rico:teachingRelationHasSource .
+
+:ocorreEmUmLocal a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "ocorre em um local"@pt, "ocorreEmUmLocal"@en;
+  rdfs:comment "Defesa ocorre em um Local."@pt, """# Design annotations 
+ 
+:ocorreEmUmLocal
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"ocorre em um local\"@pt .
+rdfs:comment \"Defesa ocorre em um Local.\"@pt
+owl:equivalentPropert scoro:research-student
+
+
+schema:location"""@en;
+  rdfs:range :Local;
+  rdfs:domain :Defesa;
+  owl:equivalentPropert scoro:research-student .
+
+:elaboraTCC a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+  rdfs:label "elabora TCC"@pt, "elaboraTCC"@en;
+  rdfs:comment "Discente elabora Trabalho de Conclusão de Curso."@pt, """# Design annotations 
+ 
+:elaboraTCC
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"elabora TCC\"@pt .
+rdfs:comment \"Discente elabora Trabalho de Conclus�o de Curso.\"@pt
+owl:equivalentPropert scoro:research-student."""@en;
+  rdfs:range :TrabalhoConclusaoCurso;
+  rdfs:domain :Discente;
+  owl:equivalentPropert scoro:research-student .
+
+:compostaPorMembro a owl:AsymmetricProperty, owl:ObjectProperty, owl:IrreflexiveProperty;
+  rdfs:label "é composta por Membro"@pt, "compostaPorMembro"@en;
+  rdfs:comment "Banca é composta por Membro."@pt, """# Design annotations 
+ 
+:compostaPorMembro
+a owl:AsymmetricProperty, owl:IrreflexiveProperty ;
+rdfs:label \"� composta por Membro\"@pt .
+rdfs:comment \"Banca � composta por Membro.\"@pt
+owl:equivalentProperty ov:composedBy,
+                                      essglobal:isComposedBy,
+                                      xapi:hasMember,
+                                      skos:member,
+                                      bibframe:agentOf."""@en;
+  rdfs:range :Membro;
+  rdfs:domain :Banca;
+  owl:equivalentProperty skos:member, ov:composedBy, essglobal:isComposedBy, <http://ns.inria.fr/ludo/v1/xapihasMember>,
+    bibframe:agentOf .
+
+:temOrganizacaoAcademica a owl:AsymmetricProperty, owl:ObjectProperty, owl:FunctionalProperty,
+    owl:IrreflexiveProperty;
+  rdfs:label "tem organização acadêmica"@pt, "temOrganizacaoAcademica"@en;
+  rdfs:comment """# Design annotations 
+ 
+:temOrganizacaoAcademica
+a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:FunctionalProperty ;
+rdfs:label \"tem organiza��o acad�mica\"@pt;"""@en;
+  rdfs:range :InstituicaoEnsinoSuperior, :VocabularioOrganizacaoAcademica;
+  rdfs:domain :InstituicaoEnsinoSuperior, :VocabularioOrganizacaoAcademica .
+
+:VocabularioOrganizacaoAcademica a owl:Class, owl:NamedIndividual, skos:ConceptScheme,
+    gufo:AbstractIndividualType;
+  rdfs:subClassOf gufo:QualityValue;
+  rdfs:label "VocabularioOrganizacaoAcademica"@en;
+  rdfs:comment """# Design annotations 
+ 
+:VocabularioOrganizacaoAcademica a skos:ConceptScheme ;
+skos:prefLabel \"Vocabul�rio de Organiza��o Acad�mica\"@pt ;
+skos:note \"Lista de vocabul�rios para a organiza��o acad�mica da IES, dispon�vel em no dicion�rio de dados dos microdados do INEP\"@pt .
+
+:CentroFederalEducacaoTecnologica a skos:Concept ;
+skos:topConceptOf:VocabularioOrganizacaoAcademica;
+skos:inScheme:VocabularioOrganizacaoAcademica;
+skos:prefLabel \"Centro Federal de Educa��o Tecnol�gica\"@pt .
+
+:CentroUniversitario a skos:Concept ;
+skos:topConceptOf:VocabularioOrganizacaoAcademica;
+skos:inScheme:VocabularioOrganizacaoAcademica;
+skos:prefLabel \"Centro Universit�rio\"@pt .
+
+:Faculdade a skos:Concept ;
+skos:topConceptOf:VocabularioOrganizacaoAcademica;
+skos:inScheme:VocabularioOrganizacaoAcademica;
+skos:prefLabel \"Faculdade\"@pt .
+
+:InstitutoFederalEducacaoCienciaTecnologia a skos:Concept ;
+skos:topConceptOf:VocabularioOrganizacaoAcademica;
+skos:inScheme:VocabularioOrganizacaoAcademica;
+skos:prefLabel \"Instituto Federal de Educa��o,Ci�ncia e Tecnologia\"@pt .
+
+:Universidade a skos:Concept ;
+skos:topConceptOf:VocabularioOrganizacaoAcademica;
+skos:inScheme:VocabularioOrganizacaoAcademica;
+skos:prefLabel \"Universidade\"@pt ."""@en;
+  owl:equivalentClass _:node1gs845llsx1;
+  skos:prefLabel "Vocabulário de Organização Acadêmica"@pt;
+  skos:note "Lista de vocabulários para a organização acadêmica da IES, disponível no dicionário de dados dos microdados do INEP"@pt .
+
+:temVocabularioPDF a owl:AsymmetricProperty, owl:ObjectProperty, owl:FunctionalProperty,
+    owl:IrreflexiveProperty;
+  rdfs:label "tem vocabulário de PDF"@pt, "temVocabularioPDF"@en;
+  rdfs:comment """# Design annotations 
+ 
+:temVocabularioPDF
+a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:FunctionalProperty ;
+rdfs:label \"tem vocabul�rio de PDF\"@pt;"""@en;
+  rdfs:range :VocabularioPDF;
+  rdfs:domain :DocumentoDigital .
+
+:VocabularioPDF a owl:Class, owl:NamedIndividual, skos:ConceptScheme, gufo:AbstractIndividualType;
+  rdfs:subClassOf gufo:QualityValue;
+  rdfs:label "VocabularioPDF"@en;
+  rdfs:comment """# Design annotations 
+  
+:VocabularioPDF a skos:ConceptScheme;
+skos:prefLabel \"Classifica��o de PDF\"@pt;
+skos:note \"Lista de vocabul�rios para classifica��o de PDF para documentos de um Trabalho de Conclus�o de Curso, estando dispon�vel no formato digital, estando � disposi��o no site oficial Portable Document Format (PDF).\"@pt
+ 
+:PDF_A1a a skos: Concept;
+skos:topConceptOf:VocabularioPDF;
+skos:inScheme:VocabularioPDF;
+skos:prefLabel \"PDF/A-1a\"@pt.
+
+:PDF_A1b a skos: Concept;
+skos:topConceptOf:VocabularioPDF;
+skos:inScheme:VocabularioPDF;
+skos:prefLabel \"PDF/A-1b\"@pt.
+
+:PDF_A21 a skos:Concept;
+skos:topConceptOf:VocabularioPDF;
+skos:inScheme:VocabularioPDF;
+skos:prefLabel \"PDF/A-21\"@pt.
+
+:PDF_A2b a skos:Concept;
+skos:topConceptOf:VocabularioPDF;
+skos:inScheme:VocabularioPDF;
+skos:prefLabel \"PDF/A-2b\"@pt.
+
+:PDF_A2u a skos:Concept;
+skos:topConceptOf:VocabularioPDF;
+skos:inScheme:VocabularioPDF;
+skos:prefLabel \"PDF/A-2u\"@pt.
+
+:PDF_A3a a skos:Concept;
+skos:topConceptOf:VocabularioPDF;
+skos:inScheme:VocabularioPDF;
+skos:prefLabel \"PDF/A-3a\"@pt.
+
+:PDF_A3b a skos:Concept;
+skos:topConceptOf:VocabularioPDF;
+skos:inScheme:VocabularioPDF;
+skos:prefLabel \"PDF_A3b\"@pt.
+
+:PDF_A3u a skos:Concept;
+skos:topConceptOf:VocabularioPDF;
+skos:inScheme:VocabularioPDF;
+skos:prefLabel \"PDF/A-3u\"@pt.
+
+:PDF_A4f a skos:Concept;
+skos:topConceptOf:VocabularioPDF;
+skos:inScheme:VocabularioPDF;
+skos:prefLabel \"PDF/A-4f\"@pt.
+
+:PDF_A4e a skos:Concept;
+skos:topConceptOf:VocabularioPDF;
+skos:inScheme:VocabularioPDF;
+skos:prefLabel \"PDF/A-4e\"@pt."""@en;
+  owl:equivalentClass _:node1gs845llsx27;
+  skos:prefLabel "Classificação de PDF"@pt;
+  skos:note "Lista de vocabulários para classificação de PDF para documentos de um Trabalho de Conclusão de Curso, estando disponível no formato digital, estando à disposição no site oficial Portable Document Format (PDF)."@pt .
+
+:temVocabularioIdioma a owl:AsymmetricProperty, owl:ObjectProperty, owl:FunctionalProperty,
+    owl:IrreflexiveProperty;
+  rdfs:label "tem vocabulário de idioma"@pt, "temVocabularioIdioma"@en;
+  rdfs:comment """# Design annotations 
+ 
+:temVocabularioIdioma
+a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:FunctionalProperty ;
+rdfs:label \"tem vocabul�rio de idioma\"@pt;"""@en;
+  rdfs:range :VocabularioIdioma;
+  rdfs:domain :Documento .
+
+:VocabularioIdioma a owl:Class, owl:NamedIndividual, skos:ConceptScheme, gufo:AbstractIndividualType;
+  rdfs:subClassOf gufo:QualityValue;
+  rdfs:label "VocabularioIdioma"@en;
+  rdfs:comment """# Design annotations 
+
+:VocabularioIdioma a skos:ConceptScheme ;
+skos:prefLabel \"Vocabul�rio de Idioma\"@pt ;
+skos:note \"Lista de vocabul�rios para a classifica��o de idioma para documentos de um Trabalho de Conclus�o de Curso, estando dispon�vel os cinco idiomas no portal da CAPES, al�m de existir outros no Ethnologue: languages of the world.\"@pt .
+
+:Alemao a skos: Concept ;
+skos:topConceptOf:VocabularioIdioma;
+skos:inScheme:VocabularioIdioma;
+skos:prefLabel \"Alem�o\"@pt.
+
+:Espanho a skos: Concept ;
+skos:topConceptOf:VocabularioIdioma;
+skos:inScheme:VocabularioIdioma;
+skos:prefLabel \"Espanho\"@pt.
+
+:Frances a skos:Concept ;
+skos:topConceptOf:VocabularioIdioma;
+skos:inScheme:VocabularioIdioma;
+skos:prefLabel \"Franc�s\"@pt.
+
+Ingles a skos:Concept ;
+skos:topConceptOf:VocabularioIdioma;
+skos:inScheme:VocabularioIdioma;
+skos:prefLabel \"Ingl�s\"@pt.
+
+:Italiano a skos:Concept ;
+skos:topConceptOf:VocabularioIdioma;
+skos:inScheme:VocabularioIdioma;
+skos:prefLabel \"Italiano\"@pt."""@en;
+  owl:equivalentClass _:node1gs845llsx21;
+  skos:prefLabel "Vocabulário de Idioma"@pt;
+  skos:note "Lista de vocabulários para a classificação de idioma para documentos de um Trabalho de Conclusão de Curso, estando disponível os cinco idiomas no portal da CAPES, além de existir outros no Ethnologue: languages of the world."@pt .
+
+:temCategoriaAdministrativa a owl:AsymmetricProperty, owl:ObjectProperty, owl:FunctionalProperty,
+    owl:IrreflexiveProperty;
+  rdfs:label "tem categoria administrativa"@pt, "temCategoriaAdministrativa"@en;
+  rdfs:comment """# Design annotations 
+ 
+:temCategoriaAdministrativa
+a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:FunctionalProperty ;
+rdfs:label \"tem categoria administrativa\"@pt;"""@en;
+  rdfs:range :InstituicaoEnsinoSuperior, :VocabularioCategoriaAdministrativa;
+  rdfs:domain :InstituicaoEnsinoSuperior, :VocabularioCategoriaAdministrativa .
+
+:VocabularioCategoriaAdministrativa a owl:Class, owl:NamedIndividual, skos:ConceptScheme,
+    gufo:AbstractIndividualType;
+  rdfs:subClassOf gufo:QualityValue;
+  rdfs:label "VocabularioCategoriaAdministrativa"@en;
+  rdfs:comment """# Design annotations 
+
+:VocabularioCategoriaAdministrativa a skos:ConceptScheme ;
+skos:prefLabel \"Vocabul�rio de Categoria Academica\"@pt ;
+skos:note \"Lista de vocabul�rios para a classifica��o da categoria administrativa das IES, dispon�vel em no dicion�rio de dados dos microdados do INEP\"@pt .
+
+:Especial a skos:Concept ;
+skos:topConceptOf:VocabularioCategoriaAdministrativa;
+skos:inScheme:VocabularioCategoriaAdministrativa;
+skos:prefLabel \"Especial\"@pt .
+
+:PublicaEstadual a skos:Concept ;
+skos:topConceptOf:VocabularioCategoriaAdministrativa;
+skos:inScheme:VocabularioCategoriaAdministrativa;
+skos:prefLabel \"P�blica Estadual\"@pt .
+
+:PublicaFederal a skos:Concept ;
+skos:topConceptOf:VocabularioCategoriaAdministrativa;
+skos:inScheme:VocabularioCategoriaAdministrativa;
+skos:prefLabel \"P�blica Federal\"@pt .
+
+:PublicaMunicipal a skos:Concept ;
+skos:topConceptOf:VocabularioCategoriaAdministrativa;
+skos:inScheme:VocabularioCategoriaAdministrativa;
+skos:prefLabel \"P�blica Municipal\"@pt .
+
+:PrivadaComFinsLucrativos a skos:Concept ;
+skos:topConceptOf:VocabularioCategoriaAdministrativa;
+skos:inScheme:VocabularioCategoriaAdministrativa;
+skos:prefLabel \"Privada sem fins lucrativos\"@pt .
+
+:PrivadaParticularSentidoEstrito a skos:Concept ;
+skos:topConceptOf:VocabularioCategoriaAdministrativa;
+skos:inScheme:VocabularioCategoriaAdministrativa;
+skos:prefLabel \"Privada - Particular em sentido estrito\"@pt .
+
+:PrivadaSemFinsLucrativos a skos:Concept ;
+skos:topConceptOf:VocabularioCategoriaAdministrativa;
+skos:inScheme:VocabularioCategoriaAdministrativa;
+skos:prefLabel \"Privada com fins lucrativos\"@pt .
+
+:PrivadaComunitaria a skos:Concept ;
+skos:topConceptOf:VocabularioCategoriaAdministrativa;
+skos:inScheme:VocabularioCategoriaAdministrativa;
+skos:prefLabel \"Privada comunit�ria\"@pt .
+
+:PrivadaConfessional a skos:Concept ;
+skos:topConceptOf:VocabularioCategoriaAdministrativa;
+skos:inScheme:VocabularioCategoriaAdministrativa;
+skos:prefLabel \"Privada confessional\"@pt."""@en;
+  owl:equivalentClass _:node1gs845llsx7;
+  skos:prefLabel "Vocabulário de Categoria Academica"@pt;
+  skos:note "Lista de vocabulários para a classificação da categoria administrativa das IES, disponível em no dicionário de dados dos microdados do INEP"@pt .
+
+:temModalidadeParticipacao a owl:AsymmetricProperty, owl:ObjectProperty, owl:FunctionalProperty,
+    owl:IrreflexiveProperty;
+  rdfs:label "tem modalidade de participação"@pt, "temModalidadeParticipacao"@en;
+  rdfs:comment """# Design annotations 
+
+:temModalidadeParticipacao
+a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:FunctionalProperty;
+rdfs:label \"tem modalidade de participa��o\"@pt;"""@en;
+  rdfs:range :VocabularioModalidadeParticipacao;
+  rdfs:domain :Membro .
+
+:VocabularioModalidadeParticipacao a owl:Class, owl:NamedIndividual, skos:ConceptScheme,
+    gufo:AbstractIndividualType;
+  rdfs:subClassOf gufo:QualityValue;
+  rdfs:label "VocabularioModalidadeParticipacao"@en;
+  rdfs:comment """# Design annotations 
+ 
+:VocabularioModalidadeParticipacao a skos:ConceptScheme;
+skos:prefLabel \"Vocabul�rio de Modalidade de Participa��o\"@pt;
+skos:note \"Lista de vocabul�rios para a classifica��o da modalidade de participa��o dos membros na IES, dispon�vel na Portaria n� 4.059, de 10 de Dezembro de 2004 (DOU de 13/12/2004, Se��o 1, p. 34) e na Resolu��o n� 4, de 11 de Dezembro de 2018.\"@pt .
+
+:ADistancia a skos:Concept ;
+skos: topConceptOf:VocabularioModalidadeParticipacao;
+skos: inScheme:VocabularioModalidadeParticipacao;
+skos:prefLabel \"A Dist�ncia\"@pt .
+
+:Presencial a skos:Concept ;
+skos: topConceptOf:VocabularioModalidadeParticipacao;
+skos: inScheme:VocabularioModalidadeParticipacao;
+skos:prefLabel \"Presencial\"@pt .
+
+:SemiPresencial a skos:Concept ;
+skos: topConceptOf:VocabularioModalidadeParticipacao;
+skos: inScheme:VocabularioModalidadeParticipacao;
+skos:prefLabel \"Semi-Presencial\"@pt ."""@en;
+  owl:equivalentClass _:node1gs845llsx17;
+  skos:prefLabel "Vocabulário de Modalidade de Participação"@pt;
+  skos:note "Lista de vocabulários para a classificação da modalidade de participação dos membros na IES, disponível na Portaria nº 4.059, de 10 de Dezembro de 2004 (DOU de 13/12/2004, Seção 1, p. 34) e na Resolução nº 4, de 11 de Dezembro de 2018."@pt .
+
+:CentroFederalEducacaoTecnologica a skos:Concept, :VocabularioOrganizacaoAcademica;
+  skos:inScheme :VocabularioOrganizacaoAcademica;
+  skos:topConceptOf :VocabularioOrganizacaoAcademica;
+  skos:prefLabel "Centro Federal de Educação Tecnológica"@pt;
+  rdf:label "[object Object]" .
+
+:CentroUniversitario a skos:Concept, :VocabularioOrganizacaoAcademica;
+  skos:inScheme :VocabularioOrganizacaoAcademica;
+  skos:topConceptOf :VocabularioOrganizacaoAcademica;
+  skos:prefLabel "Centro Universitário"@pt;
+  rdf:label "[object Object]" .
+
+:Faculdade a skos:Concept, :VocabularioOrganizacaoAcademica;
+  skos:inScheme :VocabularioOrganizacaoAcademica;
+  skos:topConceptOf :VocabularioOrganizacaoAcademica;
+  skos:prefLabel "Faculdade"@pt;
+  rdf:label "[object Object]" .
+
+:InstitutoFederalEducacaoCienciaTecnologia a skos:Concept, :VocabularioOrganizacaoAcademica;
+  skos:inScheme :VocabularioOrganizacaoAcademica;
+  skos:topConceptOf :VocabularioOrganizacaoAcademica;
+  skos:prefLabel "Instituto Federal de Educação,Ciência e Tecnologia"@pt;
+  rdf:label "[object Object]" .
+
+:Universidade a skos:Concept, :VocabularioOrganizacaoAcademica;
+  skos:inScheme :VocabularioOrganizacaoAcademica;
+  skos:topConceptOf :VocabularioOrganizacaoAcademica;
+  skos:prefLabel "Universidade"@pt;
+  rdf:label "[object Object]" .
+
+:Especial a skos:Concept, :VocabularioCategoriaAdministrativa;
+  skos:inScheme :VocabularioCategoriaAdministrativa;
+  skos:topConceptOf :VocabularioCategoriaAdministrativa;
+  skos:prefLabel "Especial"@pt;
+  rdf:label "[object Object]" .
+
+:PublicaEstadual a skos:Concept, :VocabularioCategoriaAdministrativa;
+  skos:inScheme :VocabularioCategoriaAdministrativa;
+  skos:topConceptOf :VocabularioCategoriaAdministrativa;
+  skos:prefLabel "Pública Estadual"@pt;
+  rdf:label "[object Object]" .
+
+:PublicaFederal a skos:Concept, :VocabularioCategoriaAdministrativa;
+  skos:inScheme :VocabularioCategoriaAdministrativa;
+  skos:topConceptOf :VocabularioCategoriaAdministrativa;
+  skos:prefLabel "Pública Federal"@pt;
+  rdf:label "[object Object]" .
+
+:PublicaMunicipal a skos:Concept, :VocabularioCategoriaAdministrativa;
+  skos:inScheme :VocabularioCategoriaAdministrativa;
+  skos:topConceptOf :VocabularioCategoriaAdministrativa;
+  skos:prefLabel "Pública Municipal"@pt;
+  rdf:label "[object Object]" .
+
+:PrivadaComFinsLucrativos a skos:Concept, :VocabularioCategoriaAdministrativa;
+  skos:inScheme :VocabularioCategoriaAdministrativa;
+  skos:topConceptOf :VocabularioCategoriaAdministrativa;
+  skos:prefLabel "Privada sem fins lucrativos"@pt;
+  rdf:label "[object Object]" .
+
+:PrivadaParticularSentidoEstrito a skos:Concept, :VocabularioCategoriaAdministrativa;
+  skos:inScheme :VocabularioCategoriaAdministrativa;
+  skos:topConceptOf :VocabularioCategoriaAdministrativa;
+  skos:prefLabel "Privada - Particular em sentido estrito"@pt;
+  rdf:label "[object Object]" .
+
+:PrivadaSemFinsLucrativos a skos:Concept, :VocabularioCategoriaAdministrativa;
+  skos:inScheme :VocabularioCategoriaAdministrativa;
+  skos:topConceptOf :VocabularioCategoriaAdministrativa;
+  skos:prefLabel "Privada com fins lucrativos"@pt;
+  rdf:label "[object Object]" .
+
+:PrivadaComunitaria a skos:Concept, :VocabularioCategoriaAdministrativa;
+  skos:inScheme :VocabularioCategoriaAdministrativa;
+  skos:topConceptOf :VocabularioCategoriaAdministrativa;
+  skos:prefLabel "Privada comunitária"@pt;
+  rdf:label "[object Object]" .
+
+:PrivadaConfessional a skos:Concept, :VocabularioCategoriaAdministrativa;
+  skos:inScheme :VocabularioCategoriaAdministrativa;
+  skos:topConceptOf :VocabularioCategoriaAdministrativa;
+  skos:prefLabel "Privada confessional"@pt;
+  rdf:label "[object Object]" .
+
+:ADistancia a skos:Concept, :VocabularioModalidadeParticipacao;
+  skos:inScheme :VocabularioModalidadeParticipacao;
+  skos:topConceptOf :VocabularioModalidadeParticipacao;
+  skos:prefLabel "A Distância"@pt;
+  rdf:label "[object Object]" .
+
+:Presencial a skos:Concept, :VocabularioModalidadeParticipacao;
+  skos:inScheme :VocabularioModalidadeParticipacao;
+  skos:topConceptOf :VocabularioModalidadeParticipacao;
+  skos:prefLabel "Presencial"@pt;
+  rdf:label "[object Object]" .
+
+:SemiPresencial a skos:Concept, :VocabularioModalidadeParticipacao;
+  skos:inScheme :VocabularioModalidadeParticipacao;
+  skos:topConceptOf :VocabularioModalidadeParticipacao;
+  skos:prefLabel "Semi-Presencial"@pt;
+  rdf:label "[object Object]" .
+
+:Alemao a skos:Concept, :VocabularioIdioma;
+  skos:inScheme :VocabularioIdioma;
+  skos:topConceptOf :VocabularioIdioma;
+  skos:prefLabel "Alemão"@pt;
+  rdf:label "[object Object]" .
+
+:Espanhol a skos:Concept, :VocabularioIdioma;
+  skos:inScheme :VocabularioIdioma;
+  skos:topConceptOf :VocabularioIdioma;
+  skos:prefLabel "Espanho"@pt;
+  rdf:label "[object Object]" .
+
+:Frances a skos:Concept, :VocabularioIdioma;
+  skos:inScheme :VocabularioIdioma;
+  skos:topConceptOf :VocabularioIdioma;
+  skos:prefLabel "Francês"@pt;
+  rdf:label "[object Object]" .
+
+:Italiano a skos:Concept, :VocabularioIdioma;
+  skos:inScheme :VocabularioIdioma;
+  skos:topConceptOf :VocabularioIdioma;
+  skos:prefLabel "Italiano"@pt;
+  rdf:label "[object Object]" .
+
+:PDF_A1a a skos:Concept, :VocabularioPDF;
+  skos:inScheme :VocabularioPDF;
+  skos:topConceptOf :VocabularioPDF;
+  skos:prefLabel "PDF/A-1a"@pt;
+  rdf:label "[object Object]" .
+
+:PDF_A1b a skos:Concept, :VocabularioPDF;
+  skos:inScheme :VocabularioPDF;
+  skos:topConceptOf :VocabularioPDF;
+  skos:prefLabel "PDF/A-1b"@pt;
+  rdf:label "[object Object]" .
+
+:PDF_A21 a skos:Concept, :VocabularioPDF;
+  skos:inScheme :VocabularioPDF;
+  skos:topConceptOf :VocabularioPDF;
+  skos:prefLabel "PDF/A-21"@pt;
+  rdf:label "[object Object]" .
+
+:PDF_A2b a skos:Concept, :VocabularioPDF;
+  skos:inScheme :VocabularioPDF;
+  skos:topConceptOf :VocabularioPDF;
+  skos:prefLabel "PDF/A-2b"@pt;
+  rdf:label "[object Object]" .
+
+:PDF_A2u a skos:Concept, :VocabularioPDF;
+  skos:inScheme :VocabularioPDF;
+  skos:topConceptOf :VocabularioPDF;
+  skos:prefLabel "PDF/A-2u"@pt;
+  rdf:label "[object Object]" .
+
+:PDF_A3a a skos:Concept, :VocabularioPDF;
+  skos:inScheme :VocabularioPDF;
+  skos:topConceptOf :VocabularioPDF;
+  skos:prefLabel "PDF/A-3a"@pt;
+  rdf:label "[object Object]" .
+
+:PDF_A3b a skos:Concept, :VocabularioPDF;
+  skos:inScheme :VocabularioPDF;
+  skos:topConceptOf :VocabularioPDF;
+  skos:prefLabel "PDF_A3b"@pt;
+  rdf:label "[object Object]" .
+
+:PDF_A3u a skos:Concept, :VocabularioPDF;
+  skos:inScheme :VocabularioPDF;
+  skos:topConceptOf :VocabularioPDF;
+  skos:prefLabel "PDF/A-3u"@pt;
+  rdf:label "[object Object]" .
+
+:PDF_A4f a skos:Concept, :VocabularioPDF;
+  skos:inScheme :VocabularioPDF;
+  skos:topConceptOf :VocabularioPDF;
+  skos:prefLabel "PDF/A-4f"@pt;
+  rdf:label "[object Object]" .
+
+:PDF_A4e a skos:Concept, :VocabularioPDF;
+  skos:inScheme :VocabularioPDF;
+  skos:topConceptOf :VocabularioPDF;
+  skos:prefLabel "PDF/A-4e"@pt;
+  rdf:label "[object Object]" .
+
+:porBolsaEstudos a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "por bolsa de estudos"@pt, "porBolsaEstudos"@en;
+  rdfs:comment "Contrato por Bolsa de Estudos disponibilizadas por Patrocinador."@pt,
+    """# Design annotations 
+ 
+:porBolsaEstudos
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"por bolsa de estudos\"@pt .
+rdfs:comment \"Contrato por Bolsa de Estudos disponibilizadas por Patrocinador.\"@pt
+owl:equivalentPropert frapo:contributions-in-kind,
+                                    scoro:controls-project-finances,
+                                    voag:approves."""@en;
+  rdfs:range :BolsaEstudo;
+  rdfs:domain :Contrato;
+  owl:equivalentPropert <http://purl.org/cerif/frapocontributions-in-kind>, scoro:controls-project-finances,
+    voag:approves .
+
+:disponibilizaBolsaEstudos a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "disponibiliza bolsa de estudos"@pt, "disponibilizaBolsaEstudos"@en;
+  rdfs:comment "Patrocinador disponibiliza Bolsa de Estudos."@pt, """# Design annotations 
+ 
+:disponibilizaBolsaEstudos
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"disponibiliza bolsa de estudos\"@pt .
+rdfs:comment \"Patrocinador disponibiliza Bolsa de Estudos.\"@pt
+owl:equivalentPropert frapo:contributions-in-kind,
+                                    scoro:controls-project-finances,
+                                    voag:approves."""@en;
+  rdfs:range :BolsaEstudo;
+  rdfs:domain :Patrocinador;
+  owl:equivalentPropert <http://purl.org/cerif/frapocontributions-in-kind>, scoro:controls-project-finances,
+    voag:approves .
+
+:armazenadoNoLocalFisico a owl:ObjectProperty, owl:TransitiveProperty, owl:ReasonerProperty,
+    owl:SymetricProperty;
+  rdfs:label "é armazenado no local físico"@pt, "armazenadoNoLocalFisico"@en;
+  rdfs:comment "Documento Impresso é armazenado em um Local Físico."@pt, """# Design annotations 
+ 
+:armazenadoNoLocalFisico
+a owl:TransitiveProperty, owl: ReasonerProperty, owl:SymetricProperty;
+rdfs:label \"� armazenado no local f�sico\"@pt ;
+rdfs:comment \"Documento Impresso � armazenado em um Local F�sico.\"@pt;
+owl:equivalentPropert dcat:record,
+                                    ptop:registeredIn."""@en;
+  rdfs:range :LocalFisico;
+  rdfs:domain :DocumentoImpresso;
+  owl:equivalentPropert <http://www.w3.org/ns/dcat#record>, ptop:registeredIn .
+
+:ofereceCursoPosGreaduacao a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+  rdfs:label "oferece curso de pós-graduação"@pt;
+  rdfs:comment "Organização de Ensino oferece Curso de Pós-Graduação."@pt;
+  owl:equivalentPropert schema:hasCourseInstance, schema:hasCourse, schema:course, ov:deliveredBy,
+    ov:offersCourse .
+
+:compostoPorIES a owl:AsymmetricProperty, owl:IrreflexiveProperty;
+  rdfs:label "é composta por IES"@pt;
+  rdfs:comment "Rede de Ensino é composta por Organização de Ensino."@pt;
+  owl:equivalentProperty ov:composedBy, essglobal:isComposedBy .
+
+:DocumentoAprovacao a owl:Class, owl:NamedIndividual, gufo:Kind;
+  rdfs:subClassOf gufo:FunctionalComplex;
+  rdfs:label "DocumentoAprovacao"@en;
+  rdfs:comment """# Design annotations 
+ 
+:DocumentoAprovacao
+rdfs:label \"Documento de Aprova��o\"@pt;
+rdfs:comment \" \"@pt;
+owl:equivalentClass schema: EducationalOccupationalCredential,
+                                 fabio: Diary."""@en .
+
+_:node1gs845llsx1 a owl:Class;
+  owl:oneOf _:node1gs845llsx2 .
+
+_:node1gs845llsx2 rdf:first :CentroFederalEducacaoTecnologica;
+  rdf:rest _:node1gs845llsx3 .
+
+_:node1gs845llsx3 rdf:first :CentroUniversitario;
+  rdf:rest _:node1gs845llsx4 .
+
+_:node1gs845llsx4 rdf:first :Faculdade;
+  rdf:rest _:node1gs845llsx5 .
+
+_:node1gs845llsx5 rdf:first :InstitutoFederalEducacaoCienciaTecnologia;
+  rdf:rest _:node1gs845llsx6 .
+
+_:node1gs845llsx6 rdf:first :Universidade;
+  rdf:rest rdf:nil .
+
+_:node1gs845llsx7 a owl:Class;
+  owl:oneOf _:node1gs845llsx8 .
+
+_:node1gs845llsx8 rdf:first :Especial;
+  rdf:rest _:node1gs845llsx9 .
+
+_:node1gs845llsx9 rdf:first :PublicaEstadual;
+  rdf:rest _:node1gs845llsx10 .
+
+_:node1gs845llsx10 rdf:first :PublicaFederal;
+  rdf:rest _:node1gs845llsx11 .
+
+_:node1gs845llsx11 rdf:first :PublicaMunicipal;
+  rdf:rest _:node1gs845llsx12 .
+
+_:node1gs845llsx12 rdf:first :PrivadaComFinsLucrativos;
+  rdf:rest _:node1gs845llsx13 .
+
+_:node1gs845llsx13 rdf:first :PrivadaParticularSentidoEstrito;
+  rdf:rest _:node1gs845llsx14 .
+
+_:node1gs845llsx14 rdf:first :PrivadaSemFinsLucrativos;
+  rdf:rest _:node1gs845llsx15 .
+
+_:node1gs845llsx15 rdf:first :PrivadaComunitaria;
+  rdf:rest _:node1gs845llsx16 .
+
+_:node1gs845llsx16 rdf:first :PrivadaConfessional;
+  rdf:rest rdf:nil .
+
+_:node1gs845llsx17 a owl:Class;
+  owl:oneOf _:node1gs845llsx18 .
+
+_:node1gs845llsx18 rdf:first :ADistancia;
+  rdf:rest _:node1gs845llsx19 .
+
+_:node1gs845llsx19 rdf:first :Presencial;
+  rdf:rest _:node1gs845llsx20 .
+
+_:node1gs845llsx20 rdf:first :SemiPresencial;
+  rdf:rest rdf:nil .
+
+_:node1gs845llsx21 a owl:Class;
+  owl:oneOf _:node1gs845llsx22 .
+
+_:node1gs845llsx22 rdf:first :Alemao;
+  rdf:rest _:node1gs845llsx23 .
+
+_:node1gs845llsx23 rdf:first :Espanhol;
+  rdf:rest _:node1gs845llsx24 .
+
+_:node1gs845llsx24 rdf:first :Frances;
+  rdf:rest _:node1gs845llsx25 .
+
+_:node1gs845llsx25 rdf:first :Ingles;
+  rdf:rest _:node1gs845llsx26 .
+
+:Ingles a :VocabularioIdioma;
+  rdf:label "[object Object]" .
+
+_:node1gs845llsx26 rdf:first :Italiano;
+  rdf:rest rdf:nil .
+
+_:node1gs845llsx27 a owl:Class;
+  owl:oneOf _:node1gs845llsx28 .
+
+_:node1gs845llsx28 rdf:first :PDF_A1a;
+  rdf:rest _:node1gs845llsx29 .
+
+_:node1gs845llsx29 rdf:first :PDF_A1b;
+  rdf:rest _:node1gs845llsx30 .
+
+_:node1gs845llsx30 rdf:first :PDF_A21;
+  rdf:rest _:node1gs845llsx31 .
+
+_:node1gs845llsx31 rdf:first :PDF_A2b;
+  rdf:rest _:node1gs845llsx32 .
+
+_:node1gs845llsx32 rdf:first :PDF_A2u;
+  rdf:rest _:node1gs845llsx33 .
+
+_:node1gs845llsx33 rdf:first :PDF_A3a;
+  rdf:rest _:node1gs845llsx34 .
+
+_:node1gs845llsx34 rdf:first :PDF_A3b;
+  rdf:rest _:node1gs845llsx35 .
+
+_:node1gs845llsx35 rdf:first :PDF_A3u;
+  rdf:rest _:node1gs845llsx36 .
+
+_:node1gs845llsx36 rdf:first :PDF_A4f;
+  rdf:rest _:node1gs845llsx37 .
+
+_:node1gs845llsx37 rdf:first :PDF_A4e;
+  rdf:rest rdf:nil .
+
+:nomePdfDocumentoDigital a owl:DatatypeProperty;
+  rdfs:label "nomePdfDocumentoDigital"@en;
+  rdfs:range xsd:string;
+  rdfs:domain :DocumentoDigital;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:tipoPdfDocumentoDigital a owl:DatatypeProperty;
+  rdfs:label "tipoPdfDocumentoDigital"@en;
+  rdfs:range xsd:string;
+  rdfs:domain :DocumentoDigital;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:tamanhokilobitesDocumentoDigital a owl:DatatypeProperty;
+  rdfs:label "tamanhokilobitesDocumentoDigital"@en;
+  rdfs:range xsd:int;
+  rdfs:domain :DocumentoDigital;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:descricaoAnexosDocumentoDigital a owl:DatatypeProperty;
+  rdfs:label "descricaoAnexosDocumentoDigital"@en;
+  rdfs:range xsd:string;
+  rdfs:domain :DocumentoDigital;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:cidadeLocalFisico a owl:DatatypeProperty;
+  rdfs:label "cidadeLocalFisico"@en;
+  rdfs:range xsd:string;
+  rdfs:domain :LocalFisico;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:estadoLocalFisico a owl:DatatypeProperty;
+  rdfs:label "estadoLocalFisico"@en;
+  rdfs:range xsd:string;
+  rdfs:domain :LocalFisico;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:paisLocalFisico a owl:DatatypeProperty;
+  rdfs:label "paisLocalFisico"@en;
+  rdfs:range xsd:string;
+  rdfs:domain :LocalFisico;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:siglaIES a owl:DatatypeProperty;
+  rdfs:label "siglaIES"@en;
+  rdfs:range xsd:string;
+  rdfs:domain :InstituicaoEnsinoSuperior;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:nomeIES a owl:DatatypeProperty;
+  rdfs:label "nomeIES"@en;
+  rdfs:range xsd:string;
+  rdfs:domain :InstituicaoEnsinoSuperior;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:webPageIES a owl:DatatypeProperty;
+  rdfs:label "webPageIES"@en;
+  rdfs:range xsd:string;
+  rdfs:domain :InstituicaoEnsinoSuperior;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:uriIES a owl:DatatypeProperty;
+  rdfs:label "uriIES"@en;
+  rdfs:range xsd:string;
+  rdfs:domain :InstituicaoEnsinoSuperior;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:unidadeIES a owl:DatatypeProperty;
+  rdfs:label "unidadeIES"@en;
+  rdfs:domain :InstituicaoEnsinoSuperior;
+  rdfs:subPropertyOf gufo:hasQualityValue .
+
+:trabalhoConclusaoCursoHasPalavraChave a owl:ObjectProperty;
+  rdfs:range :PalavraChave;
+  rdfs:domain :TrabalhoConclusaoCurso .
+
+:programaPosGraduacaoHasCursoPosGraduacao a owl:ObjectProperty;
+  rdfs:range :CursoPosGraduacao;
+  rdfs:domain :ProgramaPosGraduacao .
+
+_:node1gs845llsx38 a owl:Restriction;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Acervo;
+  owl:onProperty gufo:mediates .
+
+_:node1gs845llsx39 a owl:Restriction;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :TrabalhoConclusaoCurso;
+  owl:onProperty gufo:mediates .
+
+data:DOC00001 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 1;
+  :tituloDocumento "O papel da biblioteca no processo de obtenção da remição de pena pelo trabalho, estudo e pela leitura no Complexo Penitenciário de Xuri no Estado do Espírito Santo (ES)"@pt;
+  :resumoDocumento "O Estado do Espírito Santo possui trinta e seis estabelecimentos prisionais, destes, trinta possuem bibliotecas. Diante desta informação, este estudo investiga o papel da biblioteca no Complexo Penitenciário de Xuri nos processos de acesso à informação e da remição de pena pelo trabalho, estudo e leitura. Em específico, relata a conformação da pena e da prisão no cenário da execução penal no Brasil; identifica o funcionamento e as práticas de remição de pena desenvolvidas pelas unidades prisionais a partir de suas vinculações com as bibliotecas do Complexo Penitenciário de Xuri em Vila Velha no Espírito Santo; caracteriza os usos das bibliotecas prisionais como espaço para práticas socioeducativas e de acesso à informação para os internos do Complexo Penitenciário de Xuri, em Vila Velha; e analisa as potencialidades para a implementação de projetos voltados para remição de pena pela leitura no Complexo Penitenciário de Xuri, em Vila Velha, a partir de uma política emancipatória da unidade penal mediada pela biblioteca. Utiliza pesquisa exploratório-descritiva com abordagem qualitativa. Quanto aos procedimentos metodológicos, emprega as pesquisas bibliográfica, documental e de campo. Realiza levantamento bibliográfico e documental em bases de dados, livros, documentos oficiais e normativas do direito penal. Em relação à pesquisa de campo, utiliza como instrumento de coleta de dados questionário e observação. Durante etapa de pesquisa de campo, foram aplicados questionários presencialmente para a representante da Subgerência de Educação nas Prisões do Estado do Espírito Santo e para os internos que trabalham na biblioteca do Complexo Penitenciário de Xuri. Para a análise dos dados, utiliza o método de análise de conteúdo. Aponta nos resultados que a biblioteca possui relevância para os internos, por tratar-se de um espaço de conhecimento, de entretenimento e de trabalho, porém, é pouco explorada pela instituição. Conclui que a biblioteca é um dispositivo socioeducativo e cultural para os reeducandos, além de um lugar para remir a pena, mas que necessita ser (re) conhecida e valorizada como tal pela instituição, para que a mesma promova ações que contribuam para uso criativo e educativo do tempo do reeducando e de sua reintegração ao coletivo.";
+  :semestreLetivoDocumento "2020/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 168;
+  :uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_16445_Disserta%E7%E3o%20de%20Adriana%20Isid%F3rio%20da%20Silva%20Zamite%20.pdf" .
+
+data:DOC00002 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 2;
+  :tituloDocumento "Biblioteca universitária como espaço de aprendizagem: a competência em informação e a colaboração educativa entre bibliotecário e professor"@pt;
+  :resumoDocumento "A pesquisa tem como objetivo geral compreender o processo de planejamento e realização de ações colaborativas entre bibliotecários e professores, orientadas à competência em informação, presenciais e digitais, de bibliotecas de IES (públicas e privadas) localizadas na Grande Vitória (ES). A temática é relevante por trazer para essa discussão o papel pedagógico das BU’s, evidenciando o profissional bibliotecário como um educador e por trazer como reflexão possibilidades de desenvolver práticas e ações colaborativas com professores demonstrando as mais variadas possibilidades inerentes ao universo das bibliotecas universitárias e por estar alinhada à área temática da Ciência da Informação. A metodologia aplicada deu-se a um tipo de pesquisa bibliográfica, realizada em livros, trabalhos e artigos de autores e teóricos que dialogam sobre a importância da biblioteca universitária como espaço de aprendizagem e da competência em informação e a colaboração educativa entre bibliotecário e professor, contextualizando diretamente com os objetivos da pesquisa. Juntamente com a pesquisa bibliográfica, também foi realizada uma análise sistemática da literatura, utilizando a metodologia Knowledge Development Process– Constructivist (Proknow-C).Como instrumentos de pesquisa foram utilizados questionários semiestruturados cujo objetivo era investigar como são planejadas e realizadas ações orientadas à competência em informação e o Teacher/Librarian Collaboration Model (TLC) como base para a construção de algumas perguntas do questionário, para verificação da existência de trabalho colaborativo entre professores e bibliotecários das IES. Esta pesquisa atingiu seus objetivos, pois possibilitou verificar, partindo da problematização levantada para o estudo, que as ações orientadas à prática colaborativa entre professor e bibliotecário são realizadas, mesmo que de forma tímida sem a existência de um programa continuado de competência em informação, as ações e práticas acontecem por alguns gestores de forma planejada em planejamento estratégico com direção acadêmica que se estende às coordenações de cursos e professores, em outros momentos por solicitações avulsas a um planejamento de aula por parte do professor e por rotina tradicional por parte do bibliotecário.";
+  :semestreLetivoDocumento "2020/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 184;
+  :uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_16095_DISSERTA%C7%C3O%20APROVADA_ALESSANDRAMPCAETANO20220615-90454.pdf" .
+
+data:DOC00003 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 3;
+  :tituloDocumento "Dados abertos governamentais: modelo de governança voltado a qualidade de dados para publicação em rede"@pt;
+  :resumoDocumento "A escalada na abertura de dados governamentais é um fenômeno originado de longos debates sobre a modernização do Estado contando, na atualidade, com diversos governos mundiais publicando um vasto conteúdo informacional em rede. Baseado nessa constatação, a pesquisa é motivada em compreender os desafios impostos à administração pública na publicação de dados de forma alinhada ao movimento aberto sob a ótica dos portais de dados. O objetivo desta pesquisa foi propor um modelo de governança voltado à qualidade de dados publicados em ambiente web, com foco na disponibilização dos recursos informacionais do governo com abrangência, consistência, eficácia e transparência. A metodologia foi o primeiro resultado da pesquisa, sendo apresentado como um instrumento científico dividido em três etapas. Na primeira etapa foi realizada uma pesquisa bibliográfica e documental evidenciando os antecedentes históricos do movimento de abertura de dados, conjuntamente a um panorama atual de iniciativas e estágios de evolução; o que levou a condução de um pré-teste nos portais de dados abertos dos EUA, Reino Unido, Brasil, e Irlanda, alcançando-se como resultado a definição dos desafios para abertura de dados governamentais com qualidade. Posteriormente, estes desafios serviram como insumo para a definição das dimensões analíticas fundamentais à proposição do modelo de governança. Na segunda etapa foi exposto o diagnóstico de maturidade para os portais de dados abertos, apresentando-se também a definição dos níveis de maturidade que foram empregados na pesquisa. O diagnóstico foi validado nos mesmos portais do pré-teste, com as notas finais sendo apresentadas e discutidas. Os resultados da validação indicaram que as iniciativas de abertura carecem de políticas de dados mais amplas e efetivas, faltando comprometimento político para colocar em prática os planos de ação formalizados, com pouca transparência na execução das ações e um insuficiente envolvimento social na sua formulação. Na terceira fase, os resultados foram tratados, gerando-se as inferências necessárias para a elaboração do modelo de governança voltado à qualidade de dados para publicação em rede, estando este fundamentado a partir dos resultados obtidos nas etapas anteriores. O modelo permitirá que os governos construam políticas de dados abrangentes e consistentes, mitigando as barreiras de publicação, e de forma consonante capacitando e encorajando os técnicos governamentais a publicarem dados com mais qualidade, beneficiando o movimento aberto e a sociedade.";
+  :semestreLetivoDocumento "2019/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 151;
+  :uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15610_Dissertacao%20Revisada%20Final%20-%20Dirceu%20Flavio%20Macedo%20%282%29.pdf" .
+
+data:DOC00004 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 4;
+  :tituloDocumento "Regime de informação em contexto organizacional: a representatividade dos artefatos à luz da sociomaterialidade"@pt;
+  :resumoDocumento "Delimita o foco nos fenômenos de natureza informativa que permeiam os contextos organizacionais das universidades federais brasileiras, voltados à necessidade, busca, compartilhamento e uso da informação. Analisa o ambiente de informação da Secretaria Unificada de Pós-Graduação (SUPG/CCJE/UFES) categorizando-o com base nos elementos que compõem um regime de informação (atores, ações, dispositivos e artefatos), modelo teórico-analítico desenvolvido nas duas últimas décadas pela pesquisadora Maria Nélida González de Gómez. Dialoga com a perspectiva do organizar, pois assume uma visão processual das organizações, compreendendo-as como processos ou práticas em constantes fluxos e transformações. Em pesquisa exploratório-descritiva, de abordagem qualitativa da Ciência da Informação e em interdisciplinaridade com a Administração, apresenta aporte teórico-metodológico sobre a sociomaterialidade, caracterizada por evidenciar as dimensões materiais (objetos) das atividades e interações sociais cuja base metodológica fundamenta-se no princípio de simetria da Teoria Ator-Rede (TAR). Emprega, em termos de procedimentos, pesquisa documental, pesquisa bibliográfica e estudo de caso, utilizando grupo focal como estratégia de coleta de dados para o caso estudado. Os resultados apontaram que no regime de informação dominante da SUPG o social e o técnico estão ontologicamente inseparáveis. Além disso, reconhecemos os artefatos como elementos com capacidade de ação suficiente para evidenciar a materialidade nas organizações e no ambiente da secretaria unificada.";
+  :semestreLetivoDocumento "2020/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 119;
+  :uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_16916_vers%E3o%20final.pdf" .
+
+data:DOC00005 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 5;
+  :tituloDocumento "Redes de biblioteca escolar no espírito santo: estudo de caso da rede de vila velha"@pt;
+  :resumoDocumento "Este estudo busca compreender as mudanças que vêm ocorrendo nas bibliotecas escolares, mas especificamente as formas de atuação conjunta articuladas em redes, trazendo consigo características modernas e inovadoras para o ambiente educacional. No contexto brasileiro, a temática rede de biblioteca escolar é pouco explorada. Porém, nota-se que, no âmbito da Ciência da Informação e na história da Biblioteconomia, nos últimos dez anos, de forma gradativa, o tema tem ganhado mais adeptos entre os pesquisadores da área, aguçando a busca por uma compreensão mais sólida de como se dá essa nova forma de atuação das bibliotecas nas esferas dos sistemas de educação. Dentro dessa perspectiva, o objetivo principal foi analisar a formação e configuração das redes de biblioteca escolar no Estado do Espírito Santo em suas dimensões organizacional e pedagógica, assim como compreender de que forma essas redes podem indicar o fortalecimento e a qualificação das bibliotecas como ambientes significativos de aprendizagem. A metodologia de pesquisa adotada foi de cunho exploratório e documental. A análise dos resultados com abordagem qualitativa e o estudo de caso da rede de biblioteca escolar municipal de Vila Velha/ES foram estabelecidos a partir do mapeamento das bibliotecas no Estado. Os eixos norteadores e pilares para o delineamento e as configurações identitárias de uma rede biblioteca nas dimensões organizacional e pedagógica, foram evidenciados com base no referencial teórico (OLIVER, 1990; NOHRIA, 1992; KLIJN; KOPPENJAN; TERMEER, 1995; MIGUELETTO, 2001, CASTELLS, 2006; CARVALHO, 2017) e nos documentos na área da Biblioteconomia e Educação. Na discussão dos resultados da pesquisa, foi possível verificar que um dos principais sucessos da constituição da rede é a articulação, pois estabelece ações comunicativas e dialógicas, voltadas à cooperação entre as equipes, e apresenta ações referentes à efetividade dos produtos e serviços de qualidade à comunidade escolar. A partir disso, a rede promove o empreendedorismo interno e externo para as bibliotecas, bibliotecários e comunidade em geral. Com base nos resultados, conclui que, quando há o estabelecimento de uma coordenação central na sede da Secretaria de Educação, percebe-se a representação significativa nas atividades educacionais, fortalecendo ações que reverberam em todas as bibliotecas, dando visibilidade e reconhecimento ao profissional, além de potencializar reivindicações de melhoria nas estruturas físicas das bibliotecas e de renovação do acervo. O estudo constata que a rede de Vila Velha, ano após ano, vem se consolidando com a constituição de documentação legal e cumprimento das legislações na área da Biblioteconomia e da Educação. Palavras-chave: Rede de biblioteca escolar de Vila Velha/ES. Coordenação de redes de bibliotecas. Redes de cooperação e colaboração bibliotecária. Rede organizacional e pedagógica. Gestão em biblioteca escolar.";
+  :semestreLetivoDocumento "2019/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 156;
+  :uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15309_Disserta%E7%E3o%20Eliana%20Terra%20Barbosa20220615-85050.pdf" .
+
+data:DOC00006 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 6;
+  :tituloDocumento "Diretrizes à mediação cultural com documentos arquivísticos: um estudo sobre práticas com o acervo do Arquivo Público De Vitória (ES) a partir da Base Nacional Comum Curricular"@pt;
+  :resumoDocumento "O estudo tem como objetivo geral investigar de que forma as práticas de mediação cultural a partir do acervo Arquivo Público Municipal de Vitória podem colaborar nos processos de ensino e aprendizagem de alunos do Ensino Fundamental segundo as orientações da Base Nacional Comum Curricular - BNCC e como essa dinâmica com a escola pode estreitar os laços do Arquivo com a comunidade. Como objetivos específicos, a pesquisa discute o conceito de mediação cultural em ambientes arquivísticos no contexto da Ciência da Informação; descreve a instituição Arquivo Público Municipal de Vitória e levantar as suas práticas de mediação cultural; apresenta o mapeamento e a categorização dos usuários do Arquivo Público Municipal de Vitória; contextualiza a Base Nacional Comum Curricular, sua trajetória e concepções, destacando as competências no processo ensino e aprendizagem que envolvem os arquivos; compara as práticas de mediação cultural desenvolvidas no ambiente arquivístico em relação às atividades propostas na BNCC para indicar as convergências bem como e as necessidades de adaptação àquelas diretrizes; e apresenta a elaboração de práticas de mediação cultural associadas às orientações normativas da Base Nacional Comum Curricular e ao uso do acervo do Arquivo Público Municipal de Vitória (ES). Com base nos objetivos delimitados para o desenvolvimento da pesquisa, o estudo no qual possui aspectos de uma pesquisa exploratória e descritiva, caracterizando-se como uma pesquisa-ação com o emprego da pesquisa bibliográfica e documental utilizando como instrumento de coleta de dados a aplicação de questionários. Como resultado, observou-se que tanto a literatura consultada, quanto os dados obtidos junto aos participantes, corroboram para a importância da oferta dos serviços educativos por parte das instituições arquivísticas, indicando ainda a necessidade de que as ações dessa natureza sejam planejadas e articuladas aos currículos escolares, de modo que além de serem executadas, possam fazer parte do cotidiano arquivístico da instituição em questão";
+  :semestreLetivoDocumento "2019/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 141;
+  :uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15612_Fab%EDola%20Costa%20-%20Disserta%E7%E3o%20final%20-%20Mar.2022%20%282%29.pdf" .
+
+data:DOC00007 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 7;
+  :tituloDocumento "Documento, (des)informacao e poder: memoria da ditadura militar brasileira pela obra \"1964 0 brasil entre armas e livros"@pt;
+  :resumoDocumento "Realiza ampliação conceitual sobre a noção de documento, práticas documentárias e regimes de informação para análise das relações de saber e poder e de memória e esquecimento sobre a ditadura militar brasileira (1964-1985) presentes no documento audiovisual “1964: o Brasil entre armas e livros” da produtora Brasil Paralelo, veiculado no YouTube e sua relação com o autoritarismo político na pós-verdade. Em pesquisa exploratório-descritiva de abordagem qualitativa da Ciência da Informação, em interdisciplinaridade com a História e a Sociologia, apresenta aportes teóricometodológicos sobre discursos de verdade, documento, memória, desinformação, negacionismo e pós-verdade operacionalizada por pesquisa bibliográfica, documental e análise genealógica e crítica de base pós-estruturalista foucaultiana do discurso. Identifica práticas da rede de desinformação e negacionismos na pós-verdade, demonstrando uma dupla relação da pós-verdade com a “verdade” iluminista, ao passo que é herdeira de ideais autoritários do processo civilizatório colonialista europeu e recusa suas bases racionais em favor de crenças de um passado conservador idealizado. Apresenta aspectos de negacionismos baseados no racismo estrutural, no antissemitismo nazista e no anticomunismo militar evidenciados no negacionismo anti-histórico sobre a ditadura militar brasileira (1964-1985) no ciberespaço, presentes no regime de (des)informação do/no documento audiovisual analisado. Os resultados demonstram a materialidade da (des)informação em favor do autoritarismo, fortalecido no fenômeno da pós-verdade, com memórias negacionistas e práticas de desinformação provenientes de narrativas de militares e civis de extrema-direita circunscritas em documentos criados para disputar as narrativas de memória sobre a ditadura militar brasileira (1964-1985). Reflete sobre a relação entre narrativas ultraliberais e a propagação de memórias autoritárias e contrafactuais de extrema-direita. Evidencia práticas de desinformação utilizadas pela extrema-direita no filme da Brasil Paralelo para afirmação de enunciados negacionistas, de silenciamento dos saberes e de ataque aos debates acadêmicocientíficos. Contribui interdisciplinarmente ao enfrentamento do negacionismo autoritário e das práticas de desinformação enunciadas por meio de documentos audiovisuais em plataformas digitais no ciberespaço, fomentando novos estudos.";
+  :semestreLetivoDocumento "2019/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 147;
+  :uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15091_SOELLA%2C%20G.%20M.%20Documento%2C%20%28des%29informa%E7%E3o%20e%20poder.%20Mem%F3ria%20da%20ditadura%20militar%20brasileira%20pela%20obra%201964%20o%20Brasil%20entre%20armas%20e%20livros.%202021%20%282%29.pdf" .
+
+data:DOC00008 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 8;
+  :tituloDocumento "A invisibilidade das bibliotecas públicas municipais do estado do espírito santo: um projeto neoliberal como barreira para uma biblioteca pública municipal orientada pelo agir comunicativo"@pt;
+  :resumoDocumento "A pesquisa versa sobre o cenário de invisibilidade das bibliotecas públicas municipais no contexto da sociedade capitalista contemporânea. Analisa o impacto da narrativa neoliberal e das tecnologias da informação e comunicação nas políticas públicas para bibliotecas no âmbito das prefeituras municipais do Estado do Espírito Santo. Verifica como a narratividade neoliberal incide sobre o Estado e opera para o esvaziamento das bibliotecas públicas municipais enquanto espaços de promoção de uma sociedade de direitos. Empreende-se uma pesquisa documental de caráter analítica-crítica pela qual busca-se analisar, dados relativos ao orçamento público e por estes instrumentos, busca-se aferir o orçamento destinado à promoção da cultura dos municípios selecionados e, se estão sendo empregados os recursos para garantir o adequado funcionamento das bibliotecas públicas municipais. Objetiva-se desvelar como se constitui a produção de invisibilidade das BPMs no Estado do Espírito Santo, no contexto da sociedade capitalista neoliberal contemporânea, pela via da precarização desse serviço público. Ao propor demonstrar a insuficiência de recursos destinados às bibliotecas públicas municipais, pretendemos não apenas evidenciar que há um projeto de precarização que inviabiliza essa instituição, mas também defender que as bibliotecas públicas municipais são instituições mediadoras da informação com capacidade de estabelecerem diálogos e interações transversais e multidisciplinares com a sociedade para a promoção de uma via informativa que propicie uma relação ética de função emancipatória crítica e por meio da mediação da informação realizada pelo profissional bibliotecário, orientada pelo agir comunicativo, numa proposta de bibliotecas públicas municipais como esferas públicas na perspectiva habermasiana.";
+  :semestreLetivoDocumento "2019/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 128;
+  :uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15614_Disserta%E7%E3o_Gerson%20Moreira%20Ramos%20Junior%20_%20Vers%E3o%20final%20%282%29.pdf" .
+
+data:DOC00009 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 9;
+  :tituloDocumento "A Preservação da Memória Institucional: o acervo fotográfico do IFES Campus Cachoeiro de Itapemirim"@pt;
+  :resumoDocumento "A fotografia foi uma invenção revolucionária para a época de sua criação, um instrumento capaz de paralisar o tempo, impedir o esquecimento de fatos ocorridos dentro de um lapso temporal. Ela pode ser considerada um ";
+  :semestreLetivoDocumento "2020/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 178;
+  :uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_16678_Disserta%E7%E3o_Jacqueline_Vers%E3o%20final.pdf" .
+
+data:DOC000010 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 10;
+  :tituloDocumento "O fluxo de informação dos processos de consulta tributária da receita federal do brasil: análise baseada no modelo australiano records continuum"@pt;
+  :resumoDocumento "Analisa as implicações das diretrizes e acesso à informação e transparência pública, trazidas pela Lei nº 12.527/2011, no fluxo de informação do processo de consulta tributária da Secretaria da Receita Federal do Brasil, regulamentada pela Instrução Normativa RFB nº 1.396/2013. Utiliza como hipótese a aplicação do modelo Records Continuum como recurso orientador por entender que a sua utilização pela Administração Pública pode ser uma forma de se atender aos anseios da Lei de Acesso à Informação, pois os princípios que norteiam esse modelo visam a não enclausurar os registros e documentos. Trata-se de uma pesquisa exploratória de abordagem qualitativa que emprega a pesquisa bibliográfica e documental de natureza aplicada. Explana acerca do fluxo de informação no contexto da gestão da informação e da gestão documental. De forma mais específica, mapeia e estuda o fluxo de informação da consulta tributária que começa com o pedido do contribuinte consulente e termina com a publicação da solução de consulta pela Receita Federal. Realiza a análise de dados em três etapas: inicialmente, busca o entendimento dos eixos e coordenadas do modelo Records Continuum aplicados ao processo de consulta tributária. Em seguida, analisa o instrumento do Direito Tributário a partir das características das dimensões jurídicas do modelo Records Continuum. Por último, analisa as informações apresentadas pela Receita Federal sob a óptica das diretrizes da Lei de Acesso à Informação. Aponta como resultados melhorias identificadas e condizentes com a aplicação das diretrizes da Lei de Acesso à Informação no ambiente informacional avaliado na Receita Federal, pois foi identificado o aperfeiçoamento nos mecanismos de acesso à informação e transparência nas soluções de consulta e evidenciaram o modelo Records Continuum como capaz de auxiliar a análise do fluxo de informações tributárias pela Receita Federal do Brasil para o cumprimento da sua missão de promoção de justiça fiscal em benefício da sociedade.";
+  :semestreLetivoDocumento "2019/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 206;
+  :uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15092_JULIANO%20DISSERTA%C7%C3O%20%28VERSAO%20FINAL%29.pdf" .
+
+data:DOC000011 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 11;
+  :tituloDocumento "Práticas informacionais de travestis da Grande Vitória (ES)"@pt;
+  :resumoDocumento "Toda ação social deriva da dupla movimentação entre a subjetividade e os condicionamentos culturais a que os sujeitos estão alicerçados. Os estudos sobre práticas informacionais evidenciam como as ações cotidianas, os inter-relacionamentos, a interseccionalidade e os contextos socioculturais dinamizam e interferem no percurso informacional. As pesquisas sobre práticas informacionais de sujeitos LGBTQIA+ demonstram haver uma lacuna no que diz respeito às especificidades dos processos de busca, acesso, apropriação, uso e compartilhamento da informação da comunidade de travestis. Como as travestis são concomitantemente visíveis (pelas mídias) e invisíveis (pelas discriminações), é um desafio examinar questões relacionadas aos seus engajamentos com a informação. Levando em consideração que os sujeitos informacionais não estão isolados em um ambiente privado, que as identidades se constroem a partir das inter-relações e que os fenômenos informacionais são atravessados pelas demarcações políticas, econômicas, simbólicas e identitárias, chegou-se a seguinte questão: em que medida a identidade de gênero influencia nos aspectos voltados à busca, ao acesso, à apropriação, ao uso e à disseminação da informação das travestis da Grande Vitória (ES) em seus cotidianos? Nesse sentido, tornou-se imprescindível investigar as necessidades, fontes, disposições sociais/coletivas e as negociações informacionais dessa população em um viés interseccional, abarcando categorias como gênero, raça/etnia e classe social. Para tanto, o objetivo geral desta pesquisa consiste em analisar as práticas informacionais das travestis da Grande Vitória (ES) frente ao processo de construção da identidade de gênero. Do ponto de vista metodológico, trata-se de uma pesquisa exploratória com caráter qualitativo. Como método para coleta de dados, empregou-se a entrevista semiestruturada, guiada por um roteiro de três blocos, com oito travestis residentes da Grande Vitória (ES). Os resultados demonstraram que desde a infância as travestis relacionam-se com a feminilidade e que o ambiente doméstico se apresenta como parte da extensão dos valores cisgêneros e heterossexuais. As principais necessidades de informação condizem com a reestruturação do corpo por meio dos mecanismos sintéticos e anticoncepcionais. As fontes de informação mais utilizadas pelas travestis retroalimentam-se no ciclo contínuo da troca informacional: as travestis buscam com outras travestis. Os marcadores de diferença (gênero, raça/etnia, classe social) simbolizam uma tripla inferência na busca informacional. O uso da informação ocorre com o objetivo de reconstruir a cidadania e na disseminação de informações sobre performance, corpo, identidade e feminilidade através de suas corporeidades feminilizadas. O contexto das travestis é imbricado por intersecções e interações sociais que influenciam em todo o processo das práticas informacionais.";
+  :semestreLetivoDocumento "2019/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 120;
+  :uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15234_Disserta%E7%E3o%20Finalizada%20Marcela%20Aguiar%20%281%29.pdf" .
+
+data:DOC000012 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 12;
+  :tituloDocumento "As vinculações entre competência em informação, tecnologias e protagonismo social: análise sob uma abordagem social"@pt;
+  :resumoDocumento "Investiga as vinculações teórico-conceituais entre competência em informação e usos sociais de Tecnologias da Informação e da Comunicação (TIC) para produção de protagonismo social de minorias sociais. Sob o paradigma social: a) caracteriza a emergência do termo mediação sob um viés social e suas vinculações com o paradigma social da informação; b) discute usos sociais e potenciais aplicações de Tecnologias da Informação e da Comunicação (TIC) nos processos de desenvolvimento de competência em informação para produção de protagonismo social; c) distingue modelos teóricos e metodologias de desenvolvimento de competência em informação que propiciam a produção de protagonismo social; d) caracteriza produção científica brasileira, no campo da Ciência da Informação, relacionada ao desenvolvimento da competência em informação, mediada por tecnologias, para produção de protagonismo social de minorias sociais. Considera como ambiente empírico de investigação da pesquisa a produção científica nacional em Ciência da Informação publicada nos anais do Encontro Nacional de Pesquisa e Pós-Graduação em Ciência da Informação (Enancib) durante o período de 2016 a 2019 tratando de competência em informação. Constitui a pesquisa como do tipo exploratória e utiliza a pesquisa bibliográfica como estratégia de produção de dados. Desenvolve revisão da literatura tratando de temáticas que se constituem como pano de fundo para constituição do marco teórico: os conceitos de informação e de conhecimento sob o paradigma social, a percepção do sujeito como social e revisão de abordagens sobre mediação e apropriação da informação na dinâmica social. Desdobra o marco teórico em três partes discutindo à luz da literatura os fundamentos teóricos da competência em informação, das vinculações com as Tecnologias da Informação e da Comunicação (TIC) para a produção de protagonismo social de minorias sociais. No desfecho da pesquisa bibliográfica constitui a caracterização de estudos e de práticas identificadas de desenvolvimento da competência em informação mediada por tecnologias para produção de protagonismo de minorias sociais, na amostra estratificada. Entre os Grupos temáticos de trabalho (GT) averiguamos que o GT 3 Mediação, Circulação e Apropriação da Informação agrupou o maior quantitativo dos estudos. Em seguida, foi o GT 2 Organização e Representação do Conhecimento concentrou. Foram identificados um total de 51 autores. A maioria (73%) representada por autoras e os demais (27%) por autores. Entre os públicos mencionados nos estudos, verificamos que as mulheres, as pessoas negras, quilombolas e pessoas trans foram amplamente contempladas nos estudos. Entre os grupos sociais mencionados como minorias sociais, foram listados: Adultos em processo de escolarização tardia e matriculados em turmas de Educação de Jovens e Adultos, quilombolas, alunos com deficiência, mulheres negras, deficiente visual, estudantes com deficiência no ensino superior.";
+  :semestreLetivoDocumento "2019/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 210;
+  :uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15613_Dissertacao03dez2021%20MONICA%20%28FINALIZADA%20PARA%20IMPRESSAO%20%282%29%20%281%29.pdf" .
+
+data:DOC000013 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 13;
+  :tituloDocumento "Entre promessas e realidade? as ações institucionalizadas de preservação da memória e do patrimônio cultural material de bento rodrigues e paracatu de baixo após o desastre ambiental"@pt;
+  :resumoDocumento "Os impactos em Bento Rodrigues e Paracatu de Baixo com o rompimento da barragem de Fundão foram diversos, comprometendo o patrimônio histórico, arquitetônico, artístico e cultural da região de Mariana, Minas Gerais (MG), que abriga, até hoje, riquezas dos tempos do Brasil-colônia ligadas à religiosidade e à produção de ouro. Essa pesquisa investiga, à luz do Termo de Transação e Ajustamento de Conduta, os relatórios do Programa 12 da Fundação Renova que discorrem sobre as ações executadas de preservação da memória e do patrimônio cultural material dos subdistritos de Bento Rodrigues e Paracatu de Baixo após o rompimento da barragem de Fundão (MG) no período de 2016 a 2019. Os recursos metodológicos conjugam uma pesquisa bibliográfica e documental, com abordagem qualitativa, pautada pelas categorias: patrimônio, preservação, identidade, lugar de memória e memória no contexto da Ciência da Informação. O rompimento da barragem de Fundão causou diversos impactos no patrimônio cultural de Bento Rodrigues e Paracatu de Baixo, lugares que congregavam uma rica história do período colonial brasileiro. Assim, garantir a preservação da história e a memória do patrimônio cultural material destes subdistritos possibilita restabelecer os laços afetivos e de identidade de um grupo. Os resultados obtidos mostraram elaboração parcial de projetos, inventários, processo de desinfecção de fungos e bactérias, restauração em peças sacras, oficinas e capacitações com fraca participação das comunidades de Bento Rodrigues e de Paracatu de Baixo, além de sugerir que a raiz de alguns problemas acerca do patrimônio cultural material atingidos pela lama da barragem nos subdistritos pesquisados se encontram no Termo de Transação e Ajustamento de Conduta, ao configurar-se um documento subjetivo em seu teor, limitando-se a apontar caminhos concretos para a reparação dos danos.";
+  :semestreLetivoDocumento "2019/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 170;
+  :uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_15611_Disserta%E7%E3o%20VERS%C3O%20%20final%20Nayane%20Viale%20%20Vargas%20-%20PPGCI%20%281%29_08%20NOV.pdf" .
+
+data:DOC000014 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 14;
+  :tituloDocumento "A competência em informação em institutos federais de educação, ciência e tecnologia: sentidos, práticas e desafios a partir das bibliotecas multiníveis"@pt;
+  :resumoDocumento "";
+  :semestreLetivoDocumento "2020/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 0;
+  :uriDisseminacaoDocumento: "" .
+
+data:DOC000015 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 15;
+  :tituloDocumento "Proposta de implantação de repositório arquivístico digital confiável (rdc-arq): o caso do governo do estado do Espírito Santo"@pt;
+  :resumoDocumento "A transformação digital representa um grande desafio na reestruturação, não só dos processos, como na cultura organizacional. Os impactos causados por essa transformação têm sido motivo de grande interesse, especialmente pela comunidade científica. Participando desse desafio, este estudo buscou elaborar uma proposta de modelo de implantação de um Repositório Arquivístico Digital Confiável (RDC-Arq). Para alcançar este propósito maior, foram traçados objetivos específicos como: 1. apresentar os aspectos legais e teóricos para a implantação de um RDC-Arq, fundamentados nas diretrizes aprovadas pela Resolução do Conarq nº 43 de 2015, que tiveram como base a Norma ISO 16363:2012 e a norma ISO 14721:2012; 2. elaborar um modelo de implantação de um RDC-Arq, identificando suas principais etapas, com base na Resolução do Conarq nº 43 de 2015; 3. aplicar o modelo de implantação do RDC-Arq ao contexto do Governo do Estado do Espírito Santo. Considerando as demandas do produtor e/ou custodiador dos objetos de arquivo, no caso, o Governo do Estado do Espírito Santo. Este estudo foi conduzido por uma pesquisa de natureza aplicada, com objetivos de uma pesquisa descritiva, utilizando uma abordagem qualitativa e com procedimentos de uma pesquisa bibliográfica e documental. A partir de uma revisão de literatura, foi possível comprovar a relevância e a urgência sobre o tema da preservação digital em um ambiente capaz de garantir a preservação, o acesso e a difusão da informação, em um ambiente digital, pelo tempo necessário. A preocupação por este tema é representada aqui na fala Duranti (2016) “Avremo un sistema di conservazione affidabile in futuro”? Assim, a fim de reunir informações necessárias para executar essa tarefa, foram apresentados aspectos legais e teóricos capazes de subsidiar a elaboração desta proposta de modelo. De forma estruturada, este estudo apresenta uma análise do Open Archival Information System (Oais), por ser um Sistema de Arquivamento da Informação, armazenamento, preservação e acesso da informação digital; realiza uma abordagem teórico conceitual sobre as Diretrizes para a Implementação de Repositórios Arquivísticos Digitais Confiáveis, aprovadas pela Resolução do Conarq nº 43 de 2015, e suas principais bases teóricas (ISO 16363:2012 e ISO 14721:2012); apresenta uma proposta de modelo para implantação do RDC-Arq; traz ainda uma adaptação do modelo ao contexto do Governo do Estado do Espírito Santo; e finalmente, apresenta suas considerações.";
+  :semestreLetivoDocumento "2020/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 103;
+  :uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_16629_2022.09.20_Disserta%E7%E3o_Vers%E3o%20final_Organizado_Rosemery.pdf" .
+
+data:DOC000016 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 16;
+  :tituloDocumento "Projeto memórias reveladas no arquivo público do estado do Espírito Santo a partir do acervo da dops/es: acervos arquivísticos e a construção de identidade social"@pt;
+  :resumoDocumento "Trata-se de um estudo sobre o Projeto Memórias Reveladas e sua contribuição para a construção da Identidade Social do Arquivo Público do Estado do Espírito Santo (APEES), a partir da custódia de documentos do acervo da Delegacia de Ordem Política e Social do Estado do Espírito Santo (DOPS/ES). Analisa, via publicações recuperadas durante pesquisa em repositórios científicos e revisão de literatura, em que medida se encontra articulado à construção, à cooperação e ao fortalecimento da memória social do Arquivo. A metodologia utiliza pesquisa bibliográfica, descritiva e exploratória tendo como pano de fundo um estudo de caso. Como objetivo pretendese identificar em que medida custodiar o acervo do Projeto Memórias Reveladas contribuiu para consolidar o papel da memória social do Arquivo, com documentos do período da ditadura militar (1964 - 1985), no recorte temporal de onze anos (2009 – 2020). Para tanto, utilizou-se de aplicação de um questionário, cujo resultado apontou entre outras variáveis a relevância do acervo da DOPS/ES na elaboração dos Relatórios das Comissões da Verdade da UFES e do Governo do Estado do Espírito Santo, bem como a fidelização do Arquivo como local onde a memória é fomentada. Como objetivo, pretende contribuir para estimular a produção científica relacionada à temática memória, arquivo e ditadura militar, principalmente, no contexto da Ciência da Informação, no que tange o âmbito social. Os resultados finais evidenciam que a temática não se esgota, apresentando oportunidade de aumento na produção de conhecimento voltado a acervos de violação de direitos humanos";
+  :semestreLetivoDocumento "2020/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 0;
+  :uriDisseminacaoDocumento: "https://sappg.ufes.br/tese_drupal//tese_16680_9%20-%20Disserta%E7%E3o%20-%20ROSILDA_%20Vers%E3o%20Final%2011.10.22_MEM%D3RIAS%20REVELADAS_DOPSES%20%281%29.pdf" .
+
+data:DOC000017 a owl:NamedIndividual, :Documento;
+  :identificacaoUnicaDocumento 17;
+  :tituloDocumento "Desenvolvimento da competência leitora nas bibliotecas escolares de ensino fundamental: esquema metodológico de competências na área da informação"@pt;
+  :resumoDocumento "";
+  :semestreLetivoDocumento "2020/1";
+  :idiomaDocumento "Português";
+  :numeroPaginasDocumento: 0;
+  :uriDisseminacaoDocumento: "" .
+
+data:INS0001 a owl:NamedIndividual, :IES;
+  :localizadaEmLocalFisico :LOC0001;
+  :temOrganizacaoAcademica :Universidade;
+  :temCategoriaAdministrativa :PublicaFederal;
+  :siglaIES "UFES";
+  :nomeIES "Universidade Fedeal do Espírito Santo"@pt;
+  :webPageIES "https://www.ufes.br/";
+  :uriIES "";
+  :unidadeIES "Campus Vitória" .
+
+data:INS0002 a owl:NamedIndividual, :IES;
+  :localizadaEmLocalFisico :LOC0001;
+  :temOrganizacaoAcademica :Universidade;
+  :temCategoriaAdministrativa :PublicaFederal;
+  :siglaIES "UFES";
+  :nomeIES "Universidade Fedeal do Espírito Santo"@pt;
+  :webPageIES "https://www.ufes.br/";
+  :uriIES "";
+  :unidadeIES "Campus Goiabeiras" .
+
+data:INS0003 a owl:NamedIndividual, :IES;
+  :localizadaEmLocalFisico :LOC0001;
+  :temOrganizacaoAcademica :Universidade;
+  :temCategoriaAdministrativa :PublicaFederal;
+  :siglaIES "UFES";
+  :nomeIES "Universidade Fedeal do Espírito Santo"@pt;
+  :webPageIES "https://ccs.ufes.br/";
+  :uriIES "";
+  :unidadeIES "Campus Maruípe" .
+
+data:INS0004 a owl:NamedIndividual, :IES;
+  :localizadaEmLocalFisico :LOC0002;
+  :temOrganizacaoAcademica :Universidade;
+  :temCategoriaAdministrativa :PublicaFederal;
+  :siglaIES "UFES";
+  :nomeIES "Universidade Fedeal do Espírito Santo"@pt;
+  :webPageIES "https://saomateus.ufes.br/";
+  :uriIES "";
+  :unidadeIES "Campus São Mateus" .
+
+data:INS0005 a owl:NamedIndividual, :IES;
+  :localizadaEmLocalFisico :LOC0003;
+  :temOrganizacaoAcademica :Universidade;
+  :temCategoriaAdministrativa :PublicaFederal;
+  :siglaIES "UFES";
+  :nomeIES "Universidade Fedeal do Espírito Santo"@pt;
+  :webPageIES "https://alegre.ufes.br/";
+  :uriIES "";
+  :unidadeIES "Campus Alegre" .
+
+data:INS0006 a owl:NamedIndividual, :IES;
+  :localizadaEmLocalFisico :LOC0001;
+  :temOrganizacaoAcademica :InstitutoFederalEducacaoCienciaTecnologia;
+  :temCategoriaAdministrativa :PublicaFederal;
+  :siglaIES "IFES";
+  :nomeIES "Instituto Fedeal do Espírito Santo"@pt;
+  :webPageIES "https://vitoria.ifes.edu.br/";
+  :uriIES "";
+  :unidadeIES "Campus Vitória" .
+
+data:LOC0001 a owl:NamedIndividual, :LocalFisico;
+  :cidadeLocalFisico "Vitória";
+  :estadoLocalFisico "ES";
+  :paisLocalFisico "Brasil" .
+
+data:LOC0002 a owl:NamedIndividual, :LocalFisico;
+  :cidadeLocalFisico "São Mateus";
+  :estadoLocalFisico "ES";
+  :paisLocalFisico "Brasil" .
+
+data:LOC0003 a owl:NamedIndividual, :LocalFisico;
+  :cidadeLocalFisico "Alegre";
+  :estadoLocalFisico "ES";
+  :paisLocalFisico "Brasil" .
+
+data:PES0001 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Adriana Isidório da Silva Zamite";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "adrianaisidoriosilva@gmail.com" .
+
+data:PES0002 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Alessandra Monteiro Pattuzzo Caetano";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "apattuzzo@gmail.com" .
+
+data:PES0003 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Daniela Lucas da Silva Lemos";
+  :funcaoPessoa "docente";
+  :emailInstitucionalPessoa "daniela.l.silva@ufes.br";
+  :emailAlternativoPessoa "danielalucas@hotmail.com" .
+
+data:PES0004 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Dirceu Flavio Macedo";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "dfmacedo@gmail.com" .
+
+data:PES0005 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Edma Jantorno";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "ejantorno28@gmail.com" .
+
+data:PES0006 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Eliana Terra Barbosa";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "elianaterra@hotmail.com" .
+
+data:PES0007 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Fabiola Pereira Costa";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "fabiolajpc@hotmail.com" .
+
+data:PES0008 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Gabriel Meneguelli Soella";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "gabrielmsoella@gmail.com" .
+
+data:PES0009 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Gerson Moreira Ramos Junior";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "g.ramosjunior@gmail.com" .
+
+data:PES0010 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Gleice Pereira";
+  :funcaoPessoa "docente";
+  :emailInstitucionalPessoa "gleice.pereira@ufes.br";
+  :emailAlternativoPessoa "gleiceufes@gmail.com" .
+
+data:PES0011 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Henrique Monteiro Cristovao";
+  :funcaoPessoa "docente";
+  :emailInstitucionalPessoa "henrique.cristovao@ufes.br";
+  :emailAlternativoPessoa "hmcristovao@gmail.com" .
+
+data:PES0012 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Jacqueline Machado Silva";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "jacmsilva@yahoo.com.br" .
+
+data:PES0013 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Juliano Rezende Gama";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "julianojrg@gmail.com" .
+
+data:PES0014 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Lucileide Andrade de Lima do Nascimento";
+  :funcaoPessoa "docente";
+  :emailInstitucionalPessoa "lucileide.nascimento@ufes.br";
+  :emailAlternativoPessoa "lucileidelima@gmail.com" .
+
+data:PES0015 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Luiz Carlos da Silva";
+  :funcaoPessoa "docente";
+  :emailInstitucionalPessoa "luiz.c.silva@ufes.br";
+  :emailAlternativoPessoa "luizarquivologia@gmail.com" .
+
+data:PES0016 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Maira Cristina Grigoleto";
+  :funcaoPessoa "docente";
+  :emailInstitucionalPessoa "maira.grigoleto@ufes.br";
+  :emailAlternativoPessoa "magrigo@hotmail.com" .
+
+data:PES0017 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Marcela Aguiar da Silva Nascimento";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "agr.marcela@gmail.com" .
+
+data:PES0018 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Margarete Farias de Moraes";
+  :funcaoPessoa "docente";
+  :emailInstitucionalPessoa "margarete.moraes@ufes.br";
+  :emailAlternativoPessoa "margamoraes@gmail.com" .
+
+data:PES0019 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Marta Leandro da Mata";
+  :funcaoPessoa "docente";
+  :emailInstitucionalPessoa "marta.mata@ufes.br";
+  :emailAlternativoPessoa "martaleandrodamata@gmail.com" .
+
+data:PES0020 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Meri Nadia Marques Gerlin";
+  :funcaoPessoa "docente";
+  :emailInstitucionalPessoa "meri.gerlin@ufes.br";
+  :emailAlternativoPessoa "merinadia@hotmail.com" .
+
+data:PES0021 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Mônica Alves da Fonseca";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "monicadafonseca@uol.com.br" .
+
+data:PES0022 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Nayane Viale Vargas";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "nay.nvv@gmail.com" .
+
+data:PES0023 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Pedro Ernesto Fagundes";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "pefagundes@uol.com.br" .
+
+data:PES0024 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Ronald Tavares Leão Moret";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "leao.moret@gmail.com" .
+
+data:PES0025 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Rosa da Penha Ferreira da Costa";
+  :funcaoPessoa "docente";
+  :emailInstitucionalPessoa "rosa.costa@ufes.br";
+  :emailAlternativoPessoa "rosapenha2012@gmail.com" .
+
+data:PES0026 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Rosemery Araujo Xavier";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "raraujoxavier@gmail.com" .
+
+data:PES0027 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Rosilda Adelaide Rufo";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "rosildinha@hotmail.com" .
+
+data:PES0028 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Taiguara Villela Aldabalde";
+  :funcaoPessoa "docente";
+  :emailInstitucionalPessoa "taiguara.aldabalde@ufes.br";
+  :emailAlternativoPessoa "gnose888@gmail.com" .
+
+data:PES0029 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Tânia Barbosa Salles Gava";
+  :funcaoPessoa "docente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "" .
+
+data:PES0030 a owl:NamedIndividual, :Pessoa;
+  :nomePessoa "Vânia Célia de Oliveira";
+  :funcaoPessoa "discente";
+  :emailInstitucionalPessoa "";
+  :emailAlternativoPessoa "vania.coliver@yahoo.com.br" .
+
+data:PESITZ0001 a owl:NamedIndividual, :Pessoa;
+  :orcidPessoaInstitucionalizada "";
+  :lattesPessoaInstitucionalizada "http://lattes.cnpq.br/2544521607642897";
+  :associadaIES:INS0002 ""^^xsd:integer .
+
+data:PESITZ0002 a owl:NamedIndividual, :Pessoa;
+  :orcidPessoaInstitucionalizada "https://orcid.org/0000-0001-6291-8608";
+  :lattesPessoaInstitucionalizada "http://lattes.cnpq.br/4610955539025040";
+  :associadaIES:INS0002 ""^^xsd:integer .
+
+data:PESITZ0003 a owl:NamedIndividual, :Pessoa;
+  :orcidPessoaInstitucionalizada "https://orcid.org/0000-0003-1565-7366";
+  :lattesPessoaInstitucionalizada "http://lattes.cnpq.br/9280443047358807";
+  :associadaIES:INS0002 ""^^xsd:integer .
+
+data:PESITZ0004 a owl:NamedIndividual, :Pessoa;
+  :orcidPessoaInstitucionalizada "https://orcid.org/0000-0003-4837-3618";
+  :lattesPessoaInstitucionalizada "http://lattes.cnpq.br/2765166629600107";
+  :associadaIES:INS0002 ""^^xsd:integer .
+
+data:PESITZ0005 a owl:NamedIndividual, :Pessoa;
+  :orcidPessoaInstitucionalizada "https://orcid.org/0000-0002-6411-0853";
+  :lattesPessoaInstitucionalizada "http://lattes.cnpq.br/6940649213589691";
+  :associadaIES:INS0002 ""^^xsd:integer .
+
+data:PESITZ0006 a owl:NamedIndividual, :Pessoa;
+  :orcidPessoaInstitucionalizada "";
+  :lattesPessoaInstitucionalizada "http://lattes.cnpq.br/4637550692768963";
+  :associadaIES:INS0002 ""^^xsd:integer .
+
+data:PESITZ0007 a owl:NamedIndividual, :Pessoa;
+  :orcidPessoaInstitucionalizada "https://orcid.org/0000-0002-0456-8897";
+  :lattesPessoaInstitucionalizada "http://lattes.cnpq.br/0957039987080230";
+  :associadaIES:INS0002 ""^^xsd:integer .
+
+:MUN000001 a owl:NamedIndividual, :Municipio;
+  :codigoMunicipio "MUN000001";
+  :nomeMunicipio "Vitória" .
+
+:EST01 a owl:NamedIndividual, :Estado;
+  :codigoEstado "EST01";
+  :nomeEstado "ES" .
+
+:EST01MUN00000129075910 a owl:NamedIndividual, :Local;
+  :codigoLocal "EST01MUN00000129075910";
+  :cep "29075910" .
+
+:AG01 a owl:NamedIndividual, :AreaGeral;
+  :codigoAreaGeral "AG01";
+  :nomeAreaGeral "Ciência da Informação"@pt .
+
+:AE001 a owl:NamedIndividual, :AreaEspecifica;
+  :codigoAreaEspecifica "AE001";
+  :nomeAreaEspecifica "Organização do Conhecimento"@pt .
+
+:CUR00001 a owl:NamedIndividual, :Curso;
+  :codigoCurso "CUR00001";
+  :nomeCurso "Web Semântica"@pt;
+  :qtdeVagasCurso 50;
+  :temAreaGeral :AG01;
+  :temAreaEspecifica :AE001 .
+
+:INS00001 a owl:NamedIndividual, :IES;
+  :temOrganizacaoAcademica :Universidade;
+  :temCategoriaAdministrativa :PublicaFederal;
+  :siglaIES "UFES";
+  :nomeIES "Universidade Fedeal do Espírito Santo"@pt;
+  :codigoIES "INS00001";
+  :qtdeDocenteExercicioIES 3000;
+  :qtdeLivroEletronicoIES 50000;
+  :ofertaCurso :CUR00001;
+  :temLocalizacao :EST01MUN00000129075910 .
+
+:MAN00001 a owl:NamedIndividual, :Mantenedora;
+  :codigoMantenedora "MAN00001";
+  :nomeMantenedora "Mantenedora da UFES";
+  :administraIES :INS00001 .

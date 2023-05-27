@@ -1,0 +1,1189 @@
+# Ontologia operacional parcial - design annotations copiados do VP:
+# - do Project Properties e 
+# - do Specification de cada entidade
+
+# Namespaces para interoperabilidade das camadas estrutural e semântica
+@prefix base-gleif: <https://www.gleif.org/ontology/v1.0/Base/index-en.html#>.
+@prefix bibframe: <http://id.loc.gov/ontologies/bibframe/>.
+@prefix caresses: <http://caressesrobot.org/ontology#>.
+@prefix crsw: <http://courseware.rkbexplorer.com/ontologies/courseware#>.
+@prefix cwrc: <http://sparql.cwrc.ca/ontology/cwrc#>.
+@prefix cwmo: <http://purl.org/cwmo/#>.
+@prefix dbo: <http://dbpedia.org/ontology/>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix dcndl: <http://ndl.go.jp/dcndl/terms/>.
+@prefix dqm: <http://purl.org/dqm-vocabulary/v1/dqm#>.
+@prefix essglobal: <http://purl.org/essglobal/vocab/>.
+@prefix fabio: <http://purl.org/spar/fabio/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix frapo: <http://purl.org/cerif/frapo>.
+@prefix frbrer: <http://iflastandards.info/ns/fr/frbr/frbrer/>.
+@prefix gn: <https://sws.geonames.org/>.
+@prefix itsmo: <http://ontology.it/itsmo/v1#>.
+@prefix iol: <http://www.ontologydesignpatterns.org/ont/dul/IOLite.owl#>.
+@prefix km4c: <http://www.disit.org/km4city/schema#>.
+@prefix meb: <http://rdf.myexperiment.org/ontologies/base/>.
+@prefix mrel: <http://id.loc.gov/vocabulary/relators/>.
+@prefix ov: <http://open.vocab.org/terms/>.
+@prefix pext: <http://www.ontotext.com/proton/protonext#>.
+@prefix poder: <http://dev.poderopedia.com/vocab/>.
+@prefix pproc: <http://contsem.unizar.es/def/sector-publico/pproc#>.
+@prefix ptop: <http://www.ontotext.com/proton/protontop#>.
+@prefix rico:<https://www.ica.org/standards/RiC/ontology#>.
+@prefix schema: <http://schema.org/>.
+@prefix scoro: <http://purl.org/spar/scoro/>.
+@prefix seo: <https://w3id.org/seo#>.
+@prefix sio: <http://semanticscience.org/resource/>.
+@prefix sro: <http://salt.semanticauthoring.org/ontologies/sro#>.
+@prefix sur: <https://w3id.org/survey-ontology#>.
+@prefix teach: <http://linkedscience.org/teach/ns#>.
+@prefix vivo: <http://vivoweb.org/ontology/core#>.
+@prefix voag: <http://voag.linkedmodel.org/voag#>.
+@prefix xapi: <http://ns.inria.fr/ludo/v1/xapi>.
+@prefix wdo: <http://www.wikidata.org/ontology#>.
+@prefix whois: <http://www.kanzaki.com/ns/whois#>.
+
+# Namespaces básicos
+@prefix : <http://dados.ufes.br/tcc/onto#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix data: <http://dados.ufes.br/tcc/data#>.
+
+# Meta-metadados da ontologia de domínio:
+<http://dados.ufes.br/tcc/onto> rdf:type owl:Ontology;
+    owl:imports gufo:;
+	rdfs:label "OntoTCC";
+	rdfs:label "OntoTCC";
+	dcterms:title "Ontologia Microdados OntoTCC"@pt;
+	dcterms:description "Ontologia operacional de alguns elementos da base de dados de dissertações do PPGCI/UFES"@pt;
+	rdfs:comment "Projeto de elaboração de OntoTCC: Uma ontologia de Acervo de Dissertações"@pt;
+	dcterms:creator "Rafael Denerson Ramos de Sousa";
+	dcterms:contributor "Henrique Monteiro Cristovao", "Maria das Graças da Silva Teixeira";
+	owl:versionInfo "1.0";
+	dcterms:created "2022-12-06"^^xsd:date;
+	dcterms:modified "2023-02-10"^^xsd:date;
+	cc:licence "https://creativecommons.org/licenses/by-sa/4.0/"^^xsd:anyURI.
+	
+	
+
+#==================================
+# Classes and Datatype Properties
+#==================================
+
+# Pessoa
+:Pessoa
+rdfs:label "Pessoa"@pt;
+rdfs:comment "Criatura humana ou indivíduo humano enquanto sujeito de direitos e deveres."@pt;
+owl:equivalentClass schema:Person.
+
+:nomePessoa
+a owl:FunctionalProperty;
+rdfs:label "nome da pessoa"@pt;
+rdfs:comment "Nome completo e por extenso da pessoa"@pt;
+owl:equivalentProperty foaf:name,
+                       dc:name.
+
+:funcaoPessoa
+a owl:FunctionalProperty;
+rdfs:label "função"@pt;
+rdfs:comment "Função exercida por uma pessoa."@pt;
+owl:equivalentProperty bibframe:role.
+
+:emailInstitucionalPessoa
+a owl:FunctionalProperty;
+rdfs:label "e-mail institucional"@pt;
+rdfs:comment "Trata-se do e-mail Institucional de uma pessoa."@pt;
+owl:equivalentProperty foaf:mbox,
+                       pext:hasEMail.
+
+:emailAlternativoPessoa
+a owl:FunctionalProperty;
+rdfs:label "e-mail alternativo"@pt;
+rdfs:comment "Trata-se do e-mail alternativo de uma pessoa."@pt;
+owl:equivalentProperty km4c:alternativeEmail.
+
+# Acervo
+:Acervo
+rdfs:label "Acervo"@pt;
+rdfs:comment "Local que contém todos os documentos depositados em suas bibliotecas e que estão à disposição do público para estudo e pesquisa, na dependência específica de reprodução."@pt;
+owl:equivalentClass fabio:WorkCollection,
+                    fabio:DocumentRepository.
+		
+# Cadastrador
+:Cadastrador 
+rdfs:label "Cadastrador"@pt;
+rdfs:comment "Trata-se de quem cadastra as teses e as dissertações em um Acervo."@pt;
+owl:equivalentClass caresses:User.
+
+# Discente
+:Discente
+rdfs:label "Discente"@pt;
+rdfs:comment "Na Educação Superior o verbete aluno refere-se ao estudante. Trata-se do enfoque no processo de aprendizagem, dos saberes discentes e dos diferentes tipos de estudantes (considerados em suas distinções pessoais e nas circunstâncias da academia)."@pt;
+owl:equivalentClass sio:SIO_000405,
+                    seo:Student.
+            
+:matriculaDiscente
+a owl:FunctionalProperty;
+rdfs:label "matrícula do discente"@pt;
+rdfs:comment "A matrícula de um discente é o seu identificador único."@pt;
+owl:equivalentProperty dc:identifier.
+
+:telefoneDiscente
+a owl:FunctionalProperty;
+rdfs:label "telefone do discente"@pt;
+rdfs:comment "Diz respeito ao número de telefone do discente."@pt;
+owl:equivalentProperty foaf:phone.										
+
+# Discente Egresso
+:DiscenteEgresso
+rdfs:label "Discente Egresso"@pt ;
+rdfs:comment "."@pt;
+owl:equivalentClass sio:SIO_000399.
+
+# Membro
+:Membro
+rdfs:label "Membro"@pt;
+rdfs:comment "Trata-se de integrante da comissão examinadora de defesa de qualificação, dissertação ou tese interno ou externo ao programa de pós-graduação e à Instituição que participa."@pt;
+owl:equivalentClass foaf:Group,
+                    scoro:EducationalRole,
+                    vivo:MemberRole.
+
+:modalidadeParticipacaoMembro
+a owl:FunctionalProperty;
+rdfs:label "modalidade de participação"@pt;
+rdfs:comment "Trata-se da modalidade de participação da banca de avaliação por parte do membro: presencial ou online."@pt;
+owl:equivalentProperty pproc:criterionEvaluationMode.
+
+# Digitalizador
+:Digitalizador
+rdfs:label "Digitalizador"@pt;
+rdfs:comment "Trata-se de uma pessoa institucionalizada que digitaliza as teses e as dissertações."@pt.
+
+# Bolsa de Estudo
+:BolsaEstudo
+rdfs:label "Bolsa de Estudo"@pt;
+rdfs:comment "Trata-se de um patrocínio do governo."@pt;
+owl:equivalentClass frapo:scholarship,
+                    frapo:Studentship.
+
+# Bolsista
+:Bolsista
+rdfs:label "Bolsista"@pt;
+rdfs:comment "É todo aluno que recebe uma Bolsa de Estudos."@pt;
+owl:equivalentClass scoro:FinancialRole,
+                    sio:SIO_000406.
+
+# Não Bolsista
+:NaoBolsista
+rdfs:label "NaoBolsista"@pt;
+rdfs:comment "Aluno que faz parte de uma pesquisa acadêmica por espontânea vontade e sem retribuição financeira."@pt.
+
+# Orientador
+:Orientador
+rdfs:label "Orientador"@pt;
+rdfs:comment "É membro e presidente da Banca Examinadora. Caracteriza-se pelo processo de acompanhamento, tutoria, direcionamento e apoio ao estudante orientando em uma série de aspectos pesquisados, que são decisivos na formação dos futuros orientadores e pesquisadores."@pt;
+owl:equivalentClass mrel:ths,
+                    sio:SIO_000878, # (Orientador)
+                    mrel:Thesisadvisor.
+
+# Coorientador
+:Coorientador
+rdfs:label "Coorientador"@pt;
+rdfs:comment "É membro da Banca Examinadora (BRASIL, 2022b) que é caracterizado por acompanhar o processo de tutoria, direcionar e apoiar ao aluno orientando em uma série de aspectos pesquisados, que são decisivos na formação dos futuros orientadores e pesquisadores."@pt;
+owl:equivalentClass mrel:ths,
+                    sio:SIO_000878, #(Orientador)
+                    mrel:Thesisadvisor.
+
+# Patrocinador
+:Patrocinador
+rdfs:label "Patrocinador"@pt;
+rdfs:comment "Trata-se do patrocinador que disponibiliza Bolsa de Estudo."@pt;
+owl:equivalentClass frapo:FinancialEntity,
+                    frapo:FundingProgramme.
+
+:nomePatrocinador
+a owl:FunctionalProperty;
+rdfs:label "nome do patrocinador"@pt;
+rdfs:comment "Trata-se do nome do Patrocinador."@pt.
+
+# Contrato
+:Contrato
+rdfs:label "Contrato"@pt;
+rdfs:comment "Diz respeito ao contrato de bolsa de estudos que é disponibilizado por um patrocinador (agência de fomento)."@pt.
+
+:inicioContrato
+a owl:FunctionalProperty;
+rdfs:label "início"@pt;
+rdfs:comment "Diz respeito a data de início referente um contrato que um bolsista recebe por bolsa de estudos."@pt.
+
+:fimContrato
+a owl:FunctionalProperty;
+rdfs:label "fim"@pt;
+rdfs:comment "Diz respeito a data fim em um contrato que um bolsista recebe por bolsa de estudos."@pt.
+
+# Defesa
+:Defesa
+rdfs:label "Defesa"@pt ;
+rdfs:comment "."@pt;
+owl:equivalentClass schema:EducationEvent,
+                    sro:Evaluation,
+                    sro:Discussion,
+                    sro:Argument,
+                    sro:Claim.
+
+:dataHoraAvaliacaoDefesa
+a owl:FunctionalProperty;
+rdfs:label "data e hora de avaliação"@pt;
+rdfs:comment "Diz respeito a data e a hora de avaliação de uma defesa."@pt;
+owl:equivalentProperty fabio:hasDecisionDate,
+                       dcat:record,
+                       ptop:registeredIn.
+
+# Cadastro
+:Cadastro
+rdfs:label "Cadastro"@pt;
+rdfs:comment "."@pt;
+owl:equivalentClass fabio:ArchivalRecordSet.
+
+:identificadorRegistroCadastro
+a owl:FunctionalProperty;
+rdfs:label "identificador do registro"@pt;
+rdfs:comment "Diz respeito ao identificador único de um registro quanto ao Cadastro referente ao Trabalho de Conclusão de Curso que ocorre no acervo."@pt;
+owl:equivalentProperty frapo:identifier.
+
+:dataHoraRegistroCadastro
+a owl:FunctionalProperty;
+rdfs:label "data/hora do registro"@pt;
+rdfs:comment "Diz respeito a data/hora de um registro quanto ao Cadastro referente ao Trabalho de Conclusão de Curso que ocorre no acervo."@pt;
+owl:equivalentProperty fabio:hasDateCollected,
+                       bibframe:date,
+                       dc:date,
+                       dc:dateSubmitted.
+
+# Trabalho de Conclusão de Curso
+:TrabalhoConclusaoCurso
+rdfs:label "Trabalho de Conclusão de Curso"@pt;
+rdfs:comment "Deve ser um trabalho acadêmico de finalização do curso, sendo necessariamente, pelo menos, na modalidade de uma monografia, ou outros trabalhos técnicos associados quando previstos. São trabalhos que retratam o resultado de estudo ou pesquisa sobre um tema, sejam eles exigidos por disciplina, módulo, estudo independente, curso e programa."@pt;
+owl:equivalentClass schema:Thesis,
+                    fabio:ScholarlyWork,
+                    frbrer:C1004,
+                    dbpedia:Trabalho_de_conclusão_de_curso.
+
+# Banca
+:Banca
+rdfs:label "Banca"@pt;
+rdfs:comment "Trata-se da composição de membros (no mínimo três titulares e um suplente) para avaliar a defesa de um estudante de pós-graduação em uma Instituição de Ensino Superior."@pt;
+owl:equivalentClass fabio:ExaminationPaper,
+                    scoro:ContributionSituation. #(scoro)
+
+# Examinador
+:Examinador
+rdfs:label "Examinador"@pt;
+rdfs:comment "Trata-se de integrante da comissão examinadora de defesa de qualificação, dissertação ou tese. É o membro que recebe o convite para participar de uma banca de defesa de qualificação, dissertação ou tese."@pt;
+owl:equivalentClass sur:Participant,
+                    cwmo:Evaluator.
+
+# Examinador Interno
+:ExaminadorInterno
+rdfs:label "Examinador Interno"@pt ;
+rdfs:comment "."@pt;
+owl:equivalentClass sur:Participant,
+                    cwmo:Evaluator.
+
+# Examinador Externo
+:ExaminadorExterno
+rdfs:label "Examinador Externo"@pt ;
+rdfs:comment "."@pt;
+owl:equivalentClass sur:Participant,
+                    cwmo:Evaluator.
+
+# Documento de Aprovação
+:DocumentoDeAprovacao
+rdfs:label "Documento de Aprovação"@pt;
+rdfs:comment " "@pt;
+owl:equivalentClass schema:EducationalOccupationalCredential,
+                    fabio:Diary.
+
+# Pessoa Institucionalizada
+:PessoaInstitucionalizada
+rdfs:label "Pessoa Institucionalizada"@pt;
+rdfs:comment "Refere-se a um indivíduo humano associado a uma Instituição de Ensino Superior."@pt;
+owl:equivalentClass scoro:EducationalRole,
+                    whois:academicCareer. #(whois)
+
+:orcidPessoaInstitucionalizada
+a owl:FunctionalProperty;
+rdfs:label "orcid"@pt;
+rdfs:comment "Diz respeito ao orcid de uma pessoa associada a uma Instituição."@pt;
+owl:equivalentProperty scoro:hasORCID.
+
+:lattesPessoaInstitucionalizada
+a owl:FunctionalProperty;
+rdfs:label "lattes"@pt;
+rdfs:comment "Diz respeito ao lattes de uma pessoa associada a uma Instituição."@pt;
+owl:equivalentProperty frapo:hasCurriculumVitae.
+
+# Programa de Pós-Graduação
+:ProgramaPosGraduacao
+rdfs:label "Programa de Pós-Graduação"@pt;
+rdfs:comment "Trata-se de uma programação de curso de pós-graduação que são criados quando constatados da sua viabilidade, relevância e número adequado de professores pesquisadores com titulação e produção científica suficientes para dar sustentação à criação de curso de mestrado e/ou doutorado em determinada área de conhecimento, bem como a sua adequação aos critérios da Coordenação de Aperfeiçoamento de Pessoal do Ensino Superior - Capes para apresentação e propostas de cursos novos. Programa de Pós-Graduação pode ser gerido por uma única Instituição de Ensino Superior ou por Rede de Ensino. Assim, compreende programa de mestrado, doutorado, cursos de especialização, aperfeiçoamento, dentre outros, e são abertos a candidatos diplomados em cursos de graduação e que atendam os requisitos das instituições de ensino. Compreende programas de mestrado e doutorado."@pt;
+owl:equivalentClass fabio:AcademicProceedings,
+                    schema:EducationalOccupationalProgram,
+                    teach:StudyProgram, #(teach)
+                    xapi:Grouping.
+
+:nomeProgramaPosGraduacao
+a owl:FunctionalProperty;
+rdfs:label "nome"@pt;
+rdfs:comment "Trata-se de uma programação de curso de pós-graduação que são criados quando constatados da sua viabilidade, relevância e número adequado de professores pesquisadores com titulação e produção científica suficientes para dar sustentação à criação de curso de mestrado e/ou doutorado em determinada área de conhecimento, bem como a sua adequação aos critérios da Coordenação de Aperfeiçoamento de Pessoal do Ensino Superior - Capes para apresentação e propostas de cursos novos."@pt;
+owl:equivalentProperty xapi:hasName.
+
+# Tese
+:Tese
+rdfs:label "Tese"@pt;
+rdfs:comment "Colaboração acadêmica original para o conhecimento e apresentada para obter o grau acadêmico de doutor e dos títulos universitários livre-docente e professor titular. Constitui o trabalho de pesquisa original e individual que forneça contribuição importante para a área de conhecimento na qual está inserida."@pt;
+owl:equivalentClass fabio:DoctoralThesis,
+                    fabio:Thesis,
+                    fabio:Proposition.
+
+# Dissertação
+:Dissertacao
+rdfs:label "Dissertação"@pt;
+rdfs:comment "owl:class Curso Dissertação é o resultado de um trabalho de pesquisa desenvolvido, documentado e defendido publicamente em cursos de pós-graduação de mestrado, destinado a obtenção do grau acadêmico de mestre."@pt;
+owl:equivalentClass bibframe:Dissertation,
+                    fabio:MastersThesis,
+                    sio:SIO_000167. #(dissertação)
+
+# Documento
+:Documento
+rdfs:label "Documento"@pt;
+rdfs:comment "Trata-se de um documento digital ou impresso para o contexto aplicado."@pt;
+owl:equivalentClass foaf:Document,
+                    dbpedia:Documento.
+
+:identificacaoUnicaDocumento
+a owl:FunctionalProperty;
+rdfs:label "identificação única"@pt;
+rdfs:comment "Trata-se de uma identificação inequívoca de um documento."@pt;
+owl:equivalentProperty fabio:identifier.
+
+:tituloDocumento
+a owl:FunctionalProperty;
+rdfs:label "título"@pt;
+rdfs:comment "Trata-se do título de um documento."@pt;
+owl:equivalentProperty bibframe:title,
+                       fabio:title.
+
+:resumoDocumento
+a owl:FunctionalProperty;
+rdfs:label "resumo"@pt;
+rdfs:comment "Trata-se do resumo de um documento."@pt;
+owl:equivalentProperty bibframe:summary,
+                       fabio:abstract.
+
+:semestreLetivoDocumento
+a owl:FunctionalProperty;
+rdfs:label "semestre letivo"@pt;
+rdfs:comment "Trata-se do semestre letivo de um documento."@pt;
+owl:equivalentProperty ov:semester.
+
+:idiomaDocumento
+a owl:FunctionalProperty;
+rdfs:label "idioma"@pt;
+rdfs:comment "Trata-se do idioma de um documento."@pt;
+owl:equivalentProperty bibframe:language.
+
+:numeroPaginasDocumento
+a owl:FunctionalProperty;
+rdfs:label "número de páginas"@pt;
+rdfs:comment "Trata-se do número de páginas de um documento."@pt;
+owl:equivalentProperty bibframe:count,
+                       fabio:hasPageCount.
+
+:uriDisseminacaoDocumento
+a owl:FunctionalProperty;
+rdfs:label "uri disseminação"@pt;
+rdfs:comment "Trata-se da uri a ser disseminada de um documento."@pt;
+owl:equivalentProperty meb:uri. #(meb)
+
+# Documento Impresso
+:DocumentoImpresso
+rdfs:label "Documento Impresso"@pt;
+rdfs:comment "São artefatos digitais. Qualquer escrito ou impresso que fornece uma informação ou prova, usado para esclarecimento de algo. Neste caso, trata-se de Trabalhos de Conclusão de Curso como Teses e Dissertações."@pt.
+
+# Documento Digital
+:DocumentoDigital
+rdfs:label "Documento Digital"@pt;
+rdfs:comment "Entende-se por documento digital a conversão da fiel imagem de um documento para o código digital.Trata-se de um documento que pode ser digitalizado (o ato ou o efeito da conversão de um documento que contém informação ou dados analógicos para um formato digital) ou nato digital (documento que já nasce digitalmente)."@pt;
+owl:equivalentClass fabio:DigitalItem.
+
+:nomePDF
+a owl:FunctionalProperty;
+rdfs:label "nome do PDF"@pt;
+rdfs:comment "Diz respeito ao nome do PDF."@pt;
+owl:equivalentProperty foaf:name.
+
+:tipoPDF
+a owl:FunctionalProperty;
+rdfs:label "tipo do PDF"@pt;
+rdfs:comment "Diz respeito ao tipo do PDF (Os tipos de PDF são: PDF/A-1a, PDF/A-1b, PDF/A-21, PDF/A-2b, PDF/A-2u, PDF/A-3a, PDF/A-3b, PDF/A-3u, PDF/A-4f, PDF/A-4e)."@pt;
+owl:equivalentProperty bibframe:digitalCharacteristic.
+
+:tamanhoKilobites
+a owl:FunctionalProperty;
+rdfs:label "tamanho em kilobites"@pt;
+rdfs:comment "Diz respeito ao tamanho em kilobites."@pt;
+owl:equivalentProperty bibframe:FileSize.
+
+:descricaoAnexos
+a owl:FunctionalProperty;
+rdfs:label "descrição dos anexos"@pt;
+rdfs:comment "Diz respeito a descrição dos anexos."@pt;
+owl:equivalentProperty bibframe:supplementaryContent.
+
+# Nato Digital
+:NatoDigital
+rdfs:label "Nato Digital"@pt;
+rdfs:comment "É um documento que já nasce em formato digital. Elaborado originalmente em meio eletrônico como documento, contrato, diploma, publicação, material, conteúdo, etc. Trata-se de uma modalidade digital."@pt.
+
+# Digitalizado
+:Digitalizado
+rdfs:label "Digitalizado"@pt;
+rdfs:comment "É a representação digital do processo de digitalização do documento físico e seus metadados, isto é, trata-se de um documento digital no estado digitalizado. Um documento deste tipo tem o mesmo efeito jurídico conferido aos documentos microfilmados, nos termos da Lei nº 5.433, de 8 de maio de 1968, e de regulamentação posterior. São documentos no formato digital e que foram digitalizados (eram físicos mas passaram a ser documentos digitais)."@pt.
+
+:dataDigitalizacaoDigitalizado
+a owl:FunctionalProperty;
+rdfs:label "data da digitalização"@pt;
+rdfs:comment "Diz respeito a data de digitalização de um Documento Digital Digitalizado."@pt;
+owl:equivalentProperty fabio:hasAccessDate,
+                       bibframe:date,
+                       dc:date,
+                       dcndl:dateDigitized.
+
+:modoOcrImagemDigitalizado
+a owl:FunctionalProperty;
+rdfs:label "modo OCR imagem"@pt;
+rdfs:comment "Diz respeito ao modo OCR imagem."@pt;
+owl:equivalentProperty bibframe:media.
+
+# Local
+:Local
+rdfs:label "Local"@pt;
+rdfs:comment "Trata-se do lugar físico ou virtual de registro do Trabalho de Conclusão de Curso. Quanto ao local físico, refere-se ao nome da cidade de apresentação do trabalho acadêmico. Neste caso, refere-se ao Trabalho de Conclusão de Curso de pós-graduação stricto sensu (dissertação ou tese). Quando se refere ao local virtual, diz respeito ao nome do caminho ou diretório de um computador ou no âmbito Web."@pt;
+owl:equivalentClass bibframe:Place,
+                    schema:Place,
+                    dc:Location.
+
+# Local Físico
+:LocalFisico
+rdfs:label "Local Físico"@pt;
+rdfs:comment "Trata-se do local físico (concreto) dos documentos acadêmicos e institucionais."@pt;
+owl:equivalentClass bibframe:Place,
+                    schema:Place,
+                    dc:Location.
+
+# rdfs:comment "Bases promissoras para reconciliação de indivíduos e enriquecimento semântico com owl:sameAs = wde, gn" .
+
+:cidade
+a owl:FunctionalProperty;
+rdfs:label "cidade"@pt;
+rdfs:comment "Diz respeito ao nome da cidade e que corresponde ao local físico."@pt;
+owl:equivalentProperty wdo:Q82799, #(name)
+                       schema:name,
+                       gn:name.
+
+:estado
+a owl:FunctionalProperty;
+rdfs:label "estado"@pt;
+rdfs:comment "Diz respeito ao nome do estado e que corresponde ao local físico."@pt;
+owl:equivalentProperty wdo:Q82799, #(name)
+                       schema:name,
+                       gn:name.
+
+:pais
+a owl:FunctionalProperty;
+rdfs:label "país"@pt;
+rdfs:comment "Diz respeito ao nome do país e que corresponde ao local físico."@pt;
+owl:equivalentProperty wdo:Q82799, #(name)
+                       schema:name,
+                       gn:name.
+
+# Local Virtual
+:LocalVirtual
+rdfs:label "Local Virtual"@pt;
+rdfs:comment "Trata-se do local (caminho) virtual dos documentos acadêmicos e institucionais . Refere-se ao caminho do computador ou na internet que pode tratar um lugar virtual como se fosse um lugar físico, mas o local virtual é, na realidade, uma parte da memória do computador usada como se fosse um local físico."@pt.
+
+:descricaoCaminhoLocalVirtual
+a owl:FunctionalProperty;
+rdfs:label "descrição do caminho"@pt;
+rdfs:comment "Diz respeito a descrição do um caminho de um Documento Digital que é guardado em um Local Virtual."@pt.
+
+# Palavra-Chave
+:PalavraChave
+rdfs:label "Palavra-Chave"@pt;
+rdfs:comment "Termo que resume as ideias ou temas centrais de uma obra. Trata-se da palavra que identifica um elemento particular ou o seu conteúdo."@pt.
+
+:termoPortuguesPalavraChave
+a owl:FunctionalProperty;
+rdfs:label "termo em Português"@pt;
+rdfs:comment "Diz respeito ao termo da palavra-chave em português."@pt;
+owl:equivalentProperty fabio:keyword,
+                       schema:keywords.
+                                     
+:termoInglesPalavraChave
+a owl:FunctionalProperty;
+rdfs:label "termo em Inglês"@pt;
+rdfs:comment "Diz respeito ao termo da palavra-chave em Inglês."@pt;
+owl:equivalentProperty fabio:keyword,
+                       schema:keywords.
+
+# Área de Conhecimento do CNPq
+:AreaConhecimentoCNPq
+rdfs:label "Área do Conhecimento do CNPq"@pt ;
+rdfs:comment "Grupo de informações e referenciais metódicos, agrupados segundo um ponto de vista, que sustenta relações de complementaridade recíproca. No Brasil, uma classificação difundida e que tem sido utilizada para a pesquisa e a pós-graduação, é a classificação de Áreas do Conhecimento do CNPq. Sua classificação original apresentou uma hierarquização em quatro níveis. Trata-se das áreas do conhecimento indicadas pelo CNPq."@pt.
+
+# Área Primária
+:AreaPrimaria
+rdfs:label "Área Primária"@pt ;
+rdfs:comment "Refere-se à primeira área de concentração de uma linha de pesquisa."@pt.
+
+# Área Secundária
+:AreaSecundaria
+rdfs:label "Área Secundária"@pt ;
+rdfs:comment "Refere-se à segunda área de concentração de uma linha de pesquisa."@pt.
+
+# Área Terciária
+:AreaTerciaria
+rdfs:label "Área Terciária"@pt ;
+rdfs:comment "Refere-se à terceira área de concentração de uma linha de pesquisa."@pt.
+
+# Grande Área
+:GrandeArea
+rdfs:label "Grande Área"@pt ;
+rdfs:comment "Diz respeito ao 1º nível da área de conhecimento do CPNq. Trata-se da aglomeração de diversas áreas do conhecimento devido a afinidade de seus objetos, métodos cognitivos e recursos instrumentais representando contextos sociopolíticos específicos."@pt.
+
+# Área 
+:Area
+rdfs:label "Área"@pt ;
+rdfs:comment "Trata-se do 2º nível da área de conhecimento do CNPq, ou seja, é o conjunto de conhecimentos interrelacionados, construídos coletivamente, reunidos segundo a natureza do tema de investigação com objetivos de ensino, pesquisa e aplicações experimentais."@pt;
+owl:equivalentClass bibframe:Topic,
+                    sio:SIO_001340,
+                    dbo:Area.
+
+# Subárea 
+:Subarea
+rdfs:label "Subárea"@pt ;
+rdfs:comment "É o fracionamento da área do conhecimento definida com base no objeto de estudo e procedimentos metodológicos aceitos e amplamente usados. Diz respeito ao 3º nível da área de conhecimento do CNPq."@pt.
+
+# Especialidade
+:Especialidade
+rdfs:label "Especialidade"@pt ;
+rdfs:comment "Trata-se do 4º nível da área de conhecimento do CNPq. É a caracterização temática da atividade de ensino e pesquisa. Ela pode ser incorporada em distintas grandes áreas, áreas e subáreas."@pt.
+
+# Rede de Ensino
+:RedeEnsino
+rdfs:label "Rede de Ensino"@pt;
+rdfs:comment "É um coletivo de Instituição de Ensino Superior."@pt;
+owl:equivalentClass sio:SIO_000620.
+
+# Convênio
+:Convenio
+rdfs:label "Convênio"@pt;
+rdfs:comment "Acordo firmado por organizações educacionais (instituições educacionais de ensino superior) para ofertar programas ou cursos de pós-graduação."@pt;
+owl:equivalentClass itsmo:Agreement.
+
+# Produto
+:Produto
+rdfs:label "Produto"@pt;
+rdfs:comment "Produto é o resultado técnico-científico (projeto experimental ou produto técnico) de um curso de Programa de Pós-Graduação Stricto Sensu (também conhecido como mestrado ou doutorado profissional). É o produto técnico/tecnológico ou trabalho final de pós-graduação como resultado de um curso profissional de Pós-Graduação junto a tese quando mestrado, ou anexo ao doutorado quando se trata de uma tese."@pt;
+owl:equivalentClass schema:IndividualProduct.
+
+# Mestrado
+:Mestrado
+rdfs:label "Mestrado"@pt ;
+rdfs:comment "Trata-se de um curso de pós-graduação stricto sensu que visa amplificar e aperfeiçoar a competência didática, científica, cultural e profissional dos indivíduos graduados."@pt.
+
+# Doutorado
+:Doutorado
+rdfs:label "Doutorado"@pt ;
+rdfs:comment "Diz respeito a um curso de pós-graduação stricto sensu visa propiciar formação científica e cultural aprofundada, formando profissionais com a finalidade de desenvolver formas independentes de atividades de ensino, pesquisa e inovação, e também para atuar na formação de profissionais de alta qualificação científica e técnico-profissional (no âmbito de uma área específica de conhecimento)."@pt.
+
+# Curso Acadêmico
+:CursoAcademico
+rdfs:label "Curso Acadêmico"@pt ;
+rdfs:comment "."@pt.
+
+# Curso Profissional
+:CursoProfissional
+rdfs:label "Curso Profissional"@pt;
+rdfs:comment "Pretende colaborar para o acréscimo da qualificação da prática profissional, fornecendo competências para avaliação crítica, interferência e resolução de problemas, e também objetivando o desenvolvimento de tecnologias aplicadas ao trabalho."@pt.
+
+# Organização de Ensino
+:OrganizacaoEnsino
+rdfs:label "Organização de Ensino"@pt;
+rdfs:comment "Ente que trabalha com educação de ensino superior. Ele pode ser uma rede de ensino (quando existe) ou uma instituição de ensino superior isolada (quando a rede de ensino não existe). Esse ente é caracterizado por oferecer e gerir o curso de pós-graduação."@pt;
+owl:equivalentClass pext:EducationalOrganization, #(Educational Organization)
+                    cwrc:EducationalOrganization,
+                    km4c:Higher_education.
+
+# Instituição de Ensino Superior
+:InstituicaoEnsinoSuperior
+rdfs:label "Instituição de Ensino Superior"@pt;
+rdfs:comment "Diz respeito à Instituição que fornece um ensino superior aceito pela autoridade competente e faz parte da integração do sistema de ensino superior"@pt;
+owl:equivalentClass wdo:Q2385804, #(educational institution)
+                    wdo:Q5341295, #(educational organization)
+                    wdo:Q1211427, # (academia)
+                    schema:EducationalOrganization,
+                    # perxt:EducationalOrganization,
+                    # perxt:University,
+                    cwrc:EducationalOrganization,
+                    sio:SIO_000290,
+                    dbo:EducationalInstitution.
+
+# rdfs:comment "Bases promissoras para reconciliação de indivíduos e enriquecimento semântico com owl:sameAs = wde".
+
+:sigla 
+a owl:FunctionalProperty;
+rdfs:label "sigla da IES"@pt;
+rdfs:comment "Acrônimo da Instituição de Ensino Superior"@pt;
+owl:equivalentProperty vivo:abbreviation.
+
+:nome
+a owl:FunctionalProperty;
+rdfs:label "nome da IES"@pt;
+rdfs:comment "Nome completo e por extenso da Instituição de Ensino Superior"@pt;
+owl:equivalentProperty bibframe:grantingInstitution,
+                       wdo:PP1813. # (short name).
+
+:webPage
+a owl:functionalProperty;
+rdfs:label "web page da IES"@pt;
+rdfs:comment "Web page da Instituição de Ensino Superior"@pt;
+owl:equivalentProperty foaf:homepage,
+                       xapi:hasHomePage.
+
+:uri
+a owl:functionalProperty;
+rdfs:label "uri da IES"@pt;
+rdfs:comment "URI da Instituição de Ensino Superior"@pt;
+owl:equivalentProperty dqm:hasURI. 
+
+:unidade
+a owl:functionalProperty;
+rdfs:label "unidade"@pt;
+rdfs:comment "unidade da Instituição de Ensino Superior (IES). Diz respeito ao campus da IES. É definido com o termo 'Campus' seguido do município que a IES está localizada."@pt.
+
+
+# Condição para Aprovação
+:CondicaoAprovacao
+rdfs:label "Condição para Aprovação"@pt;
+rdfs:comment "Trata-se de cada pré-requisito para aprovação no curso stricto sensu."@pt;
+owl:equivalentClass schema:coursePrerequisites,
+                    crsw:Pre-requisite.
+
+# Curso de Pós-Graduação
+:CursoPosGraduacao
+rdfs:label "Curso de Pós-Graduação"@pt;
+rdfs:comment "Arranjo de disciplinas e atividades estruturadas em assuntos amplos ou particulares do conhecimento, visando auxiliar aos objetivos educacionais determinados pela instituição e de acordo com as diretrizes curriculares. São aplicados ao programa de pós-graduação, seja gerido por uma única Instituição de Ensino Superior ou por Rede de Ensino. Curso de pós-graduação stricto sensu, compreende programas de mestrado e doutorado que atendem às exigências de autorização, reconhecimento e renovação de reconhecimento previstas na legislação. Os cursos de pós-graduação de mestrado e doutorado profissionais visam contribuir para o incremento da qualificação da prática e experimental profissional, concedendo competências para avaliação crítica, intervenção e resposta a problemas a ela relacionados, bem como a realização de tecnologias aplicadas ao trabalho."@pt;
+owl:equivalentClass wdo:Q600134, # (course)
+                    schema:Course.
+
+:nomeCursoPosGraduacao
+a owl:FunctionalProperty;
+rdfs:label "nome"@pt;
+rdfs:comment "nome do curso de pós-graduação"@pt;
+owl:equivalentProperty dc:title,
+                       teach:courseTitle. #(teach)
+	
+#==================================
+# Enumerations
+#==================================
+
+# VocabularioOrganizacaoAcademica
+:VocabularioOrganizacaoAcademica a skos:ConceptScheme ;
+skos:prefLabel "Vocabulário de Organização Acadêmica"@pt ;
+skos:note "Lista de vocabulários para a organização acadêmica da IES, disponível no dicionário de dados dos microdados do INEP"@pt .
+
+:CentroFederalEducacaoTecnologica a skos:Concept ;
+skos:topConceptOf :VocabularioOrganizacaoAcademica;
+skos:inScheme :VocabularioOrganizacaoAcademica;
+skos:prefLabel "Centro Federal de Educação Tecnológica"@pt .
+
+:CentroUniversitario a skos:Concept ;
+skos:topConceptOf :VocabularioOrganizacaoAcademica;
+skos:inScheme :VocabularioOrganizacaoAcademica;
+skos:prefLabel "Centro Universitário"@pt .
+
+:Faculdade a skos:Concept ;
+skos:topConceptOf :VocabularioOrganizacaoAcademica;
+skos:inScheme :VocabularioOrganizacaoAcademica;
+skos:prefLabel "Faculdade"@pt .
+
+:InstitutoFederalEducacaoCienciaTecnologia a skos:Concept ;
+skos:topConceptOf :VocabularioOrganizacaoAcademica;
+skos:inScheme :VocabularioOrganizacaoAcademica;
+skos:prefLabel "Instituto Federal de Educação,Ciência e Tecnologia"@pt .
+
+:Universidade a skos:Concept ;
+skos:topConceptOf :VocabularioOrganizacaoAcademica;
+skos:inScheme :VocabularioOrganizacaoAcademica;
+skos:prefLabel "Universidade"@pt .
+
+# VocabularioCategoriaAdministrativa
+:VocabularioCategoriaAdministrativa a skos:ConceptScheme ;
+skos:prefLabel "Vocabulário de Categoria Academica"@pt ;
+skos:note "Lista de vocabulários para a classificação da categoria administrativa das IES, disponível em no dicionário de dados dos microdados do INEP"@pt .
+
+:Especial a skos:Concept ;
+skos:topConceptOf :VocabularioCategoriaAdministrativa;
+skos:inScheme :VocabularioCategoriaAdministrativa;
+skos:prefLabel "Especial"@pt .
+
+:PublicaEstadual a skos:Concept ;
+skos:topConceptOf :VocabularioCategoriaAdministrativa;
+skos:inScheme :VocabularioCategoriaAdministrativa;
+skos:prefLabel "Pública Estadual"@pt .
+
+:PublicaFederal a skos:Concept ;
+skos:topConceptOf :VocabularioCategoriaAdministrativa;
+skos:inScheme :VocabularioCategoriaAdministrativa;
+skos:prefLabel "Pública Federal"@pt .
+
+:PublicaMunicipal a skos:Concept ;
+skos:topConceptOf :VocabularioCategoriaAdministrativa;
+skos:inScheme :VocabularioCategoriaAdministrativa;
+skos:prefLabel "Pública Municipal"@pt .
+
+:PrivadaComFinsLucrativos a skos:Concept ;
+skos:topConceptOf :VocabularioCategoriaAdministrativa;
+skos:inScheme :VocabularioCategoriaAdministrativa;
+skos:prefLabel "Privada sem fins lucrativos"@pt .
+
+:PrivadaParticularSentidoEstrito a skos:Concept ;
+skos:topConceptOf :VocabularioCategoriaAdministrativa;
+skos:inScheme :VocabularioCategoriaAdministrativa;
+skos:prefLabel "Privada - Particular em sentido estrito"@pt .
+
+:PrivadaSemFinsLucrativos a skos:Concept ;
+skos:topConceptOf :VocabularioCategoriaAdministrativa;
+skos:inScheme :VocabularioCategoriaAdministrativa;
+skos:prefLabel "Privada com fins lucrativos"@pt .
+
+:PrivadaComunitaria a skos:Concept ;
+skos:topConceptOf :VocabularioCategoriaAdministrativa;
+skos:inScheme :VocabularioCategoriaAdministrativa;
+skos:prefLabel "Privada comunitária"@pt .
+
+:PrivadaConfessional a skos:Concept ;
+skos:topConceptOf :VocabularioCategoriaAdministrativa;
+skos:inScheme :VocabularioCategoriaAdministrativa;
+skos:prefLabel "Privada confessional"@pt.
+
+# VocabularioModalidadeParticipacao
+
+:VocabularioModalidadeParticipacao a skos:ConceptScheme;
+skos:prefLabel "Vocabulário de Modalidade de Participação"@pt;
+skos:note "Lista de vocabulários para a classificação da modalidade de participação dos membros na IES, disponível na Portaria nº 4.059, de 10 de Dezembro de 2004 (DOU de 13/12/2004, Seção 1, p. 34) e na Resolução nº 4, de 11 de Dezembro de 2018."@pt .
+
+:ADistancia a skos:Concept ;
+skos:topConceptOf :VocabularioModalidadeParticipacao;
+skos:inScheme :VocabularioModalidadeParticipacao;
+skos:prefLabel "A Distância"@pt .
+
+:Presencial a skos:Concept ;
+skos:topConceptOf :VocabularioModalidadeParticipacao;
+skos:inScheme :VocabularioModalidadeParticipacao;
+skos:prefLabel "Presencial"@pt .
+
+:SemiPresencial a skos:Concept ;
+skos:topConceptOf :VocabularioModalidadeParticipacao;
+skos:inScheme :VocabularioModalidadeParticipacao;
+skos:prefLabel "Semi-Presencial"@pt .
+
+# VocabularioIdioma
+:VocabularioIdioma a skos:ConceptScheme ;
+skos:prefLabel "Vocabulário de Idioma"@pt ;
+skos:note "Lista de vocabulários para a classificação de idioma para documentos de um Trabalho de Conclusão de Curso, estando disponível os cinco idiomas no portal da CAPES, além de existir outros no Ethnologue: languages of the world."@pt .
+
+:Alemao a skos:Concept ;
+skos:topConceptOf :VocabularioIdioma;
+skos:inScheme :VocabularioIdioma;
+skos:prefLabel "Alemão"@pt.
+
+:Espanhol a skos:Concept ;
+skos:topConceptOf :VocabularioIdioma;
+skos:inScheme :VocabularioIdioma;
+skos:prefLabel "Espanho"@pt.
+
+:Frances a skos:Concept ;
+skos:topConceptOf :VocabularioIdioma;
+skos:inScheme :VocabularioIdioma;
+skos:prefLabel "Francês"@pt.
+
+#Ingles a skos:Concept ;
+#skos:topConceptOf :VocabularioIdioma;
+#skos:inScheme :VocabularioIdioma;
+#skos:prefLabel "Inglês"@pt.
+
+:Italiano a skos:Concept ;
+skos:topConceptOf :VocabularioIdioma ;
+skos:inScheme :VocabularioIdioma ;
+skos:prefLabel "Italiano"@pt.
+
+# VocabularioPDF
+:VocabularioPDF a skos:ConceptScheme;
+skos:prefLabel "Classificação de PDF"@pt;
+skos:note "Lista de vocabulários para classificação de PDF para documentos de um Trabalho de Conclusão de Curso, estando disponível no formato digital, estando à disposição no site oficial Portable Document Format (PDF)."@pt.
+ 
+:PDF_A1a a skos:Concept;
+skos:topConceptOf :VocabularioPDF;
+skos:inScheme :VocabularioPDF;
+skos:prefLabel "PDF/A-1a"@pt.
+
+:PDF_A1b a skos:Concept;
+skos:topConceptOf :VocabularioPDF;
+skos:inScheme :VocabularioPDF;
+skos:prefLabel "PDF/A-1b"@pt.
+
+:PDF_A21 a skos:Concept;
+skos:topConceptOf :VocabularioPDF;
+skos:inScheme :VocabularioPDF;
+skos:prefLabel "PDF/A-21"@pt.
+
+:PDF_A2b a skos:Concept;
+skos:topConceptOf :VocabularioPDF;
+skos:inScheme :VocabularioPDF;
+skos:prefLabel "PDF/A-2b"@pt.
+
+:PDF_A2u a skos:Concept;
+skos:topConceptOf :VocabularioPDF;
+skos:inScheme :VocabularioPDF;
+skos:prefLabel "PDF/A-2u"@pt.
+
+:PDF_A3a a skos:Concept;
+skos:topConceptOf :VocabularioPDF;
+skos:inScheme :VocabularioPDF;
+skos:prefLabel "PDF/A-3a"@pt.
+
+:PDF_A3b a skos:Concept;
+skos:topConceptOf :VocabularioPDF;
+skos:inScheme :VocabularioPDF;
+skos:prefLabel "PDF_A3b"@pt.
+
+:PDF_A3u a skos:Concept;
+skos:topConceptOf :VocabularioPDF;
+skos:inScheme :VocabularioPDF;
+skos:prefLabel "PDF/A-3u"@pt.
+
+:PDF_A4f a skos:Concept;
+skos:topConceptOf :VocabularioPDF;
+skos:inScheme :VocabularioPDF;
+skos:prefLabel "PDF/A-4f"@pt.
+
+:PDF_A4e a skos:Concept;
+skos:topConceptOf :VocabularioPDF;
+skos:inScheme :VocabularioPDF;
+skos:prefLabel "PDF/A-4e"@pt.
+
+#==================================
+# Objects Properties
+#==================================
+
+# Acervo pertenceIES InstituicaoEnsinoSuperior
+:pertenceIES
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "pertence"@pt;
+rdfs:comment "Acervo pertence a Instituição de Ensino Superior."@pt.
+	
+# Cadastrador registraCadastro Cadastro	
+:registraCadastro
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "registra cadastro"@pt;
+rdfs:comment "Cadastrador registra o Cadastro."@pt;
+owl:equivalentPropert dcat:record,
+                      ptop:registeredIn.
+									
+# Bolsista recebeContrato Contrato	
+:recebeContrato
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "recebe contrato"@pt;
+rdfs:comment "Bolsista recebe Contrato por Bolsa de Estudos."@pt;
+owl:equivalentPropert frapo:supports,
+                      vivo:teachingOverview.
+
+
+# Contrato porBolsaEstudo BolsaEstudo
+:porBolsaEstudos
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "por bolsa de estudos"@pt;
+rdfs:comment "Contrato por Bolsa de Estudos disponibilizadas por Patrocinador."@pt;
+owl:equivalentPropert frapo:contributions-in-kind,
+                      scoro:controls-project-finances,
+                      voag:approves.
+					  
+# Patrocinador disponibilizaBolsaEstudos BolsaEstudo
+:disponibilizaBolsaEstudos
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "disponibiliza bolsa de estudos"@pt;
+rdfs:comment "Patrocinador disponibiliza Bolsa de Estudos."@pt;
+owl:equivalentPropert frapo:contributions-in-kind,
+                      scoro:controls-project-finances,
+                      voag:approves.
+									
+# Digitalizador digitalizaDocumento Documento
+:digitalizaDocumento
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "digitaliza documento"@pt;
+rdfs:comment "Digitalizador digitaliza o Documento."@pt;
+owl:equivalentPropert iol:isEncodedBy.
+
+#  DocumentoDigital guardado LocalVirtual
+:guardado
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "é guardado"@pt;
+rdfs:comment "Documento Digital é guardado em um Local Virtual."@pt;
+owl:equivalentPropert dcat:record,
+                      ptop:registeredIn.
+
+# DocumentoImpresso armazenadoNoLocalFisico LocalFisico 
+:armazenadoNoLocalFisico
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "é armazenado no local físico"@pt;
+rdfs:comment "Documento Impresso é armazenado em um Local Físico."@pt;
+owl:equivalentPropert dcat:record,
+                      ptop:registeredIn.
+
+# InstituicaoEnsinoSuperior localizadaEmLocalLocalFisico LocalFisico
+:localizadaEmLocalFisico
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "localizada em local físico"@pt;
+rdfs:comment "Instituição de Ensino Superior fica localizada em um Local Físico."@pt;
+owl:equivalentPropert wdo:Q82799, #(name)
+                      schema:name,
+                      gn:name.
+
+# TrabalhoConclusaoCurso compostoPorPalavraChave PalavraChave 
+:compostoPorPalavraChave
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "composto por palavra-chave"@pt;
+rdfs:comment "Trabalho de Conclusão de Curso é composto por composto por palavra-chave."@pt;
+owl:equivalentPropert schema:keywords,
+                      fabio:keyword.
+
+# TrabalhoConclusaoCurso vinculado AreaConhecimentoCNPq
+:vinculado
+a owl:AsymmetricProperty, owl:IrreflexiveProperty ;
+rdfs:label: "é vinculado"@pt;
+rdfs:comment "Trabalho de Conclusão de Curso é vinculado a Área de Conhecimento do CNPq."@pt;
+owl:equivalentPropert dc:title.
+
+# GrandeArea compostaPorArea Area
+:compostaPorArea
+a owl:AsymmetricProperty, owl:IrreflexiveProperty ;
+rdfs:label "composta por Área"@pt;
+rdfs:comment "Significa que GrandeArea é composta por Area."@pt;
+owl:equivalentPropert dc:title.
+
+# Area compostaPorSubarea Subarea 
+:compostaPorSubarea
+a owl:AsymmetricProperty, owl:IrreflexiveProperty ;
+rdfs:label "composta por Área."@pt;
+rdfs:comment "Significa que Area é composta por Subarea."@pt;
+owl:equivalentPropert dc:title.
+
+# Subarea compostaPorEspecialidade Especialidade 
+:compostaPorEspecialidade
+a owl:AsymmetricProperty, owl:IrreflexiveProperty ;
+rdfs:label "composta por Especialidade."@pt;
+rdfs:comment "Significa que Subarea é composta por Especialidade."@pt;
+owl:equivalentPropert dc:title.
+
+# Doutorado finalizadoComTese Tese
+:finalizadoComTese
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "é finalizado com tese"@pt;
+rdfs:comment "Doutorado é finalizado com Tese."@pt.
+
+# Mestrado finalizadoComDissertacao Dissertacao
+:finalizadoComDissertacao
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "é finalizado com dissertação"@pt;
+rdfs:comment "Mestrado é finalizado com Dissertação."@pt.
+
+# Produto temComoResultadoProduto CursoProfissional 
+:temComoResultadoProduto
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "tem como resultado um produto"@pt;
+rdfs:comment "Curso Profissional tem como resultado um Produto."@pt.
+
+# CursoPosGraduacao estabeleceCondicaoAprovacao CondicaoAprovacao
+:estabeleceCondicaoAprovacao
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "estabelece"@pt;
+rdfs:comment "Curso de Pós-Graduação estabelece Condição para Aprovação."@pt;
+owl:equivalentPropert schema:coursePrerequisites,
+                      schema:programPrerequisites,
+                      voag:hasApprovalProcess.
+
+# OrganizacaoEnsino ofereceCursoPosGraduacao CursoPosGraduacao
+:ofereceCursoPosGreaduacao
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "oferece curso de pós-graduação"@pt;
+rdfs:comment "Organização de Ensino oferece Curso de Pós-Graduação."@pt;
+owl:equivalentPropert schema:hasCourseInstance,
+                      schema:hasCourse,
+                      schema:course,
+                      ov:deliveredBy, #(ov)
+                      ov:offersCourse. #(ov)
+
+# OrganizacaoEnsino temConvenio Convenio
+:temConvenio
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "tem convênio"@pt;
+rdfs:comment "Celebrar convênio. Essa relação é opcional pois ela pode existir ou não."@pt;
+owl:equivalentPropert itsmo:hasAgreement.
+
+# Discente realizaDefesa Defesa
+:realizaDefesa
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "realiza a defesa"@pt;
+rdfs:comment "Discente realiza a Defesa."@pt;
+owl:equivalentPropert fabio:hasDecisionDate.
+
+# Orientador orientaTCC TrabalhoConclusaoCurso
+:orientaTCC
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "orienta TCC"@pt;
+rdfs:comment "Orientador orienta Trabalho de Conclusão de Curso."@pt.
+
+# ProgramaPosGraduacao compostoPorCursoPosGraduacao CursoPosGraduacao
+:compostoPorCursoPosGraduacao
+a owl:AsymmetricProperty, owl:IrreflexiveProperty ;
+rdfs:label "é composto por Cursos de Pós-Graduação"@pt;
+rdfs:comment "Programa de Pós-Graduação é composto por Cursos de Pós-Graduacao."@pt;
+owl:equivalentProperty ov:composedBy,
+                       essglobal:isComposedBy,
+                       schema:hasCourseInstance,
+                       schema:hasCourse,
+                       schema:course,
+                       ov:deliveredBy, #(ov)
+                       ov:offersCourse. #(ov).
+
+
+# RedeEnsino compostaPorOrganizacaoEnsino OrganizacaoEnsino
+:compostoPorIES
+a owl:AsymmetricProperty, owl:IrreflexiveProperty ;
+rdfs:label "é composta por IES"@pt;
+rdfs:comment "Rede de Ensino é composta por Organização de Ensino."@pt;
+owl:equivalentProperty ov:composedBy,
+                       essglobal:isComposedBy.
+
+# Defesa geraDocumentoAprovacao DocumentoDeAprovacao
+:geraDocumentoAprovacao
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "gera documento de aprovação"@pt;
+rdfs:comment "Defesa gera Documento de Aprovação."@pt;
+owl:equivalentPropert schema:occupationalCredentialAwarded,
+                      bibframe:degree,
+                      schema:coursePrerequisites,
+                      schema:programPrerequisites,
+                      voag:hasApprovalProcess.
+
+# Coorientador coorientaTCC TrabalhoConclusaoCurso
+:coorientaTCC
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "coorienta TCC"@pt;
+rdfs:comment "Coorientador coorienta Trabalho de Conclusão de Curso."@pt.
+
+# Banca avaliaDefesa Defesa
+:avaliaDefesa
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "avalia banca"@pt;
+rdfs:comment "Banca avalia a Defesa."@pt;
+owl:equivalentPropert schema:assesses,
+                      pproc:criterionEvaluationMode.
+
+#  CursoPosGraduacao geridoOrganizacaoEnsino OrganizacaoEnsino
+:geridoOrganizacaoEnsino 
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "é gerido por Organização de Ensino"@pt;
+rdfs:comment "Curso de Pós-Graduação é gerido por Organização de Ensino."@pt;
+owl:equivalentPropert base-gleif:isManagedBy,
+                      poder:hasAcademicOrganization,
+                      poder:organizationParticipant.
+
+# Defesa referenteTCC TrabalhoConclusaoCurso
+:referenteTCC
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "é referente ao TCC"@pt;
+rdfs:comment "Defesa é referente ao Trabalho de Conclusão de Curso."@pt.
+
+# ProgramaPosGraduacao pertenceOrganizacaoEnsino OrganizacaoEnsino
+:pertenceOrganizacaoEnsino
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "pertence a Organização de Ensino"@pt;
+rdfs:comment "Programa de Pós-Graduação pertence a Organização de Ensino."@pt;
+owl:equivalentPropert poder:hasAcademicOrganization,
+                      poder:organizationParticipant.
+
+# PessoaInstitucionalizada associadaIES InstituicaoEnsinoSuperior
+:associadaIES
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "é associada"@pt;
+rdfs:comment "Pessoa Institucionalizada é associada a Instituição de Ensino Superior."@pt;
+owl:equivalentPropert rico:teachingRelationHasSource,
+                      bibframe:grantingInstitution.
+
+# Defesa ocorreEmUmLocal Local 
+:ocorreEmUmLocal
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "ocorre em um local"@pt;
+rdfs:comment "Defesa ocorre em um Local."@pt;
+owl:equivalentPropert scoro:research-student.
+
+# Discente elaboraTCC TrabalhoConclusaoCurso
+:elaboraTCC
+a owl:TransitiveProperty, owl:ReasonerProperty, owl:SymetricProperty;
+rdfs:label "elabora TCC"@pt;
+rdfs:comment "Discente elabora Trabalho de Conclusão de Curso."@pt;
+owl:equivalentPropert scoro:research-student.
+
+# Banca compostaPorMembro Membro
+:compostaPorMembro
+a owl:AsymmetricProperty, owl:IrreflexiveProperty ;
+rdfs:label "é composta por Membro"@pt;
+rdfs:comment "Banca é composta por Membro."@pt;
+owl:equivalentProperty ov:composedBy,
+                       essglobal:isComposedBy,
+                       xapi:hasMember,
+                       skos:member,
+                       bibframe:agentOf.
+
+# InstituicaoEnsinoSuperior temOrganizacaoAcademica VocabularioOrganizacaoAcademica
+:temOrganizacaoAcademica
+a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:FunctionalProperty ;
+rdfs:label "tem organização acadêmica"@pt.
+
+# DocumentoDigital temVocabularioPDF VocabularioPDF 
+:temVocabularioPDF
+a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:FunctionalProperty ;
+rdfs:label "tem vocabulário de PDF"@pt.
+
+# Documento temVocabularioIdioma VocabularioIdioma
+:temVocabularioIdioma
+a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:FunctionalProperty ;
+rdfs:label "tem vocabulário de idioma"@pt.
+
+# InstituicaoEnsinoSuperior temCategoriaAdministrativa VocabularioCategoriaAdministrativa
+:temCategoriaAdministrativa
+a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:FunctionalProperty ;
+rdfs:label "tem categoria administrativa"@pt.
+
+# Membro temModalidadeParticipacao VocabularioModalidadeParticipacao
+:temModalidadeParticipacao
+a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:FunctionalProperty;
+rdfs:label "tem modalidade de participação"@pt.
